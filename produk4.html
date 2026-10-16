@@ -63,6 +63,7 @@
 
             <!-- Navigasi Berkelompok -->
             <div class="flex-1 overflow-y-auto p-4 space-y-6">
+                <!-- Group 1: Utamanya -->
                 <div>
                     <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Menu Utama</p>
                     <nav class="space-y-1">
@@ -73,9 +74,17 @@
                     </nav>
                 </div>
 
+                <!-- Group 2: Aktivitas & Katalog -->
                 <div>
-                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Katalog Produk & Proyek</p>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Aktivitas & Direktori</p>
                     <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-tasks text-slate-400 w-5"></i>
+                                <span>Tugas & Proyek</span>
+                            </div>
+                            <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 text-xs px-2 py-0.5 rounded-full font-bold">2 Aktif</span>
+                        </a>
                         <a href="project1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
                             <i class="fa-solid fa-store text-orange-500 w-5"></i>
                             <span>Proyek 1: Panduan Shopee</span>
@@ -96,17 +105,11 @@
                             <i class="fa-solid fa-file-lines text-emerald-500 w-5"></i>
                             <span>Produk 3 (Template Canva)</span>
                         </a>
-                        <!-- Produk 4 Aktif -->
+                        <!-- Produk 4 (Aktif) -->
                         <a href="produk4.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-rose-600 text-white shadow-md shadow-rose-600/20 transition-all">
                             <i class="fa-solid fa-box text-white w-5"></i>
                             <span>Produk 4 (Mockup Kemasan)</span>
                         </a>
-                    </nav>
-                </div>
-
-                <div>
-                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Akademik</p>
-                    <nav class="space-y-1">
                         <a href="data_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
                             <i class="fa-solid fa-users text-emerald-500 w-5"></i>
                             <span>Data Siswa DKV</span>
@@ -165,80 +168,180 @@
             </header>
 
             <!-- Inner Page Content -->
-            <div class="p-4 lg:p-8 space-y-8 flex-1 max-w-6xl">
+            <div class="p-4 lg:p-8 space-y-8 flex-1">
 
                 <!-- Hero Banner -->
                 <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 text-white p-6 md:p-8 shadow-xl shadow-rose-500/20">
-                    <div class="relative z-10 space-y-2">
-                        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md">
-                            <i class="fa-solid fa-box-open mr-1"></i> Produk Digital Shopee #4
-                        </span>
-                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Kit Desain Kemasan & Mockup 3D Stiker Label Food & Beverage</h1>
-                        <p class="text-rose-100 text-sm leading-relaxed max-w-2xl">
-                            Paket file master desain kemasan komersial (*PSD / AI / Canva*) siap edit untuk stiker botol, box standing pouch, dan label makanan kekinian.
-                        </p>
+                    <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div class="space-y-2 max-w-2xl">
+                            <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md">
+                                <i class="fa-solid fa-box-open mr-1"></i> Produk Digital DKV #4
+                            </span>
+                            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Katalog Mockup & Desain Kemasan UMKM</h1>
+                            <p class="text-rose-100 text-sm leading-relaxed">
+                                Koleksi file master desain kemasan komersial dan mockup 3D buatan siswa Kelas XII DKV untuk stiker botol, box produk, dan label makanan kekinian.
+                            </p>
+                        </div>
+                        <a href="https://shopee.co.id/search?keyword=desain%20stiker%20label%20kemasan" target="_blank" class="bg-white text-rose-700 hover:bg-rose-50 font-bold px-5 py-3 rounded-xl text-sm transition-all shadow-md shrink-0 flex items-center gap-2">
+                            <i class="fa-solid fa-bag-shopping text-rose-600"></i> Buka Toko Shopee
+                        </a>
                     </div>
                 </div>
 
-                <!-- Detail Produk Grid -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <!-- Kiri: Detail Spesifikasi -->
-                    <div class="lg:col-span-2 space-y-6">
-                        <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-700 pb-3">Kelengkapan Paket Produk 4</h3>
-                            
-                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-circle-check text-rose-500 mt-1"></i>
-                                    <div>
-                                        <strong class="text-slate-800 dark:text-slate-100 block">50+ Template Stiker & Label Kemasan (Editable)</strong>
-                                        Pilihan ukuran fleksibel (lingkaran, persegi, standing pouch) lengkap dengan garis potong (*die-cut line*) siap cetak CMYK.
-                                    </div>
-                                </div>
+                <!-- Filter & Search Bar -->
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm">
+                    <div class="flex items-center gap-2 overflow-x-auto w-full sm:w-auto pb-2 sm:pb-0">
+                        <button class="px-4 py-2 rounded-xl text-xs font-bold bg-rose-600 text-white shadow-sm">Semua Produk</button>
+                        <button class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all whitespace-nowrap">Stiker & Label</button>
+                        <button class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all whitespace-nowrap">Box Packaging</button>
+                        <button class="px-4 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all whitespace-nowrap">Mockup 3D PSD</button>
+                    </div>
+                    <div class="text-xs text-slate-400 font-medium">
+                        Menampilkan <strong class="text-slate-700 dark:text-slate-200">6 Item Katalog</strong>
+                    </div>
+                </div>
 
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-circle-check text-rose-500 mt-1"></i>
-                                    <div>
-                                        <strong class="text-slate-800 dark:text-slate-100 block">Mockup 3D Realistis (Photoshop Smart Object)</strong>
-                                        Memudahkan UMKM melihat pratinjau hasil kemasan sebelum masuk tahap percetakan massal.
-                                    </div>
-                                </div>
+                <!-- Grid Galeri Produk / Karya Mockup Kemasan -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                                <div class="flex items-start gap-3">
-                                    <i class="fa-solid fa-circle-check text-rose-500 mt-1"></i>
-                                    <div>
-                                        <strong class="text-slate-800 dark:text-slate-100 block">Panduan Format Siap Cetak (Pre-press Guide)</strong>
-                                        Dilengkapi tutorial ekspor file berkualitas tinggi (PDF Print / TIFF 300 DPI) agar hasil cetak di percetakan lokal tidak buram.
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Card 1 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                        <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=600" alt="Stiker Botol F&B" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Ready Print CMYK</span>
                         </div>
-
-                        <!-- Contoh Pencarian Shopee -->
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-3">
-                            <h4 class="font-bold text-slate-800 dark:text-slate-100 text-sm">Contoh Kategori Produk Relevan di Shopee:</h4>
-                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                                Produk ini sangat dicari oleh ribuan UMKM kuliner di Shopee dengan kata kunci: <em>"Desain Stiker Makanan", "Template Box Packaging", "Mockup Kemasan Botol", dan "Cetak Stiker Label Custom"</em>.
-                            </p>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-rose-600 transition-colors">Bundle Stiker Label Botol Minuman Kekinian</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">20+ Varian desain label tahan air untuk cup kopi, boba, dan kemasan botol plastik.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block">Karya Siswa</span>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Dimas DKV 1</span>
+                                </div>
+                                <a href="https://shopee.co.id" target="_blank" class="px-3.5 py-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-600 hover:text-white transition-all">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Preview
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Kanan: Card Harga & Beli -->
-                    <div class="space-y-6">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-4">
-                            <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">Harga Jual Promo Shopee</span>
-                            <div class="flex items-baseline gap-2">
-                                <span class="text-3xl font-extrabold text-slate-900 dark:text-white">Rp 59.000</span>
-                                <span class="text-xs text-slate-400 line-through">Rp 150.000</span>
+                    <!-- Card 2 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                        <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&q=80&w=600" alt="Box Packaging" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Die-Cut Included</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-rose-600 transition-colors">Template Net Die-Cut Box Makanan & Snack</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Pola jaring-jaring kemasan kardus makanan ringan siap cetak dengan ukuran presisi.</p>
                             </div>
-                            <p class="text-xs text-slate-400">Terjual 210+ paket &bull; Pengiriman Otomatis VIA Chat/Email</p>
-                            <hr class="border-slate-100 dark:border-slate-700">
-                            
-                            <a href="https://shopee.co.id/search?keyword=desain%20stiker%20label%20kemasan" target="_blank" class="w-full block text-center py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-xl text-sm transition-all shadow-md shadow-rose-600/20">
-                                <i class="fa-solid fa-bag-shopping mr-2"></i> Lihat Referensi di Shopee
-                            </a>
+                            <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block">Karya Siswa</span>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Putri DKV 2</span>
+                                </div>
+                                <a href="https://shopee.co.id" target="_blank" class="px-3.5 py-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-600 hover:text-white transition-all">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Preview
+                                </a>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                        <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=600" alt="Mockup Parfum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Photoshop PSD</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-rose-600 transition-colors">Mockup 3D Botol Parfum & Skincare Eksklusif</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">File PSD Smart Object beresolusi tinggi untuk presentasi produk kosmetik profesional.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block">Karya Siswa</span>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Reza DKV 1</span>
+                                </div>
+                                <a href="https://shopee.co.id" target="_blank" class="px-3.5 py-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-600 hover:text-white transition-all">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                        <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&q=80&w=600" alt="Standing Pouch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Editable Vector</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-rose-600 transition-colors">Label Kemasan Standing Pouch Keripik & Kopi</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Desain label depan & belakang dengan informasi komposisi gizi serta barcode dummy.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block">Karya Siswa</span>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Maya DKV 2</span>
+                                </div>
+                                <a href="https://shopee.co.id" target="_blank" class="px-3.5 py-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-600 hover:text-white transition-all">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                        <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=600" alt="Hangtag Terima Kasih" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Ready Print CMYK</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-rose-600 transition-colors">Bundle Thank You Card & Hangtag Olshop</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Kartu ucapan terima kasih dan label gantung untuk meningkatkan kepuasan pelanggan.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block">Karya Siswa</span>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Bayu DKV 1</span>
+                                </div>
+                                <a href="https://shopee.co.id" target="_blank" class="px-3.5 py-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-600 hover:text-white transition-all">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                        <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&q=80&w=600" alt="Paper Bag Mockup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <span class="absolute top-3 left-3 bg-rose-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Photoshop PSD</span>
+                        </div>
+                        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                            <div>
+                                <h3 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-rose-600 transition-colors">Mockup 3D Paper Bag & Tas Belanja UMKM</h3>
+                                <p class="text-xs text-slate-400 line-clamp-2">Template mockup tas kertas ramah lingkungan dengan kustomisasi logo mudah.</p>
+                            </div>
+                            <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block">Karya Siswa</span>
+                                    <span class="text-xs font-bold text-slate-700 dark:text-slate-300">Rika DKV 2</span>
+                                </div>
+                                <a href="https://shopee.co.id" target="_blank" class="px-3.5 py-2 bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 rounded-xl text-xs font-bold hover:bg-rose-600 hover:text-white transition-all">
+                                    <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -250,7 +353,7 @@
         </main>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Logika Sidebar & Dark Mode -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -262,6 +365,7 @@
         function toggleDarkMode() {
             const htmlElement = document.documentElement;
             htmlElement.classList.toggle('dark');
+            
             if (htmlElement.classList.contains('dark')) {
                 localStorage.setItem('theme', 'dark');
             } else {
