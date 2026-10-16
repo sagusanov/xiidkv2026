@@ -11,18 +11,66 @@
 
     <div class="flex flex-col md:flex-row min-h-screen">
 
-        <!-- SIDEBAR MENU -->
-        <aside class="w-full md:w-64 bg-slate-900 text-white flex-shrink-0">
-            <div class="p-4 text-xl font-bold border-b border-slate-800 flex items-center justify-between">
-                <span>XI DKV 2026</span>
+<!-- Navigasi Berkelompok -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-6">
+                <!-- Group 1: Utama -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Menu Utama</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-chart-pie w-5"></i>
+                            <span>Dashboard Overview</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Group 2: Aktivitas & Direktori -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Aktivitas & Direktori</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-tasks text-slate-400 w-5"></i>
+                                <span>Tugas & Proyek</span>
+                            </div>
+                            <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 text-xs px-2 py-0.5 rounded-full font-bold">2 Aktif</span>
+                        </a>
+                        <a href="project1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-store text-orange-500 w-5"></i>
+                            <span>Proyek 1: Panduan Shopee</span>
+                        </a>
+                        <a href="project2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-brands fa-tiktok text-pink-500 w-5"></i>
+                            <span>Proyek 2: Skenario TikTok</span>
+                        </a>
+                        <a href="produk1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-image text-purple-500 w-5"></i>
+                            <span>Produk 1 (Wallpaper)</span>
+                        </a>
+                        <a href="produk2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-sliders text-blue-500 w-5"></i>
+                            <span>Produk 2 (Preset)</span>
+                        </a>
+                        <!-- Produk 3 Aktif -->
+                        <a href="produk3.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-emerald-600 text-white shadow-md shadow-emerald-600/20 transition-all">
+                            <i class="fa-solid fa-file-lines text-white w-5"></i>
+                            <span>Produk 3 (Template Canva)</span>
+                        </a>
+                        <a href="produk4.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-box text-rose-500 w-5"></i>
+                            <span>Produk 4 (Mockup Kemasan)</span>
+                        </a>
+                        <a href="data_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-users text-emerald-500 w-5"></i>
+                            <span>Data Siswa DKV</span>
+                        </a>
+                        <a href="nilai_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-graduation-cap text-amber-500 w-5"></i>
+                            <span>Rekap Nilai Siswa</span>
+                        </a>
+                    </nav>
+                </div>
             </div>
-            <nav class="p-4 space-y-2">
-                <a href="index.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Beranda</a>
-                <a href="produk1.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 1 (Wallpaper)</a>
-                <a href="produk2.html" class="block px-4 py-2.5 rounded-lg bg-blue-600 font-medium text-white">Produk 2 (Preset)</a>
-                <a href="produk3.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 3</a>
-            </nav>
-        </aside>
 
         <!-- KONTEN UTAMA -->
         <main class="flex-1 p-6 md:p-10 max-w-6xl">
