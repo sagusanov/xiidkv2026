@@ -402,173 +402,341 @@
 
                 <!-- ================= TAB: BAB 1 ================= -->
                 <div id="tab-bab1" class="tab-content hidden space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <div>
-                            <span class="text-xs font-bold text-brand-500 uppercase">Modul 01</span>
-                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Perencanaan Produksi Massal Produk DKV</h2>
-                        </div>
-                        <button onclick="switchTab('dashboard')" class="text-xs text-slate-500 hover:text-brand-500 flex items-center gap-1">
-                            <i class="fa-solid fa-arrow-left"></i> Kembali
-                        </button>
-                    </div>
-
-                    <div class="border-b border-slate-200 dark:border-slate-700 flex gap-6 text-sm font-semibold">
-                        <button onclick="switchSubTab('bab1', 'rangkuman')" id="subnav-bab1-rangkuman" class="subnav-btn border-b-2 border-brand-500 text-brand-500 pb-3">Rangkuman Materi</button>
-                        <button onclick="switchSubTab('bab1', 'tugas')" id="subnav-bab1-tugas" class="subnav-btn text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 pb-3">Tugas Praktikum</button>
-                    </div>
-
-                    <div id="subtab-bab1-rangkuman" class="subtab-content space-y-4 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
-                            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">1. Konsep Produksi Massal Bidang DKV</h3>
-                            <p>Produksi massal dalam Visual Communication Design mencakup proses replikasi karya visual secara jumlah besar dengan standar kualitas teruji. Mencakup Packaging, Merchandise, dan Media Promosi Cetak.</p>
-                        </div>
-                    </div>
-
-                    <div id="subtab-bab1-tugas" class="subtab-content hidden space-y-4">
-                        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-4">
-                            <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100">Tugas 1: Perencanaan Dieline Packaging</h3>
-                            <p class="text-sm text-slate-600 dark:text-slate-300">Buatlah pola lipatan (dieline) packaging menggunakan Adobe Illustrator.</p>
-                            <button onclick="openModal('Tugas 1: Dieline Packaging')" class="bg-brand-500 text-white font-semibold text-xs px-4 py-2 rounded-xl hover:bg-brand-600">Upload Tugas PDF/AI</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ================= TAB: BAB 2-6 (Ringkas Modular) ================= -->
-                <div id="tab-bab2" class="tab-content hidden space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <div>
-                            <span class="text-xs font-bold text-cyan-500 uppercase">Modul 02</span>
-                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Prototype & Mockup Produk DKV</h2>
-                        </div>
-                        <button onclick="switchTab('dashboard')" class="text-xs text-slate-500 hover:text-brand-500"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm">
-                        <p>Materi lengkap prototipe fisik (papercraft) dan digital prototype menggunakan Figma / Adobe XD.</p>
-                    </div>
-                </div>
-
-                <div id="tab-bab3" class="tab-content hidden space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <div>
-                            <span class="text-xs font-bold text-emerald-500 uppercase">Modul 03</span>
-                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Pengujian & QC Produk</h2>
-                        </div>
-                        <button onclick="switchTab('dashboard')" class="text-xs text-slate-500 hover:text-brand-500"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm">
-                        <p>Materi Quality Control, akurasi profil warna CMYK, dan standar kelayakan cetak.</p>
-                    </div>
-                </div>
-
-                <div id="tab-bab4" class="tab-content hidden space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <div>
-                            <span class="text-xs font-bold text-amber-500 uppercase">Modul 04</span>
-                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Digital Branding & Marketing</h2>
-                        </div>
-                        <button onclick="switchTab('dashboard')" class="text-xs text-slate-500 hover:text-brand-500"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm">
-                        <p>Materi portofolio Behance, Instagram marketing, dan cara membangun personal branding desainer.</p>
-                    </div>
-                </div>
-
-                <div id="tab-bab5" class="tab-content hidden space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <div>
-                            <span class="text-xs font-bold text-rose-500 uppercase">Modul 05</span>
-                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Hak Kekayaan Intelektual (HKI)</h2>
-                        </div>
-                        <button onclick="switchTab('dashboard')" class="text-xs text-slate-500 hover:text-brand-500"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm">
-                        <p>Materi Hak Cipta, pendaftaran merek dagang ke DJKI, dan lisensi aset font.</p>
-                    </div>
-                </div>
-
-                <div id="tab-bab6" class="tab-content hidden space-y-6">
-                    <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <div>
-                            <span class="text-xs font-bold text-purple-500 uppercase">Modul 06</span>
-                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">HPP & Keuangan Kreatif</h2>
-                        </div>
-                        <button onclick="switchTab('dashboard')" class="text-xs text-slate-500 hover:text-brand-500"><i class="fa-solid fa-arrow-left"></i> Kembali</button>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 text-sm">
-                        <p>Materi cara menghitung tarif jasa desain (hourly rate) dan HPP produk cetak.</p>
-                    </div>
-                </div>
-
-                <!-- ================= TAB: TUGAS ================= -->
-                <div id="tab-tugas" class="tab-content hidden space-y-6">
-                    <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Daftar Tugas & Proyek Karya DKV</h2>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
-                        <div>
-                            <span class="bg-amber-100 text-amber-600 text-[10px] font-bold px-2 py-0.5 rounded-full">Pending</span>
-                            <h4 class="font-bold text-sm mt-1">Desain 3D Packaging & Prototype Label</h4>
-                        </div>
-                        <button onclick="openModal('Desain 3D Packaging')" class="bg-brand-500 text-white font-semibold text-xs px-4 py-2 rounded-xl">Serahkan Tugas</button>
-                    </div>
-                </div>
-
-                <!-- ================= TAB: RESOURCES ================= -->
-                <div id="tab-resources" class="tab-content hidden space-y-6">
-                    <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-                        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Download Resources & Template</h2>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-file-pdf text-rose-500 text-2xl"></i>
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-brand-50 dark:bg-brand-500/10 text-brand-500 flex items-center justify-center text-2xl font-bold shrink-0">01</div>
                             <div>
-                                <h4 class="font-bold text-sm">Modul_Lengkap_KIK_DKV.pdf</h4>
-                                <p class="text-xs text-slate-400">PDF Document • 4.2 MB</p>
+                                <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">Modul Pembelajaran 1</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Perencanaan Produksi Massal Desain Komunikasi Visual</h2>
                             </div>
                         </div>
-                        <button onclick="downloadResource('Modul_Lengkap_KIK_DKV.pdf')" class="text-xs bg-slate-100 dark:bg-slate-700 px-3 py-1.5 rounded-lg">Download</button>
+                        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm space-y-4">
+                            <p>Produksi massal dalam konteks Desanik Komunikasi Visual (DKV) adalah proses pembuatan atau pencetakan karya desain dalam jumlah besar menggunakan standar operasional prosedur yang terukur, efisien, dan konsisten secara visual.</p>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-4">Poin Pembelajaran Utama:</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Analisis kebutuhan pasar & tren visual desain komersial.</li>
+                                <li>Penyusunan alur kerja kreatif (*workflow*) dari sketsa hingga file siap cetak (*pre-press*).</li>
+                                <li>Manajemen spesifikasi warna (RGB ke CMYK/Pantone) untuk menjaga konsistensi produksi masal.</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <button onclick="switchTab('dashboard')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all">Kembali</button>
+                            <button onclick="switchTab('bab2')" class="px-5 py-2 bg-brand-500 text-white rounded-xl text-xs font-bold hover:bg-brand-600 transition-all">Lanjut ke Bab 2 <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: BAB 2 ================= -->
+                <div id="tab-bab2" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-cyan-50 dark:bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-2xl font-bold shrink-0">02</div>
+                            <div>
+                                <span class="text-xs font-bold text-cyan-500 uppercase tracking-wider">Modul Pembelajaran 2</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Prototype & Mockup DKV</h2>
+                            </div>
+                        </div>
+                        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm space-y-4">
+                            <p>Pembuatan purwarupa (*prototype*) dan maket (*mockup*) sangat penting sebelum produk visual diproduksi secara massal untuk menghindari kesalahan layout maupun struktur kemasan.</p>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-4">Poin Pembelajaran Utama:</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Teknik pembuatan mockup 3D kemasan (*packaging*).</li>
+                                <li>Penerapan prinsip UI/UX dasar untuk media digital interaktif.</li>
+                                <li>Pengujian visual menggunakan mockup realistis berbasis render komputer.</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <button onclick="switchTab('bab1')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all">Kembali</button>
+                            <button onclick="switchTab('bab3')" class="px-5 py-2 bg-brand-500 text-white rounded-xl text-xs font-bold hover:bg-brand-600 transition-all">Lanjut ke Bab 3 <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: BAB 3 ================= -->
+                <div id="tab-bab3" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-2xl font-bold shrink-0">03</div>
+                            <div>
+                                <span class="text-xs font-bold text-emerald-500 uppercase tracking-wider">Modul Pembelajaran 3</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Pengujian & Quality Control (QC) Produk</h2>
+                            </div>
+                        </div>
+                        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm space-y-4">
+                            <p>Quality Control memastikan produk grafis yang sampai ke tangan konsumen memenuhi standar estetika dan fungsional tanpa cacat cetak maupun distorsi warna.</p>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-4">Poin Pembelajaran Utama:</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Pengecekan *bleed*, *crop mark*, dan resolusi gambar minimum (300 DPI).</li>
+                                <li>Evaluasi kelayakan fungsi kemasan dan daya tahan bahan material.</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <button onclick="switchTab('bab2')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all">Kembali</button>
+                            <button onclick="switchTab('bab4')" class="px-5 py-2 bg-brand-500 text-white rounded-xl text-xs font-bold hover:bg-brand-600 transition-all">Lanjut ke Bab 4 <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: BAB 4 ================= -->
+                <div id="tab-bab4" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-500/10 text-amber-500 flex items-center justify-center text-2xl font-bold shrink-0">04</div>
+                            <div>
+                                <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">Modul Pembelajaran 4</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Digital Marketing & Personal Branding</h2>
+                            </div>
+                        </div>
+                        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm space-y-4">
+                            <p>Karya desain yang hebat memerlukan strategi pemasaran digital yang tepat guna membangun portofolio profesional dan menarik klien global.</p>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-4">Poin Pembelajaran Utama:</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Optimalisasi profil Behance, Instagram, dan LinkedIn untuk desainer.</li>
+                                <li>Strategi konten promosi jasa kreatif melalui media sosial.</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <button onclick="switchTab('bab3')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all">Kembali</button>
+                            <button onclick="switchTab('bab5')" class="px-5 py-2 bg-brand-500 text-white rounded-xl text-xs font-bold hover:bg-brand-600 transition-all">Lanjut ke Bab 5 <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: BAB 5 ================= -->
+                <div id="tab-bab5" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-rose-50 dark:bg-rose-500/10 text-rose-500 flex items-center justify-center text-2xl font-bold shrink-0">05</div>
+                            <div>
+                                <span class="text-xs font-bold text-rose-500 uppercase tracking-wider">Modul Pembelajaran 5</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Hak Kekayaan Intelektual (HKI)</h2>
+                            </div>
+                        </div>
+                        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm space-y-4">
+                            <p>Memahami perlindungan hukum atas karya cipta grafis, merek dagang, lisensi aset digital, dan pemanfaatan *font* legal dalam karya komersial.</p>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-4">Poin Pembelajaran Utama:</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Prosedur pendaftaran hak cipta desain dan logo produk.</li>
+                                <li>Etika penggunaan aset stok gambar, ilustrasi, dan lisensi font komersial.</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <button onclick="switchTab('bab4')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all">Kembali</button>
+                            <button onclick="switchTab('bab6')" class="px-5 py-2 bg-brand-500 text-white rounded-xl text-xs font-bold hover:bg-brand-600 transition-all">Lanjut ke Bab 6 <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: BAB 6 ================= -->
+                <div id="tab-bab6" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center gap-4 border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-50 dark:bg-purple-500/10 text-purple-500 flex items-center justify-center text-2xl font-bold shrink-0">06</div>
+                            <div>
+                                <span class="text-xs font-bold text-purple-500 uppercase tracking-wider">Modul Pembelajaran 6</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Harga Pokok Produksi (HPP) & Keuangan Kreatif</h2>
+                            </div>
+                        </div>
+                        <div class="prose dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 text-sm space-y-4">
+                            <p>Kemampuan menghitung HPP jasa desain dan produk cetak secara akurat agar usaha rintisan kreatif (*creativepreneur*) dapat bertahan dan menghasilkan profit yang sehat.</p>
+                            <h3 class="text-base font-bold text-slate-800 dark:text-slate-100 mt-4">Poin Pembelajaran Utama:</h3>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Kalkulasi jam kerja desainer dan biaya operasional per proyek.</li>
+                                <li>Penentuan margin keuntungan dan pengelolaan *cashflow* studio desain.</li>
+                            </ul>
+                        </div>
+                        <div class="flex justify-between pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <button onclick="switchTab('bab5')" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200 transition-all">Kembali</button>
+                            <button onclick="switchTab('tugas')" class="px-5 py-2 bg-brand-500 text-white rounded-xl text-xs font-bold hover:bg-brand-600 transition-all">Lihat Daftar Tugas <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: TUGAS & PROYEK ================= -->
+                <div id="tab-tugas" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <div>
+                                <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">Evaluasi Siswa</span>
+                                <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Daftar Tugas & Proyek Aktif</h2>
+                            </div>
+                            <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 text-xs px-3 py-1 rounded-full font-bold">2 Tugas Menunggu</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <!-- Item Tugas 1 -->
+                            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-0.5 bg-brand-500/10 text-brand-500 text-[10px] font-bold rounded">Bab 2</span>
+                                        <h4 class="font-bold text-slate-800 dark:text-slate-100 text-sm">Mockup Packaging 3D Produk Lokal</h4>
+                                    </div>
+                                    <p class="text-xs text-slate-400">Buatlah desain kemasan produk UMKM lengkap dengan render mockup 3D berformat PNG/JPG.</p>
+                                </div>
+                                <div class="flex items-center gap-3 shrink-0">
+                                    <span class="text-xs text-rose-500 font-semibold"><i class="fa-regular fa-clock mr-1"></i> Deadline: 2 Hari</span>
+                                    <button onclick="alert('Form pengumpulan tugas dibuka! Silakan unggah file karya Anda.')" class="px-4 py-2 bg-brand-500 hover:bg-brand-600 text-white rounded-xl text-xs font-bold transition-all shadow-sm">Kirim Tugas</button>
+                                </div>
+                            </div>
+
+                            <!-- Item Tugas 2 -->
+                            <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                                <div class="space-y-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="px-2 py-0.5 bg-purple-500/10 text-purple-500 text-[10px] font-bold rounded">Bab 6</span>
+                                        <h4 class="font-bold text-slate-800 dark:text-slate-100 text-sm">Kalkulasi HPP Jasa Desain & Cetak</h4>
+                                    </div>
+                                    <p class="text-xs text-slate-400">Susun lembar kerja perhitungan harga pokok produksi (HPP) untuk proyek branding perusahaan.</p>
+                                </div>
+                                <div class="flex items-center gap-3 shrink-0">
+                                    <span class="text-xs text-emerald-500 font-semibold"><i class="fa-regular fa-circle-check mr-1"></i> Selesai</span>
+                                    <button onclick="alert('Tugas ini sudah dinilai dengan skor 95.')" class="px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all">Lihat Nilai</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB: DOWNLOAD ASSETS ================= -->
+                <div id="tab-resources" class="tab-content hidden space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                        <div class="border-b border-slate-100 dark:border-slate-700 pb-5">
+                            <span class="text-xs font-bold text-brand-500 uppercase tracking-wider">Pusat Unduhan</span>
+                            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white">Download Modul & Aset Praktikum</h2>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-500 flex items-center justify-center font-bold">PDF</div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-800 dark:text-slate-100">Modul Lengkap KIK DKV 2026</p>
+                                        <p class="text-[10px] text-slate-400">Ukuran: 4.2 MB</p>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="p-2.5 bg-brand-500 hover:bg-brand-600 text-white rounded-xl text-xs"><i class="fa-solid fa-download"></i></a>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center font-bold">ZIP</div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-800 dark:text-slate-100">Template Mockup & Asset Latihan</p>
+                                        <p class="text-[10px] text-slate-400">Ukuran: 28.5 MB</p>
+                                    </div>
+                                </div>
+                                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="p-2.5 bg-cyan-500 hover:bg-cyan-600 text-white rounded-xl text-xs"><i class="fa-solid fa-download"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
 
-            <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 py-4 text-center text-xs text-slate-400 flex justify-between">
-                <p>© 2026 XI DKV SMK - Materi Kreatif dan Kewirausahaan (KIK)</p>
-                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="hover:text-brand-500">GitHub Repository</a>
+            <!-- Footer Hak Cipta -->
+            <footer class="py-4 px-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
+                &copy; 2026 KIK XII DKV &bull; Dikembangkan untuk Pembelajaran Kreatif & Kewirausahaan SMK N 1 Bangil
             </footer>
         </main>
     </div>
 
-    <!-- Modal Form -->
-    <div id="tugasModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-700 space-y-5">
-            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
-                <h3 id="modalTitle" class="font-bold text-slate-800 dark:text-slate-100">Pengumpulan Tugas</h3>
-                <button onclick="closeModal()" class="text-slate-400"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            <form onsubmit="submitForm(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Nama Siswa</label>
-                    <input type="text" required class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-700 border rounded-xl text-xs">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Link File Karya (Behance / Drive)</label>
-                    <input type="url" required class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-700 border rounded-xl text-xs">
-                </div>
-                <div class="flex justify-end gap-2">
-                    <button type="submit" class="px-5 py-2 rounded-xl text-xs font-bold bg-brand-500 text-white">Kirim</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <!-- JavaScript Logika Dashboard -->
+    <script>
+        // Fungsi Berpindah Tab / Modul
+        function switchTab(tabId) {
+            // Sembunyikan semua konten tab
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.add('hidden'));
 
-    <!-- Toast Notification -->
-    <div id="toastMessage" class="fixed bottom-5 right-5 bg-slate-900 text-white text-xs px-4 py-3 rounded-2xl shadow-xl hidden z-50 flex items-center gap-2">
-        <i class="fa-solid fa-circle-check text-emerald-400"></i>
-        <span id="toastText">Notifikasi</span>
-    </div>
+            // Tampilkan tab yang dipilih
+            const activeTab = document.getElementById('tab-' + tabId);
+            if (activeTab) {
+                activeTab.classList.remove('hidden');
+            }
 
-    <!-- JavaScript File -->
-    <script src="script.js"></script>
+            // Atur ulang status aktif pada tombol navigasi sidebar
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('bg-brand-500', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+                item.classList.add('text-slate-600', 'dark:text-slate-300', 'hover:bg-slate-100', 'dark:hover:bg-slate-700/50');
+            });
+
+            // Berikan style aktif pada tombol navigasi terpilih
+            const activeBtn = document.getElementById('nav-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.remove('text-slate-600', 'dark:text-slate-300', 'hover:bg-slate-100', 'dark:hover:bg-slate-700/50');
+                activeBtn.classList.add('bg-brand-500', 'text-white', 'shadow-md', 'shadow-brand-500/20');
+            }
+
+            // Tutup sidebar otomatis pada layar mobile setelah klik menu
+            if (window.innerWidth < 1024) {
+                toggleSidebar();
+            }
+
+            // Gulir ke atas konten utama
+            document.querySelector('main').scrollTop = 0;
+        }
+
+        // Fungsi Toggle Sidebar Mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        // Fungsi Toggle Mode Gelap / Terang
+        function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            htmlElement.classList.toggle('dark');
+            
+            // Simpan preferensi ke localStorage
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Periksa preferensi tema saat halaman dimuat
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Fungsi Dropdown Notifikasi
+        function toggleNotification() {
+            const dropdown = document.getElementById('notifDropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        // Tutup dropdown notifikasi saat klik di luar area
+        window.addEventListener('click', function(e) {
+            const bellBtn = document.querySelector('button[onclick="toggleNotification()"]');
+            const dropdown = document.getElementById('notifDropdown');
+            if (bellBtn && dropdown && !bellBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // Fungsi Pencarian Sederhana
+        function searchContent() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query.includes('bab 1') || query.includes('produksi massal')) {
+                switchTab('bab1');
+            } else if (query.includes('bab 2') || query.includes('prototype') || query.includes('mockup')) {
+                switchTab('bab2');
+            } else if (query.includes('bab 3') || query.includes('pengujian') || query.includes('qc')) {
+                switchTab('bab3');
+            } else if (query.includes('bab 4') || query.includes('digital marketing') || query.includes('branding')) {
+                switchTab('bab4');
+            } else if (query.includes('bab 5') || query.includes('hki') || query.includes('kekayaan intelektual')) {
+                switchTab('bab5');
+            } else if (query.includes('bab 6') || query.includes('hpp') || query.includes('keuangan')) {
+                switchTab('bab6');
+            } else if (query.includes('tugas') || query.includes('proyek')) {
+                switchTab('tugas');
+            }
+        }
+    </script>
 </body>
 </html>
