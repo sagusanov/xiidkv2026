@@ -182,7 +182,7 @@
                                 Data lengkap siswa-siswi kelas XII Desain Komunikasi Visual (DKV) SMKN 1 Bangil Tahun Ajaran 2026.
                             </p>
                         </div>
-                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20">
+                        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-3 rounded-2xl border border-white/20 shrink-0">
                             <i class="fa-solid fa-users text-2xl text-emerald-200"></i>
                             <div>
                                 <p class="text-xs text-emerald-100">Total Keseluruhan</p>
@@ -229,7 +229,7 @@
                                 </tr>
                             </thead>
                             <tbody id="student-table-body" class="divide-y divide-slate-100 dark:divide-slate-700/60 text-xs font-medium text-slate-700 dark:text-slate-200">
-                                <!-- Data akan dimuat melalui JavaScript berdasarkan tab aktif -->
+                                <!-- Data dimuat melalui JavaScript -->
                             </tbody>
                         </table>
                     </div>
@@ -251,7 +251,7 @@
 
     <!-- JavaScript Data Siswa & Logika Tab -->
     <script>
-        // Data Siswa per Kelas
+        // Data Siswa Lengkap per Kelas
         const dataSiswa = {
             dkv1: [
                 "ABYAN LUQMAN ZHAFIR", "ADELIA AGUSTIN", "AIDA AINUL FITRI", "AIKA YULIANA RAHAYU",
@@ -295,9 +295,10 @@
                 btn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 shrink-0";
             });
             const activeBtn = document.getElementById(`btn-${className}`);
-            activeBtn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white shadow-md shadow-emerald-600/20 shrink-0";
+            if (activeBtn) {
+                activeBtn.className = "tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-600 text-white shadow-md shadow-emerald-600/20 shrink-0";
+            }
             
-            // Reset search
             document.getElementById('search-input').value = '';
             renderTable(dataSiswa[className], className);
         }
@@ -307,7 +308,7 @@
             const emptyState = document.getElementById('empty-state');
             tbody.innerHTML = '';
 
-            if (list.length === 0) {
+            if (!list || list.length === 0) {
                 emptyState.classList.remove('hidden');
                 return;
             } else {
@@ -320,12 +321,12 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50/80 dark:hover:bg-slate-700/30 transition-colors";
                 tr.innerHTML = `
-                    <td class="py-3 px-6 text-center font-bold text-slate-400">${index + 1}</td>
-                    <td class="py-3 px-6 font-semibold text-slate-800 dark:text-slate-100 uppercase">${name}</td>
-                    <td class="py-3 px-6 text-center">
+                    <td class="py-3.5 px-6 text-center font-bold text-slate-400">${index + 1}</td>
+                    <td class="py-3.5 px-6 font-semibold text-slate-800 dark:text-slate-100 uppercase">${name}</td>
+                    <td class="py-3.5 px-6 text-center">
                         <span class="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-lg font-bold text-[10px]">${classNameFormatted}</span>
                     </td>
-                    <td class="py-3 px-6 text-center">
+                    <td class="py-3.5 px-6 text-center">
                         <span class="bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 px-2.5 py-1 rounded-full font-bold text-[10px]">Aktif</span>
                     </td>
                 `;
@@ -340,7 +341,6 @@
             renderTable(filtered, currentClass);
         }
 
-        // Inisialisasi saat pertama kali dimuat
         document.addEventListener('DOMContentLoaded', () => {
             renderTable(dataSiswa.dkv1, 'dkv1');
         });
