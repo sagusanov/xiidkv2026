@@ -1,341 +1,364 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rekap Nilai Siswa - KIK XII DKV 2026</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            accent: '#06b6d4'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekap Nilai Siswa - XII DKV 2026</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
             }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
         }
-    </script>
-    <!-- Custom CSS File -->
-    <link rel="stylesheet" href="style.css">
+      }
+    }
+  </script>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans min-h-screen transition-colors duration-200">
 
-    <!-- Mobile Overlay -->
-    <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity"></div>
+  <!-- Header / Navbar -->
+  <header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors">
+          <i class="fas fa-arrow-left"></i>
+        </a>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 flex items-center justify-center text-white font-bold shadow-md shadow-brand-500/20">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-lg leading-tight">Rekap Nilai Siswa</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">SMKN 1 Bangil • KIK XII DKV 2026</p>
+        </div>
+      </div>
 
-    <div class="flex flex-1 overflow-hidden">
-        <!-- ================= SIDEBAR MENU (KIRI) ================= -->
-        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700/60 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col">
-            
-            <!-- Header Sidebar -->
-            <div class="p-5 border-b border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
-                        <i class="fa-solid fa-palette text-xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="font-bold text-slate-900 dark:text-white leading-tight">KIK XII DKV</h1>
-                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tahun Ajaran 2026</span>
-                    </div>
-                </div>
-                <span class="bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-500 text-xs font-bold px-2.5 py-1 rounded-full border border-brand-500/20">SMK</span>
-            </div>
+      <div class="flex items-center space-x-3">
+        <button id="themeToggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+          <i class="fas fa-moon dark:hidden"></i>
+          <i class="fas fa-sun hidden dark:inline"></i>
+        </button>
+        <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="px-4 py-2 rounded-xl bg-slate-900 text-white dark:bg-slate-800 hover:bg-slate-800 text-sm font-medium flex items-center space-x-2 shadow-sm transition-all">
+          <i class="fab fa-github"></i>
+          <span class="hidden sm:inline">Repository</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-            <!-- Navigasi Berkelompok -->
-            <div class="flex-1 overflow-y-auto p-4 space-y-6">
-                <!-- Group 1: Utama -->
-                <div>
-                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Menu Utama</p>
-                    <nav class="space-y-1">
-                        <a href="index.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-chart-pie w-5"></i>
-                            <span>Dashboard Overview</span>
-                        </a>
-                    </nav>
-                </div>
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 lg:px-8 py-8 space-y-6">
 
-                <!-- Group 2: Aktivitas & Katalog -->
-                <div>
-                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Aktivitas & Direktori</p>
-                    <nav class="space-y-1">
-                        <a href="index.html" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <div class="flex items-center gap-3">
-                                <i class="fa-solid fa-tasks text-slate-400 w-5"></i>
-                                <span>Tugas & Proyek</span>
-                            </div>
-                            <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 text-xs px-2 py-0.5 rounded-full font-bold">2 Aktif</span>
-                        </a>
-                        <a href="project1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-store text-orange-500 w-5"></i>
-                            <span>Proyek 1: Panduan Shopee</span>
-                        </a>
-                        <a href="project2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-brands fa-tiktok text-pink-500 w-5"></i>
-                            <span>Proyek 2: Skenario TikTok</span>
-                        </a>
-                        <a href="produk1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-image text-purple-500 w-5"></i>
-                            <span>Produk 1 (Wallpaper)</span>
-                        </a>
-                        <a href="produk2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-sliders text-blue-500 w-5"></i>
-                            <span>Produk 2 (Preset)</span>
-                        </a>
-                        <a href="produk3.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-file-lines text-emerald-500 w-5"></i>
-                            <span>Produk 3 (Template Canva)</span>
-                        </a>
-                        <a href="produk4.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-box text-rose-500 w-5"></i>
-                            <span>Produk 4 (Mockup Kemasan)</span>
-                        </a>
-                        <a href="data_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
-                            <i class="fa-solid fa-users text-emerald-500 w-5"></i>
-                            <span>Data Siswa DKV</span>
-                        </a>
-                        <!-- Rekap Nilai Siswa (Aktif) -->
-                        <a href="nilai_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-amber-600 text-white shadow-md shadow-amber-600/20 transition-all">
-                            <i class="fa-solid fa-graduation-cap text-white w-5"></i>
-                            <span>Rekap Nilai Siswa</span>
-                        </a>
-                    </nav>
-                </div>
-            </div>
+    <!-- Top Bar: Tabs & Search -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm">
+      
+      <!-- Tab Class Selector -->
+      <div class="flex items-center space-x-2 bg-slate-100 dark:bg-slate-900/50 p-1.5 rounded-xl self-start md:self-auto">
+        <button onclick="switchTab('dkv1')" id="tab-dkv1" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm">
+          XII DKV 1
+        </button>
+        <button onclick="switchTab('dkv2')" id="tab-dkv2" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200">
+          XII DKV 2
+        </button>
+        <button onclick="switchTab('dkv3')" id="tab-dkv3" class="tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200">
+          XII DKV 3
+        </button>
+      </div>
 
-            <!-- Footer Sidebar / Repository Badge -->
-            <div class="p-4 border-t border-slate-200 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/50">
-                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="flex items-center gap-3 p-2.5 rounded-xl bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/60 hover:border-brand-500 transition-all shadow-sm group">
-                    <i class="fa-brands fa-github text-xl text-slate-700 dark:text-slate-200 group-hover:text-brand-500"></i>
-                    <div class="overflow-hidden">
-                        <p class="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">sagusanov/xiidkv2026</p>
-                        <p class="text-[10px] text-slate-400 flex items-center gap-1">
-                            <span>Open Repository</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-                        </p>
-                    </div>
-                </a>
-            </div>
-        </aside>
-
-        <!-- ================= MAIN CONTENT AREA (KANAN) ================= -->
-        <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
-            
-            <!-- Top Header Bar -->
-            <header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <button onclick="toggleSidebar()" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
-                        <i class="fa-solid fa-bars text-lg"></i>
-                    </button>
-                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100">Rekap Nilai Siswa DKV</h2>
-                </div>
-
-                <div class="flex items-center gap-3">
-                    <button onclick="toggleDarkMode()" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" title="Ubah Mode Tampilan">
-                        <i class="fa-solid fa-moon dark:hidden text-lg"></i>
-                        <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
-                    </button>
-
-                    <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
-
-                    <div class="flex items-center gap-3 pl-1">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Avatar Siswa" class="w-9 h-9 rounded-xl object-cover ring-2 ring-brand-500/30">
-                        <div class="hidden md:block text-left">
-                            <p class="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">Siswa DKV XII</p>
-                            <p class="text-[11px] text-slate-400">Kreatif & Kewirausahaan</p>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Inner Page Content -->
-            <div class="p-4 lg:p-8 space-y-8 max-w-6xl mx-auto w-full flex-1">
-
-                <!-- Hero Banner & Drive Link -->
-                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-600 via-orange-500 to-rose-600 text-white p-6 md:p-8 shadow-xl shadow-amber-500/20">
-                    <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                        <div class="space-y-2 max-w-2xl">
-                            <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md">
-                                <i class="fa-solid fa-graduation-cap mr-1"></i> Penilaian Kelas XII DKV 2026
-                            </span>
-                            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Rekapitulasi Nilai Produk & Proyek Kewirausahaan</h1>
-                            <p class="text-amber-100 text-sm leading-relaxed">
-                                Transparansi penilaian kompetensi siswa mencakup proyek mandiri, portofolio digital, dan kedisiplinan praktik kerja. Akses lembar kerja lengkap di Google Drive.
-                            </p>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1zVna1NZ-mW55yj7gJhNNbBROJzI8ORwd/view" target="_blank" class="bg-white text-amber-700 hover:bg-amber-50 font-bold px-5 py-3 rounded-xl text-sm transition-all shadow-md shrink-0 flex items-center gap-2">
-                            <i class="fa-brands fa-google-drive text-amber-600"></i> Buka File Nilai di Drive
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Statistik Ringkas -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-users"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 font-medium">Total Siswa Dinilai</p>
-                            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">36 Siswa</h3>
-                        </div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-circle-check"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 font-medium">Status Rekapitulasi</p>
-                            <h3 class="text-xl font-extrabold text-emerald-600 dark:text-emerald-400">Final / Terverifikasi</h3>
-                        </div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-file-excel"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400 font-medium">Format Dokumen</p>
-                            <h3 class="text-xl font-extrabold text-slate-900 dark:text-white">Google Sheets / PDF</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tabel Sampel Nilai Siswa -->
-                <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm overflow-hidden">
-                    <div class="p-6 border-b border-slate-100 dark:border-slate-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div>
-                            <h3 class="text-lg font-bold text-slate-900 dark:text-white">Sampel Rekap Nilai Siswa DKV XII</h3>
-                            <p class="text-xs text-slate-400 mt-0.5">Pratinjau sebagian data penilaian praktik kreatif</p>
-                        </div>
-                        <a href="https://drive.google.com/file/d/1zVna1NZ-mW55yj7gJhNNbBROJzI8ORwd/view" target="_blank" class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1.5">
-                            <span>Lihat Lembar Lengkap</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                    </div>
-
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse text-xs">
-                            <thead>
-                                <tr class="bg-slate-50 dark:bg-slate-900/50 text-slate-500 dark:text-slate-400 uppercase font-semibold border-b border-slate-200 dark:border-slate-700">
-                                    <th class="py-3 px-6">No</th>
-                                    <th class="py-3 px-6">Nama Siswa</th>
-                                    <th class="py-3 px-6">Proyek 1 (Shopee)</th>
-                                    <th class="py-3 px-6">Proyek 2 (TikTok)</th>
-                                    <th class="py-3 px-6">Produk (Canva/Preset)</th>
-                                    <th class="py-3 px-6">Nilai Akhir</th>
-                                    <th class="py-3 px-6 text-center">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 text-slate-600 dark:text-slate-300">
-                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/20 transition-colors">
-                                    <td class="py-3.5 px-6 font-medium text-slate-400">1</td>
-                                    <td class="py-3.5 px-6 font-bold text-slate-800 dark:text-slate-100">Ahmad Rian Hidayat</td>
-                                    <td class="py-3.5 px-6">88</td>
-                                    <td class="py-3.5 px-6">90</td>
-                                    <td class="py-3.5 px-6">92</td>
-                                    <td class="py-3.5 px-6 font-extrabold text-amber-600 dark:text-amber-400">90.0</td>
-                                    <td class="py-3.5 px-6 text-center">
-                                        <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-2.5 py-1 rounded-full text-[10px] font-bold">Lulus / Tuntas</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/20 transition-colors">
-                                    <td class="py-3.5 px-6 font-medium text-slate-400">2</td>
-                                    <td class="py-3.5 px-6 font-bold text-slate-800 dark:text-slate-100">Siti Nur Azizah</td>
-                                    <td class="py-3.5 px-6">92</td>
-                                    <td class="py-3.5 px-6">95</td>
-                                    <td class="py-3.5 px-6">94</td>
-                                    <td class="py-3.5 px-6 font-extrabold text-amber-600 dark:text-amber-400">93.6</td>
-                                    <td class="py-3.5 px-6 text-center">
-                                        <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-2.5 py-1 rounded-full text-[10px] font-bold">Lulus / Tuntas</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/20 transition-colors">
-                                    <td class="py-3.5 px-6 font-medium text-slate-400">3</td>
-                                    <td class="py-3.5 px-6 font-bold text-slate-800 dark:text-slate-100">M. Feri Fadilah</td>
-                                    <td class="py-3.5 px-6">85</td>
-                                    <td class="py-3.5 px-6">88</td>
-                                    <td class="py-3.5 px-6">86</td>
-                                    <td class="py-3.5 px-6 font-extrabold text-amber-600 dark:text-amber-400">86.3</td>
-                                    <td class="py-3.5 px-6 text-center">
-                                        <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-2.5 py-1 rounded-full text-[10px] font-bold">Lulus / Tuntas</span>
-                                    </td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 dark:hover:bg-slate-700/20 transition-colors">
-                                    <td class="py-3.5 px-6 font-medium text-slate-400">4</td>
-                                    <td class="py-3.5 px-6 font-bold text-slate-800 dark:text-slate-100">Dewi Lestari</td>
-                                    <td class="py-3.5 px-6">90</td>
-                                    <td class="py-3.5 px-6">92</td>
-                                    <td class="py-3.5 px-6">90</td>
-                                    <td class="py-3.5 px-6 font-extrabold text-amber-600 dark:text-amber-400">90.6</td>
-                                    <td class="py-3.5 px-6 text-center">
-                                        <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 px-2.5 py-1 rounded-full text-[10px] font-bold">Lulus / Tuntas</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="p-4 bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-700 text-center">
-                        <a href="https://drive.google.com/file/d/1zVna1NZ-mW55yj7gJhNNbBROJzI8ORwd/view" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl text-xs font-bold transition-all shadow-md">
-                            <i class="fa-solid fa-external-link-alt text-[10px]"></i>
-                            <span>Buka Dokumen Lengkap di Google Drive</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Footer -->
-            <footer class="py-4 px-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
-                &copy; 2026 KIK XII DKV &bull; Dikembangkan untuk Pembelajaran Kreatif & Kewirausahaan SMK N 1 Bangil
-            </footer>
-        </main>
+      <!-- Search Input -->
+      <div class="relative w-full md:w-72">
+        <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Cari nama atau NIPD..." class="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+      </div>
     </div>
 
-    <!-- JavaScript Logika Sidebar & Dark Mode -->
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
-        }
+    <!-- Summary Stats Cards -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl">
+          <i class="fas fa-users"></i>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Total Siswa</p>
+          <h3 id="statTotalSiswa" class="text-xl font-bold">0</h3>
+        </div>
+      </div>
 
-        function toggleDarkMode() {
-            const htmlElement = document.documentElement;
-            htmlElement.classList.toggle('dark');
-            
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
+      <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Rata-Rata Kelas</p>
+          <h3 id="statRataRata" class="text-xl font-bold">0</h3>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Nilai Tertinggi</p>
+          <h3 id="statMax" class="text-xl font-bold">0</h3>
+        </div>
+      </div>
+
+      <div class="p-4 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex items-center space-x-4">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Persentase Tuntas</p>
+          <h3 id="statTuntas" class="text-xl font-bold">0%</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm" id="nilaiTable">
+          <thead class="bg-slate-100/70 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 text-xs uppercase font-semibold text-slate-600 dark:text-slate-400">
+            <tr>
+              <th class="py-3.5 px-4 text-center w-12">NO</th>
+              <th class="py-3.5 px-4">NAMA SISWA</th>
+              <th class="py-3.5 px-4 text-center w-16">L/P</th>
+              <th class="py-3.5 px-4 text-center">NIPD</th>
+              <th class="py-3.5 px-3 text-center">BRIEF</th>
+              <th class="py-3.5 px-3 text-center">KOMPOSISI</th>
+              <th class="py-3.5 px-3 text-center">DNG</th>
+              <th class="py-3.5 px-3 text-center">WALLPAPER</th>
+              <th class="py-3.5 px-3 text-center">MOCKUP</th>
+              <th class="py-3.5 px-4 text-center font-bold text-brand-600 dark:text-brand-400">RATA-RATA</th>
+              <th class="py-3.5 px-4 text-center">STATUS</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody" class="divide-y divide-slate-200/60 dark:divide-slate-700/60">
+            <!-- Dynamic rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Data Siswa & Nilai dari Gambar 1 - 6
+    const dataNilai = {
+      dkv1: [
+        { no: 1, nama: "ABYAN LUQMAN ZHAFIR", lp: "L", nipd: "12122/0326.10.2", brief: 93, komposisi: 95, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 2, nama: "ADELIA AGUSTIN", lp: "P", nipd: "12128/0327.10.2", brief: 90, komposisi: 95, dng: 0, wallpaper: 90, mockup: 90 },
+        { no: 3, nama: "AIDA AINUL FITRI", lp: "P", nipd: "12147/0328.10.2", brief: 92, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 4, nama: "AIKA YULIANA RAHAYU", lp: "P", nipd: "12150/0329.10.2", brief: 93, komposisi: 95, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 5, nama: "AISYA FITRIYANI AMELIA", lp: "P", nipd: "12153/0330.10.2", brief: 92, komposisi: 0, dng: 0, wallpaper: 85, mockup: 85 },
+        { no: 6, nama: "AMELIA BUNGA LESTARI", lp: "P", nipd: "12171/0331.10.2", brief: 90, komposisi: 90, dng: 0, wallpaper: 0, mockup: 0 },
+        { no: 7, nama: "AMELIA PUTRI CAHYATI", lp: "P", nipd: "12173/0332.10.2", brief: 95, komposisi: 85, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 8, nama: "ANA TASYA SYAIFINDHA AKBAR", lp: "P", nipd: "12176/0333.10.2", brief: 95, komposisi: 80, dng: 80, wallpaper: 90, mockup: 85 },
+        { no: 9, nama: "ANDIN DWI ARTIANA", lp: "P", nipd: "12181/0334.10.2", brief: 85, komposisi: 95, dng: 0, wallpaper: 90, mockup: 90 },
+        { no: 10, nama: "ARJUNA ZAQIYUL KHULUQ", lp: "L", nipd: "12190/0335.10.2", brief: 75, komposisi: 90, dng: 0, wallpaper: 90, mockup: 85 },
+        { no: 11, nama: "ASMAUL FITRI AULIA", lp: "P", nipd: "12194/0336.10.2", brief: 85, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 12, nama: "ATHA BRIAN SURENDRA", lp: "L", nipd: "12195/0337.10.2", brief: 82, komposisi: 92, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 13, nama: "AURELL ZAZKA AZZHARA", lp: "P", nipd: "12201/0338.10.2", brief: 87, komposisi: 85, dng: 85, wallpaper: 0, mockup: 0 },
+        { no: 14, nama: "AZKA AZKIYA", lp: "P", nipd: "12204/0339.10.2", brief: 78, komposisi: 0, dng: 80, wallpaper: 85, mockup: 85 },
+        { no: 15, nama: "BAGAS FIRMANSYAH", lp: "L", nipd: "12206/0341.10.2", brief: 82, komposisi: 0, dng: 0, wallpaper: 85, mockup: 90 },
+        { no: 16, nama: "BILQIS NADIA", lp: "P", nipd: "12211/0342.10.2", brief: 78, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 17, nama: "BINTA AINIL MAHMUDAH", lp: "P", nipd: "12213/0343.10.2", brief: 97, komposisi: 85, dng: 0, wallpaper: 90, mockup: 90 },
+        { no: 18, nama: "CINTA NURIYYAH", lp: "P", nipd: "12224/0344.10.2", brief: 77, komposisi: 95, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 19, nama: "DAVIN ARDI MAHESYA", lp: "L", nipd: "12230/0345.10.2", brief: 75, komposisi: 0, dng: 80, wallpaper: 85, mockup: 85 },
+        { no: 20, nama: "DINAR ELFARA", lp: "P", nipd: "12249/0347.10.2", brief: 97, komposisi: 95, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 21, nama: "DINDA CAHAYA ANTIKA", lp: "P", nipd: "12251/2164.10.5", brief: 77, komposisi: 95, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 22, nama: "DINDA DWI WARDHANI", lp: "P", nipd: "12252/0349.10.2", brief: 94, komposisi: 95, dng: 90, wallpaper: 90, mockup: 95 },
+        { no: 23, nama: "DINDA SHASABILLA", lp: "P", nipd: "12253/0350.10.2", brief: 88, komposisi: 95, dng: 0, wallpaper: 90, mockup: 90 },
+        { no: 24, nama: "DWI NAVILA RAMADHANI", lp: "P", nipd: "12261/0351.10.2", brief: 94, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 25, nama: "DWI SAYYIDAH AFIYA", lp: "P", nipd: "12263/0352.10.2", brief: 75, komposisi: 0, dng: 0, wallpaper: 0, mockup: 0 },
+        { no: 26, nama: "ELY RIZKIYAH", lp: "P", nipd: "12268/0353.10.2", brief: 75, komposisi: 90, dng: 0, wallpaper: 90, mockup: 90 },
+        { no: 27, nama: "ERIZKA PUTRI AMELIA", lp: "P", nipd: "12272/0354.10.2", brief: 82, komposisi: 95, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 28, nama: "FATIMATUS ZAHROH", lp: "P", nipd: "12292/0355.10.2", brief: 82, komposisi: 90, dng: 90, wallpaper: 90, mockup: 85 },
+        { no: 29, nama: "GHIVARI RAJABI ACHMAD", lp: "L", nipd: "12314/0359.10.2", brief: 87, komposisi: 85, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 30, nama: "HENDRA DWI SAPUTRA", lp: "L", nipd: "12323/0362.10.2", brief: 75, komposisi: 85, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 31, nama: "JOVI SETYAWAN", lp: "L", nipd: "12350/0365.10.2", brief: 87, komposisi: 90, dng: 0, wallpaper: 85, mockup: 85 },
+        { no: 32, nama: "KEVIN SAHAL MARVELINO", lp: "L", nipd: "12356/0367.10.2", brief: 75, komposisi: 90, dng: 90, wallpaper: 90, mockup: 85 }
+      ],
+      dkv2: [
+        { no: 1, nama: "FIRA MAULINA ARIFIN", lp: "P", nipd: "12300/0356.10.2", brief: 85, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 2, nama: "FITROTUL AZIZAH", lp: "P", nipd: "12307/0357.10.2", brief: 88, komposisi: 85, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 3, nama: "GEBBY OLIVIA", lp: "P", nipd: "12311/0358.10.2", brief: 90, komposisi: 90, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 4, nama: "GUSTI ANDINI ANASTASIA", lp: "P", nipd: "12317/0360.10.2", brief: 82, komposisi: 85, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 5, nama: "HIKMATUL LAILI", lp: "P", nipd: "12326/0363.10.2", brief: 85, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 6, nama: "IDFI AMALIA", lp: "P", nipd: "12329/0364.10.2", brief: 92, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 7, nama: "KAMILA MEISINTA ANGGRAINI", lp: "P", nipd: "12353/0366.10.2", brief: 80, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 8, nama: "KINANTHI AYU ROFIQI", lp: "P", nipd: "12362/0368.10.2", brief: 88, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 9, nama: "LAILI AYU DEWANTARI", lp: "P", nipd: "12377/0369.10.2", brief: 90, komposisi: 85, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 10, nama: "LALUNA EMILY", lp: "P", nipd: "12379/0370.10.2", brief: 85, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 11, nama: "M. ARMAN MAULANA MALIK IBRAHIM", lp: "L", nipd: "12385/0371.10.2", brief: 82, komposisi: 85, dng: 80, wallpaper: 85, mockup: 85 },
+        { no: 12, nama: "MUHAMMAD FAJAR", lp: "L", nipd: "12390/0372.10.2", brief: 85, komposisi: 80, dng: 85, wallpaper: 85, mockup: 80 },
+        { no: 13, nama: "M. PUTRA SLAMET RAMADANI", lp: "L", nipd: "12395/0373.10.2", brief: 80, komposisi: 85, dng: 80, wallpaper: 80, mockup: 85 },
+        { no: 14, nama: "MACHDA DEVI AULIA", lp: "P", nipd: "12403/0374.10.2", brief: 90, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 15, nama: "MARISCA NESTI SAFIRA PRIYANDA", lp: "P", nipd: "12411/0375.10.2", brief: 88, komposisi: 85, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 16, nama: "MARWA SAFA ELSAFADINA", lp: "P", nipd: "12413/0376.10.2", brief: 85, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 17, nama: "MAULIDA RAHMADEWI", lp: "P", nipd: "12415/0377.10.2", brief: 92, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 18, nama: "MAULIDA RAHMANIA", lp: "P", nipd: "12416/0378.10.2", brief: 90, komposisi: 90, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 19, nama: "MAULIDATUL FAJRIYAH", lp: "P", nipd: "12417/0379.10.2", brief: 85, komposisi: 85, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 20, nama: "MIFTAQUL TRI SEPTIAN RAMADHAN", lp: "L", nipd: "12424/0380.10.2", brief: 80, komposisi: 85, dng: 80, wallpaper: 85, mockup: 85 },
+        { no: 21, nama: "MOCHAMAD PUTRA ERLANGGA", lp: "L", nipd: "12436/0381.10.2", brief: 82, komposisi: 80, dng: 85, wallpaper: 80, mockup: 85 },
+        { no: 22, nama: "MOH. YUSUF", lp: "L", nipd: "12462/0382.10.2", brief: 85, komposisi: 85, dng: 80, wallpaper: 85, mockup: 80 },
+        { no: 23, nama: "MUCHAMAD ARGA YUSRON AL BAR", lp: "L", nipd: "12481/0383.10.2", brief: 80, komposisi: 80, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 24, nama: "MUCHAMMAD HABBIBULLOH", lp: "L", nipd: "12486/0384.10.2", brief: 85, komposisi: 85, dng: 80, wallpaper: 80, mockup: 85 },
+        { no: 25, nama: "MUCHAMMAD RIZKY ISLAMI PUTRA", lp: "L", nipd: "12489/0385.10.2", brief: 82, komposisi: 80, dng: 85, wallpaper: 85, mockup: 80 },
+        { no: 26, nama: "MUCHAMMAD ZAINAL ABIDIN", lp: "L", nipd: "12490/0386.10.2", brief: 80, komposisi: 85, dng: 80, wallpaper: 80, mockup: 85 },
+        { no: 27, nama: "MUHAMMAD ADITYA PRATAMA", lp: "L", nipd: "12496/0387.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 28, nama: "MUTIMMATUZ ZAHROH", lp: "P", nipd: "12586/0393.10.2", brief: 90, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 29, nama: "NAHDIYATUL KAFILA", lp: "P", nipd: "12605/0394.10.2", brief: 88, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 30, nama: "NAZWA SEPTIASYAH KUSUMA", lp: "P", nipd: "12622/0396.10.2", brief: 90, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 31, nama: "NIMATUZ ZAHIROH", lp: "P", nipd: "12625/0397.10.2", brief: 85, komposisi: 88, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 32, nama: "NOVIA EKA SAPUTRI", lp: "P", nipd: "12628/0398.10.2", brief: 88, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 33, nama: "PAMELA TRI SUKMAWATI", lp: "P", nipd: "12638/0400.10.2", brief: 92, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 34, nama: "PUJI EKA PRATIWI", lp: "P", nipd: "12640/0401.10.2", brief: 85, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 35, nama: "PUTRI HASNA NABILAH", lp: "P", nipd: "12646/0402.10.2", brief: 90, komposisi: 88, dng: 85, wallpaper: 90, mockup: 88 }
+      ],
+      dkv3: [
+        { no: 1, nama: "MUHAMMAD SYAHRIL AL DIYANTO", lp: "L", nipd: "12565/0389.10.2", brief: 85, komposisi: 80, dng: 85, wallpaper: 80, mockup: 85 },
+        { no: 2, nama: "MUKHAMAD LUTHFILLAH", lp: "L", nipd: "12578/0390.10.2", brief: 80, komposisi: 85, dng: 80, wallpaper: 85, mockup: 80 },
+        { no: 3, nama: "MUKHAMMAD HAIKAL MUZHAFFAR", lp: "L", nipd: "12582/0391.10.2", brief: 82, komposisi: 80, dng: 85, wallpaper: 80, mockup: 85 },
+        { no: 4, nama: "MUKHAMMAD ROY FIRODHI", lp: "L", nipd: "12584/0392.10.2", brief: 85, komposisi: 85, dng: 80, wallpaper: 85, mockup: 80 },
+        { no: 5, nama: "NAKHLAH ROHMAN", lp: "L", nipd: "12609/0395.10.2", brief: 80, komposisi: 82, dng: 85, wallpaper: 80, mockup: 85 },
+        { no: 6, nama: "RANIYA MUYASSAROTUL AMIRA", lp: "P", nipd: "12664/0403.10.2", brief: 90, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 7, nama: "REFANIA AURA FEBRIANTI", lp: "P", nipd: "12667/0404.10.2", brief: 88, komposisi: 85, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 8, nama: "RENATA MAYA LORINA", lp: "P", nipd: "12669/0405.10.2", brief: 85, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 9, nama: "RIZKA MIFTAKHUL JANNAH", lp: "P", nipd: "12681/0406.10.2", brief: 92, komposisi: 88, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 10, nama: "SAFINA MEI AGUSTINA", lp: "P", nipd: "12692/0408.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 11, nama: "SAFINAH RIZKY AMALIYA", lp: "P", nipd: "12693/0409.10.2", brief: 90, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 12, nama: "SAFIRA IVANA PUTRI", lp: "P", nipd: "12695/0410.10.2", brief: 88, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 13, nama: "SAYYIDAH INDAR PARAWANSA", lp: "P", nipd: "12712/0411.10.2", brief: 90, komposisi: 92, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 14, nama: "SELLA SALSABILA", lp: "P", nipd: "12716/0412.10.2", brief: 85, komposisi: 85, dng: 90, wallpaper: 85, mockup: 85 },
+        { no: 15, nama: "SILVI NUR KUMALASARI", lp: "P", nipd: "12725/0413.10.2", brief: 88, komposisi: 90, dng: 85, wallpaper: 90, mockup: 90 },
+        { no: 16, nama: "SITI FATIMATUZ ZAHROH", lp: "P", nipd: "12730/0414.10.2", brief: 90, komposisi: 88, dng: 90, wallpaper: 85, mockup: 88 },
+        { no: 17, nama: "SITI MAISYAROH", lp: "P", nipd: "12734/0415.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 18, nama: "SITI ROFIQO", lp: "P", nipd: "12737/0416.10.2", brief: 92, komposisi: 90, dng: 90, wallpaper: 90, mockup: 90 },
+        { no: 19, nama: "SUBHAN ZAKARIA", lp: "L", nipd: "12740/0417.10.2", brief: 80, komposisi: 82, dng: 80, wallpaper: 85, mockup: 80 },
+        { no: 20, nama: "SURYA PUTRA RAMADHAN", lp: "L", nipd: "12742/0418.10.2", brief: 82, komposisi: 85, dng: 80, wallpaper: 80, mockup: 85 },
+        { no: 21, nama: "SYAHLINA NAZWA ELMIRA PUTRI", lp: "P", nipd: "12743/0419.10.2", brief: 88, komposisi: 90, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 22, nama: "SYAMSA GITA AULIYA", lp: "P", nipd: "12744/0420.10.2", brief: 85, komposisi: 85, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 23, nama: "TAKI RADA KARINDA ZIZA DAMARA", lp: "P", nipd: "12749/0421.10.2", brief: 90, komposisi: 92, dng: 88, wallpaper: 90, mockup: 90 },
+        { no: 24, nama: "TAMARA AYU MAULIDYA", lp: "P", nipd: "12751/0422.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 25, nama: "THUFAIL ILYAS FIRDAUS", lp: "L", nipd: "12754/0423.10.2", brief: 82, komposisi: 80, dng: 85, wallpaper: 80, mockup: 80 },
+        { no: 26, nama: "TIS'ATA HIDAYAT", lp: "P", nipd: "12756/0424.10.2", brief: 88, komposisi: 90, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 27, nama: "UMMU SALAMAH", lp: "P", nipd: "12761/0425.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 90, mockup: 85 },
+        { no: 28, nama: "WIDYAH NUFAH QANITAH", lp: "P", nipd: "12772/0426.10.2", brief: 90, komposisi: 88, dng: 90, wallpaper: 85, mockup: 90 },
+        { no: 29, nama: "WULAN DWI MAULIDAH", lp: "P", nipd: "12776/0427.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 30, nama: "YOGA EKA PRASTYO", lp: "L", nipd: "12782/0428.10.2", brief: 80, komposisi: 82, dng: 80, wallpaper: 85, mockup: 80 },
+        { no: 31, nama: "YUNIKE MARCHISA MAULIDYA", lp: "P", nipd: "12784/0429.10.2", brief: 88, komposisi: 90, dng: 90, wallpaper: 88, mockup: 90 },
+        { no: 32, nama: "YUNITA SEPTIA RAMADHANI", lp: "P", nipd: "12786/0430.10.2", brief: 85, komposisi: 85, dng: 85, wallpaper: 85, mockup: 85 },
+        { no: 33, nama: "ZAHIRAH DWI LIANSA", lp: "P", nipd: "12787/0431.10.2", brief: 90, komposisi: 90, dng: 88, wallpaper: 90, mockup: 90 },
+        { no: 34, nama: "ZAMNEIA AZ ZAHRA", lp: "P", nipd: "12794/0432.10.2", brief: 88, komposisi: 85, dng: 90, wallpaper: 85, mockup: 88 }
+      ]
+    };
+
+    let activeTab = 'dkv1';
+    const KKM = 75;
+
+    function renderTable(classKey) {
+      const list = dataNilai[classKey] || [];
+      const tbody = document.getElementById('tableBody');
+      tbody.innerHTML = '';
+
+      let totalAverageSum = 0;
+      let maxScore = 0;
+      let tuntasCount = 0;
+
+      list.forEach((s) => {
+        const scores = [s.brief, s.komposisi, s.dng, s.wallpaper, s.mockup];
+        const validScores = scores.filter(v => v > 0);
+        const avg = validScores.length > 0 ? (validScores.reduce((a, b) => a + b, 0) / validScores.length) : 0;
+        const roundedAvg = Math.round(avg * 10) / 10;
+
+        totalAverageSum += roundedAvg;
+        if (roundedAvg > maxScore) maxScore = roundedAvg;
+        if (roundedAvg >= KKM) tuntasCount++;
+
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors";
+        tr.innerHTML = `
+          <td class="py-3 px-4 text-center font-medium text-slate-500">${s.no}</td>
+          <td class="py-3 px-4 font-semibold">${s.nama}</td>
+          <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-xs font-semibold ${s.lp === 'L' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300'}">${s.lp}</span></td>
+          <td class="py-3 px-4 text-center font-mono text-xs text-slate-500 dark:text-slate-400">${s.nipd}</td>
+          <td class="py-3 px-3 text-center ${s.brief < KKM ? 'text-rose-500 font-bold' : ''}">${s.brief}</td>
+          <td class="py-3 px-3 text-center ${s.komposisi < KKM ? 'text-rose-500 font-bold' : ''}">${s.komposisi}</td>
+          <td class="py-3 px-3 text-center ${s.dng < KKM ? 'text-rose-500 font-bold' : ''}">${s.dng}</td>
+          <td class="py-3 px-3 text-center ${s.wallpaper < KKM ? 'text-rose-500 font-bold' : ''}">${s.wallpaper}</td>
+          <td class="py-3 px-3 text-center ${s.mockup < KKM ? 'text-rose-500 font-bold' : ''}">${s.mockup}</td>
+          <td class="py-3 px-4 text-center font-bold text-brand-600 dark:text-brand-400">${roundedAvg}</td>
+          <td class="py-3 px-4 text-center">
+            ${roundedAvg >= KKM 
+              ? '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">Tuntas</span>'
+              : '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300">Belum</span>'
             }
-        }
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
 
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    </script>
+      // Update Statistics
+      const totalSiswa = list.length;
+      const classAvg = totalSiswa > 0 ? (totalAverageSum / totalSiswa).toFixed(1) : 0;
+      const tuntasPercent = totalSiswa > 0 ? Math.round((tuntasCount / totalSiswa) * 100) : 0;
+
+      document.getElementById('statTotalSiswa').textContent = totalSiswa;
+      document.getElementById('statRataRata').textContent = classAvg;
+      document.getElementById('statMax').textContent = maxScore;
+      document.getElementById('statTuntas').textContent = `${tuntasPercent}%`;
+    }
+
+    function switchTab(classKey) {
+      activeTab = classKey;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200";
+      });
+
+      const activeBtn = document.getElementById(`tab-${classKey}`);
+      if (activeBtn) {
+        activeBtn.className = "tab-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all bg-white dark:bg-slate-800 text-brand-600 dark:text-brand-400 shadow-sm";
+      }
+
+      document.getElementById('searchInput').value = '';
+      renderTable(classKey);
+    }
+
+    function filterTable() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#tableBody tr');
+
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(query) ? '' : 'none';
+      });
+    }
+
+    // Dark Mode Toggle
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Initial Render
+    renderTable('dkv1');
+  </script>
 </body>
 </html>
