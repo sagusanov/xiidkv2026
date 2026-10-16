@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skenario Video Promosi TikTok - KIK XII DKV 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            accent: '#06b6d4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity"></div>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- ================= SIDEBAR MENU (KIRI) ================= -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700/60 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col">
+            
+            <!-- Header Sidebar -->
+            <div class="p-5 border-b border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+                        <i class="fa-solid fa-palette text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-900 dark:text-white leading-tight">KIK XII DKV</h1>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tahun Ajaran 2026</span>
+                    </div>
+                </div>
+                <span class="bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-500 text-xs font-bold px-2.5 py-1 rounded-full border border-brand-500/20">SMK</span>
+            </div>
+
+            <!-- Navigasi Berkelompok -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-6">
+                <!-- Group 1: Utamanya -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Menu Utama</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-chart-pie w-5"></i>
+                            <span>Dashboard Overview</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Group 2: Proyek Praktikum -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Proyek Praktikum</p>
+                    <nav class="space-y-1">
+                        <a href="project1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-store w-5"></i>
+                            <span>Proyek 1: Panduan Shopee</span>
+                        </a>
+                        <a href="project2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-pink-600 text-white shadow-md shadow-pink-600/20 transition-all">
+                            <i class="fa-brands fa-tiktok w-5"></i>
+                            <span class="truncate text-left">Proyek 2: Skenario TikTok</span>
+                        </a>
+                        <a href="produk1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-image w-5 text-purple-500"></i>
+                            <span>Produk 1 (Wallpaper)</span>
+                        </a>
+                        <a href="produk2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-sliders w-5 text-blue-500"></i>
+                            <span>Produk 2 (Preset)</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Group 3: Akademik -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Akademik</p>
+                    <nav class="space-y-1">
+                        <a href="data_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-users text-emerald-500 w-5"></i>
+                            <span>Data Siswa DKV</span>
+                        </a>
+                        <a href="nilai_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-graduation-cap text-amber-500 w-5"></i>
+                            <span>Rekap Nilai Siswa</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Footer Sidebar / Repository Badge -->
+            <div class="p-4 border-t border-slate-200 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/50">
+                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="flex items-center gap-3 p-2.5 rounded-xl bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/60 hover:border-brand-500 transition-all shadow-sm group">
+                    <i class="fa-brands fa-github text-xl text-slate-700 dark:text-slate-200 group-hover:text-brand-500"></i>
+                    <div class="overflow-hidden">
+                        <p class="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">sagusanov/xiidkv2026</p>
+                        <p class="text-[10px] text-slate-400 flex items-center gap-1">
+                            <span>Open Repository</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT AREA (KANAN) ================= -->
+        <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+            
+            <!-- Top Header Bar -->
+            <header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleSidebar()" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100">Skenario Video Promosi TikTok</h2>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <!-- Dark/Light Mode Toggle -->
+                    <button onclick="toggleDarkMode()" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" title="Ubah Mode Tampilan">
+                        <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                    </button>
+
+                    <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+
+                    <!-- Profile Siswa -->
+                    <div class="flex items-center gap-3 pl-1">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Avatar Siswa" class="w-9 h-9 rounded-xl object-cover ring-2 ring-brand-500/30">
+                        <div class="hidden md:block text-left">
+                            <p class="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">Siswa DKV XII</p>
+                            <p class="text-[11px] text-slate-400">Kreatif & Kewirausahaan</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Inner Page Content -->
+            <div class="p-4 lg:p-8 space-y-8 flex-1 max-w-6xl">
+
+                <!-- Hero Banner -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 text-white p-6 md:p-8 shadow-xl shadow-pink-500/20">
+                    <div class="relative z-10 space-y-2">
+                        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md">
+                            <i class="fa-brands fa-tiktok mr-1"></i> Content Creator DKV
+                        </span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Skenario & Produksi Konten TikTok Wallpaper Digital</h1>
+                        <p class="text-pink-100 text-sm leading-relaxed max-w-2xl">
+                            Panduan merancang naskah video pendek berdurasi 30–45 detik menggunakan bantuan AI (Gemini) serta teknik editing profesional di CapCut.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Bagian 1: Peran AI Gemini -->
+                <section class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500 text-white font-bold flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Langkah 1: Manfaatkan AI (Gemini) untuk Membuat Naskah</h2>
+                            <p class="text-xs text-slate-400">Prompting cerdas untuk menghasilkan Hook & Script video</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                        <p>Sebelum merekam atau mengedit di CapCut, Anda bisa meminta bantuan Gemini untuk merumuskan kalimat pemancing (*hook*), narasi suara (*voiceover*), dan teks melayang.</p>
+                        
+                        <div class="bg-slate-50 dark:bg-slate-700/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-700 space-y-2">
+                            <p class="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase">Contoh Prompt untuk Gemini:</p>
+                            <p class="text-xs font-mono bg-white dark:bg-slate-800 p-3 rounded border text-slate-700 dark:text-slate-200">
+                                "Buatkan skenario video TikTok berdurasi 30 detik untuk produk digital Wallpaper HP & Laptop tema Cyberpunk & Aesthetic. Buatkan dalam format tabel yang berisi: Detik ke-, Visual Video, Teks Melayang (Floating Text), dan Naskah Voiceover yang persuasif."
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bagian 2: Tabel Skenario Video -->
+                <section class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-xl bg-pink-500 text-white font-bold flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-clapperboard"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Langkah 2: Tabel Skenario Video (30 Detik)</h2>
+                            <p class="text-xs text-slate-400">Contoh rancangan adegan, teks melayang, dan voiceover</p>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 uppercase font-bold">
+                                    <th class="p-3 w-20">Durasi</th>
+                                    <th class="p-3">Visual Adegan</th>
+                                    <th class="p-3">Teks Melayang (Floating Text)</th>
+                                    <th class="p-3">Naskah Voiceover (VO)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-700 text-slate-600 dark:text-slate-300">
+                                <tr>
+                                    <td class="p-3 font-bold text-pink-600">00:00 - 00:03</td>
+                                    <td class="p-3">Close-up layar HP dengan wallpaper bawaan yang membosankan. Tiba-tiba transisi kilat.</td>
+                                    <td class="p-3 font-semibold text-rose-500">"Bosen sama wallpaper HP yang gitu-gitu aja?"</td>
+                                    <td class="p-3">"Sumpah, jangan ganti HP dulu sebelum tahu rahasia ini!"</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-pink-600">00:03 - 00:15</td>
+                                    <td class="p-3">Screen recording transisi swipe layar HP/Laptop menampilkan koleksi Wallpaper HD Cyberpunk & Minimalist aesthetic.</td>
+                                    <td class="p-3 font-semibold text-purple-500">"✨ 4K Ultra HD & Dual Setup Ready!"</td>
+                                    <td class="p-3">"Tampilan layar kamu bisa langsung berubah jadi sekeren ini dalam sekali pasang. Kualitasnya sudah 4K Ultra HD, dijamin nggak bakal pecah di layar besar!"</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-pink-600">00:15 - 00:25</td>
+                                    <td class="p-3">Menampilkan mock-up file ZIP di komputer dan variasi Dark Mode / Light Mode.</td>
+                                    <td class="p-3 font-semibold text-emerald-500">"🎁 36 Tema Sekaligus dalam 1 Paket!"</td>
+                                    <td class="p-3">"Kamu langsung dapat 36 tema eksklusif lengkap dengan variasi Dark dan Light mode. Tinggal download, langsung pasang di HP atau laptop kamu."</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-bold text-pink-600">00:25 - 00:30</td>
+                                    <td class="p-3">Menunjukkan tangkapan layar toko Shopee dengan teks promo harga spesial.</td>
+                                    <td class="p-3 font-semibold text-amber-500">"🔥 Promo Diskon Hari Ini! Cek Keranjang Kuning"</td>
+                                    <td class="p-3">"Spesial hari ini ada diskon launching! Yuk, langsung klik keranjang kuning sekarang sebelum kehabisan!"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Bagian 3: Tutorial Editing di CapCut -->
+                <section class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500 text-white font-bold flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-video"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900 dark:text-white">Langkah 3: Teknik Editing di Aplikasi CapCut</h2>
+                            <p class="text-xs text-slate-400">Penerapan Voiceover, Teks Melayang, dan Musik Tren</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm text-slate-600 dark:text-slate-300">
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 space-y-3">
+                            <div class="w-8 h-8 rounded-lg bg-pink-500 text-white font-bold flex items-center justify-center text-xs">A</div>
+                            <h3 class="font-bold text-slate-800 dark:text-slate-100">1. Susun Klip & Rasio 9:16</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Buka CapCut, buat proyek baru, lalu atur rasio video ke ukuran vertikal **9:16**. Masukkan rekaman layar HP dan mockup gambar wallpaper.</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 space-y-3">
+                            <div class="w-8 h-8 rounded-lg bg-pink-500 text-white font-bold flex items-center justify-center text-xs">B</div>
+                            <h3 class="font-bold text-slate-800 dark:text-slate-100">2. Voiceover & Auto Captions</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Gunakan fitur **Rekam (Voiceover)** untuk membacakan naskah, atau manfaatkan fitur **Teks Otomatis** untuk memunculkan teks melayang secara instan.</p>
+                        </div>
+
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-700/30 border border-slate-200/60 dark:border-slate-700 space-y-3">
+                            <div class="w-8 h-8 rounded-lg bg-pink-500 text-white font-bold flex items-center justify-center text-xs">C</div>
+                            <h3 class="font-bold text-slate-800 dark:text-slate-100">3. Efek Teks & Musik Tren</h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Pilih gaya teks tebal beranimasi (*pop-up*) agar eye-catching. Tambahkan musik latar (*backsound*) berirama cepat yang sedang trending di TikTok dengan volume 10%.</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Footer Hak Cipta -->
+            <footer class="py-4 px-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
+                &copy; 2026 KIK XII DKV &bull; Dikembangkan untuk Pembelajaran Kreatif & Kewirausahaan SMK N 1 Bangil
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript Logika Dashboard -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            htmlElement.classList.toggle('dark');
+            
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
