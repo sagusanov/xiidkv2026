@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produk 3: Katalog & Materi Template Canva UMKM - KIK XII DKV 2026</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts Inter -->
@@ -74,7 +74,7 @@
                     </nav>
                 </div>
 
-                <!-- Group 2: Aktivitas & Direktori -->
+                <!-- Group 2: Aktivitas & Katalog -->
                 <div>
                     <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Aktivitas & Direktori</p>
                     <nav class="space-y-1">
@@ -410,7 +410,7 @@
         </main>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Logika Sidebar & Dark Mode -->
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
@@ -422,6 +422,7 @@
         function toggleDarkMode() {
             const htmlElement = document.documentElement;
             htmlElement.classList.toggle('dark');
+            
             if (htmlElement.classList.contains('dark')) {
                 localStorage.setItem('theme', 'dark');
             } else {
