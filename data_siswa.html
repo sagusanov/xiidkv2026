@@ -1,252 +1,440 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Siswa - Kelas XII DKV</title>
+    <title>Produk 3: Katalog & Materi Template Canva UMKM - KIK XII DKV 2026</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-
-    <div class="flex flex-col md:flex-row min-h-screen">
-
-        <!-- SIDEBAR MENU -->
-        <aside class="w-full md:w-64 bg-slate-900 text-white flex-shrink-0">
-            <div class="p-4 text-xl font-bold border-b border-slate-800 flex items-center justify-between">
-                <span>XI DKV 2026</span>
-            </div>
-            <nav class="p-4 space-y-2">
-                <a href="index.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Beranda</a>
-                <a href="produk1.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 1 (Wallpaper)</a>
-                <a href="produk2.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 2 (Preset)</a>
-                <a href="produk3.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 3</a>
-                <a href="data_siswa.html" class="block px-4 py-2.5 rounded-lg bg-blue-600 font-medium text-white">Data Siswa DKV</a>
-            </nav>
-        </aside>
-
-        <!-- KONTEN UTAMA -->
-        <main class="flex-1 p-6 md:p-10 max-w-6xl">
-            
-            <!-- Header Halaman -->
-            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div>
-                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Direktori Akademik</span>
-                    <h1 class="text-3xl font-bold text-gray-800">Data Siswa Kelas XII DKV</h1>
-                    <p class="text-gray-500 text-sm mt-1">Daftar lengkap siswa-siswi kelas XII Desain Komunikasi Visual.</p>
-                </div>
-                <!-- Kolom Pencarian -->
-                <div class="w-full md:w-72">
-                    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Cari nama siswa..." class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-            </div>
-
-            <!-- Tab Navigasi Kelas -->
-            <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-200 pb-4">
-                <button onclick="switchTab('dkv1')" id="btn-dkv1" class="px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-blue-600 text-white shadow-sm">XII DKV 1 (32 Siswa)</button>
-                <button onclick="switchTab('dkv2')" id="btn-dkv2" class="px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">XII DKV 2 (35 Siswa)</button>
-                <button onclick="switchTab('dkv3')" id="btn-dkv3" class="px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">XII DKV 3 (34 Siswa)</button>
-            </div>
-
-            <!-- TAB 1: KELAS XII DKV 1 -->
-            <div id="content-dkv1" class="tab-content">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700">Daftar Siswa Kelas XII DKV 1</div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse student-table">
-                            <thead>
-                                <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
-                                    <th class="py-3 px-6 w-16">No</th>
-                                    <th class="py-3 px-6">Nama Lengkap Siswa</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700 text-sm divide-y divide-gray-100">
-                                <tr><td class="py-3 px-6 font-medium">1</td><td class="py-3 px-6">ABYAN LUQMAN ZHAFIR</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">2</td><td class="py-3 px-6">ADELIA AGUSTIN</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">3</td><td class="py-3 px-6">AIDA AINUL FITRI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">4</td><td class="py-3 px-6">AIKA YULIANA RAHAYU</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">5</td><td class="py-3 px-6">AISYA FITRIYANI AMELIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">6</td><td class="py-3 px-6">AMELIA BUNGA LESTARI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">7</td><td class="py-3 px-6">AMELIA PUTRI CAHYATI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">8</td><td class="py-3 px-6">ANA TASYA SYAIFINDHA AKBAR</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">9</td><td class="py-3 px-6">ANDIN DWI ARTIANA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">10</td><td class="py-3 px-6">ARJUNA ZAQIYUL KHULUQ</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">11</td><td class="py-3 px-6">ASMAUL FITRI AULIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">12</td><td class="py-3 px-6">ATHA BRIAN SURENDRA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">13</td><td class="py-3 px-6">AURELL ZAZKA AZZHARA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">14</td><td class="py-3 px-6">AZKA AZKIYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">15</td><td class="py-3 px-6">BAGAS FIRMANSYAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">16</td><td class="py-3 px-6">BILQIS NADIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">17</td><td class="py-3 px-6">BINTA AINIL MAHMUDAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">18</td><td class="py-3 px-6">CINTA NURIYYAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">19</td><td class="py-3 px-6">DAVIN ARDI MAHESYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">20</td><td class="py-3 px-6">DINAR ELFARA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">21</td><td class="py-3 px-6">DINDA CAHAYA ANTIKA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">22</td><td class="py-3 px-6">DINDA DWI WARDHANI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">23</td><td class="py-3 px-6">DINDA SHASABILLA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">24</td><td class="py-3 px-6">DWI NAVILA RAMADHANI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">25</td><td class="py-3 px-6">DWI SAYYIDAH AFIYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">26</td><td class="py-3 px-6">ELY RIZKIYAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">27</td><td class="py-3 px-6">ERIZKA PUTRI AMELIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">28</td><td class="py-3 px-6">FATIMATUS ZAHROH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">29</td><td class="py-3 px-6">GHIVARI RAJABI ACHMAD</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">30</td><td class="py-3 px-6">HENDRA DWI SAPUTRA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">31</td><td class="py-3 px-6">JOVI SETYAWAN</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">32</td><td class="py-3 px-6">KEVIN SAHAL MARVELINO</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 2: KELAS XII DKV 2 -->
-            <div id="content-dkv2" class="tab-content hidden">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700">Daftar Siswa Kelas XII DKV 2</div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse student-table">
-                            <thead>
-                                <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
-                                    <th class="py-3 px-6 w-16">No</th>
-                                    <th class="py-3 px-6">Nama Lengkap Siswa</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700 text-sm divide-y divide-gray-100">
-                                <tr><td class="py-3 px-6 font-medium">1</td><td class="py-3 px-6">FIRA MAULINA ARIFIN</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">2</td><td class="py-3 px-6">FITROTUL AZIZAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">3</td><td class="py-3 px-6">GEBBY OLIVIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">4</td><td class="py-3 px-6">GUSTI ANDINI ANASTASIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">5</td><td class="py-3 px-6">HIKMATUL LAILI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">6</td><td class="py-3 px-6">IDFI AMALIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">7</td><td class="py-3 px-6">KAMILA MEISINTA ANGGRAINI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">8</td><td class="py-3 px-6">KINANTHI AYU ROFIQI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">9</td><td class="py-3 px-6">LAILI AYU DEWANTARI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">10</td><td class="py-3 px-6">LALUNA EMILY</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">11</td><td class="py-3 px-6">M. ARMAN MAULANA MALIK IBRAHIM</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">12</td><td class="py-3 px-6">MUHAMMAD FAJAR</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">13</td><td class="py-3 px-6">M. PUTRA SLAMET RAMADANI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">14</td><td class="py-3 px-6">MACHDA DEVI AULIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">15</td><td class="py-3 px-6">MARISCA NESTI SAFIRA PRIYANDA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">16</td><td class="py-3 px-6">MARWA SAFA ELSAFADINA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">17</td><td class="py-3 px-6">MAULIDA RAHMADEWI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">18</td><td class="py-3 px-6">MAULIDA RAHMANIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">19</td><td class="py-3 px-6">MAULIDATUL FAJRIYAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">20</td><td class="py-3 px-6">MIFTAQUL TRI SEPTIAN RAMADHANI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">21</td><td class="py-3 px-6">MOCHAMAD PUTRA ERLANGGA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">22</td><td class="py-3 px-6">MOH. YUSUF</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">23</td><td class="py-3 px-6">MUCHAMAD ARGA YUSRON AL BARIZI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">24</td><td class="py-3 px-6">MUCHAMMAD HABBIBULLOH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">25</td><td class="py-3 px-6">MUCHAMMAD RIZKY ISLAMI PUTRA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">26</td><td class="py-3 px-6">MUCHAMMAD ZAINAL ABIDIN</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">27</td><td class="py-3 px-6">MUHAMMAD ADITYA PRATAMA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">28</td><td class="py-3 px-6">MUTIMMATUZ ZAHROH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">29</td><td class="py-3 px-6">NAHDIYATUL KAFILA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">30</td><td class="py-3 px-6">NAZWA SEPTIASYAH KUSUMA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">31</td><td class="py-3 px-6">NIMATUZ ZAHIROH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">32</td><td class="py-3 px-6">NOVIA EKA SAPUTRI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">33</td><td class="py-3 px-6">PAMELA TRI SUKMAWATI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">34</td><td class="py-3 px-6">PUJI EKA PRATIWI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">35</td><td class="py-3 px-6">PUTRI HASNA NABILAH</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 3: KELAS XII DKV 3 -->
-            <div id="content-dkv3" class="tab-content hidden">
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700">Daftar Siswa Kelas XII DKV 3</div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse student-table">
-                            <thead>
-                                <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
-                                    <th class="py-3 px-6 w-16">No</th>
-                                    <th class="py-3 px-6">Nama Lengkap Siswa</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-gray-700 text-sm divide-y divide-gray-100">
-                                <tr><td class="py-3 px-6 font-medium">1</td><td class="py-3 px-6">MUHAMMAD SYAHRIL AL DIYANTO</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">2</td><td class="py-3 px-6">MUKHAMAD LUTHFILLAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">3</td><td class="py-3 px-6">MUKHAMMAD HAIKAL MUZHAFFAR ADRIANSYAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">4</td><td class="py-3 px-6">MUKHAMMAD ROY FIRODHI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">5</td><td class="py-3 px-6">NAKHLAH ROHMAN</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">6</td><td class="py-3 px-6">RANIYA MUYASSAROTUL AMIRA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">7</td><td class="py-3 px-6">REFANIA AURA FEBRIANTI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">8</td><td class="py-3 px-6">RENATA MAYA LORINA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">9</td><td class="py-3 px-6">RIZKA MIFTAKHUL JANNAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">10</td><td class="py-3 px-6">SAFINA MEI AGUSTINA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">11</td><td class="py-3 px-6">SAFINAH RIZKY AMALIYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">12</td><td class="py-3 px-6">SAFIRA IVANA PUTRI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">13</td><td class="py-3 px-6">SAYYIDAH INDAR PARAWANSA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">14</td><td class="py-3 px-6">SELLA SALSABILA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">15</td><td class="py-3 px-6">SILVI NUR KUMALASARI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">16</td><td class="py-3 px-6">SITI FATIMATUZ ZAHROH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">17</td><td class="py-3 px-6">SITI MAISYAROH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">18</td><td class="py-3 px-6">SITI ROFIQO</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">19</td><td class="py-3 px-6">SUBHAN ZAKARIA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">20</td><td class="py-3 px-6">SURYA PUTRA RAMADHAN</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">21</td><td class="py-3 px-6">SYAHLINA NAZWA ELMIRA PUTRI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">22</td><td class="py-3 px-6">SYAMSA GITA AULIYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">23</td><td class="py-3 px-6">TAKI RADA KARINDA ZIZA DAMARA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">24</td><td class="py-3 px-6">TAMARA AYU MAULIDYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">25</td><td class="py-3 px-6">THUFAIL ILYAS FIRDAUS</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">26</td><td class="py-3 px-6">TIS'ATA HIDAYAT</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">27</td><td class="py-3 px-6">UMMU SALAMAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">28</td><td class="py-3 px-6">WIDYAH NUFAH QANITAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">29</td><td class="py-3 px-6">WULAN DWI MAULIDAH</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">30</td><td class="py-3 px-6">YOGA EKA PRASTYO</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">31</td><td class="py-3 px-6">YUNIKE MARCHISA MAULIDYA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">32</td><td class="py-3 px-6">YUNITA SEPTIA RAMADHANI</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">33</td><td class="py-3 px-6">ZAHIRAH DWI LIANSA</td></tr>
-                                <tr><td class="py-3 px-6 font-medium">34</td><td class="py-3 px-6">ZAMNEIA AZ ZAHRA</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-        </main>
-    </div>
-
-    <!-- Script JavaScript untuk Tab & Fitur Pencarian -->
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <script>
-        function switchTab(classId) {
-            // Sembunyikan semua konten tab
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            // Tampilkan tab yang dipilih
-            document.getElementById('content-' + classId).classList.remove('hidden');
-
-            // Reset tombol navigasi
-            ['dkv1', 'dkv2', 'dkv3'].forEach(id => {
-                const btn = document.getElementById('btn-' + id);
-                btn.className = "px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-white text-gray-600 border border-gray-200 hover:bg-gray-50";
-            });
-
-            // Aktifkan tombol yang diklik
-            const activeBtn = document.getElementById('btn-' + classId);
-            activeBtn.className = "px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-blue-600 text-white shadow-sm";
-        }
-
-        function filterTable() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            // Cari pada tab yang sedang aktif
-            let activeTab = document.querySelector('.tab-content:not(.hidden)');
-            let rows = activeTab.getElementsByTagName('tr');
-
-            for (let i = 1; i < rows.length; i++) {
-                let nameCol = rows[i].getElementsByTagName('td')[1];
-                if (nameCol) {
-                    let txtValue = nameCol.textContent || nameCol.innerText;
-                    if (txtValue.toLowerCase().indexOf(input) > -1) {
-                        rows[i].style.display = "";
-                    } else {
-                        rows[i].style.display = "none";
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            accent: '#06b6d4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
 
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity"></div>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- ================= SIDEBAR MENU (KIRI) ================= -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700/60 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col">
+            
+            <!-- Header Sidebar -->
+            <div class="p-5 border-b border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+                        <i class="fa-solid fa-palette text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-900 dark:text-white leading-tight">KIK XII DKV</h1>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tahun Ajaran 2026</span>
+                    </div>
+                </div>
+                <span class="bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-500 text-xs font-bold px-2.5 py-1 rounded-full border border-brand-500/20">SMK</span>
+            </div>
+
+            <!-- Navigasi Berkelompok -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-6">
+                <!-- Group 1: Utama -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Menu Utama</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-chart-pie w-5"></i>
+                            <span>Dashboard Overview</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Group 2: Aktivitas & Katalog -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Aktivitas & Direktori</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-tasks text-slate-400 w-5"></i>
+                                <span>Tugas & Proyek</span>
+                            </div>
+                            <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 text-xs px-2 py-0.5 rounded-full font-bold">2 Aktif</span>
+                        </a>
+                        <a href="project1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-store text-orange-500 w-5"></i>
+                            <span>Proyek 1: Panduan Shopee</span>
+                        </a>
+                        <a href="project2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-brands fa-tiktok text-pink-500 w-5"></i>
+                            <span>Proyek 2: Skenario TikTok</span>
+                        </a>
+                        <a href="produk1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-image text-purple-500 w-5"></i>
+                            <span>Produk 1 (Wallpaper)</span>
+                        </a>
+                        <a href="produk2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-sliders text-blue-500 w-5"></i>
+                            <span>Produk 2 (Preset)</span>
+                        </a>
+                        <!-- Produk 3 Aktif -->
+                        <a href="produk3.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-emerald-600 text-white shadow-md shadow-emerald-600/20 transition-all">
+                            <i class="fa-solid fa-file-lines text-white w-5"></i>
+                            <span>Produk 3 (Template Canva)</span>
+                        </a>
+                        <a href="produk4.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-box text-rose-500 w-5"></i>
+                            <span>Produk 4 (Mockup Kemasan)</span>
+                        </a>
+                        <a href="data_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-users text-emerald-500 w-5"></i>
+                            <span>Data Siswa DKV</span>
+                        </a>
+                        <a href="nilai_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-graduation-cap text-amber-500 w-5"></i>
+                            <span>Rekap Nilai Siswa</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Footer Sidebar / Repository Badge -->
+            <div class="p-4 border-t border-slate-200 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/50">
+                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="flex items-center gap-3 p-2.5 rounded-xl bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/60 hover:border-brand-500 transition-all shadow-sm group">
+                    <i class="fa-brands fa-github text-xl text-slate-700 dark:text-slate-200 group-hover:text-brand-500"></i>
+                    <div class="overflow-hidden">
+                        <p class="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">sagusanov/xiidkv2026</p>
+                        <p class="text-[10px] text-slate-400 flex items-center gap-1">
+                            <span>Open Repository</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT AREA (KANAN) ================= -->
+        <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+            
+            <!-- Top Header Bar -->
+            <header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleSidebar()" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100">Produk 3: Katalog & Materi Template Canva UMKM</h2>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleDarkMode()" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" title="Ubah Mode Tampilan">
+                        <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                    </button>
+
+                    <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+
+                    <div class="flex items-center gap-3 pl-1">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Avatar Siswa" class="w-9 h-9 rounded-xl object-cover ring-2 ring-brand-500/30">
+                        <div class="hidden md:block text-left">
+                            <p class="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">Siswa DKV XII</p>
+                            <p class="text-[11px] text-slate-400">Kreatif & Kewirausahaan</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Inner Page Content -->
+            <div class="p-4 lg:p-8 space-y-8 max-w-6xl mx-auto w-full flex-1">
+
+                <!-- Hero Banner -->
+                <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 text-white p-6 md:p-8 shadow-xl shadow-emerald-500/20">
+                    <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                        <div class="space-y-2 max-w-2xl">
+                            <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md">
+                                <i class="fa-solid fa-book-open mr-1"></i> Modul Praktikum DKV #3
+                            </span>
+                            <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Katalog & Materi Template Canva Feed & Story UMKM</h1>
+                            <p class="text-emerald-100 text-sm leading-relaxed">
+                                Panduan lengkap dan sistematis untuk membuat, mendesain, serta menjual produk digital template Canva yang profesional dan estetik di e-commerce.
+                            </p>
+                        </div>
+                        <a href="https://shopee.co.id/search?keyword=template%20canva%20feed%20instagram%20umkm" target="_blank" class="bg-white text-emerald-700 hover:bg-emerald-50 font-bold px-5 py-3 rounded-xl text-sm transition-all shadow-md shrink-0 flex items-center gap-2">
+                            <i class="fa-solid fa-bag-shopping text-emerald-600"></i> Contoh Produk di Shopee
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bagian 1: Galeri Katalog Produk Siswa -->
+                <section class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Galeri Showcase Karya Siswa</h3>
+                            <p class="text-xs text-slate-400">Pilihan paket template siap edit untuk berbagai jenis usaha UMKM</p>
+                        </div>
+                        <span class="text-xs bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full font-bold">6 Paket Aktif</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Card 1 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                            <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=600" alt="Kuliner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Canva Editable</span>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-emerald-600 transition-colors">Kit Promo Kuliner Pedas & Cafe Aesthetic</h4>
+                                    <p class="text-xs text-slate-400">24 Grid Feed (1080x1350) + 12 Story IG siap pakai.</p>
+                                </div>
+                                <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs">
+                                    <span class="text-slate-400">Karya: <strong class="text-slate-700 dark:text-slate-200">Ahmad DKV 1</strong></span>
+                                    <a href="https://canva.com" target="_blank" class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition-all">Preview</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                            <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=600" alt="Fashion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Canva Editable</span>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-emerald-600 transition-colors">Fashion & Hijab Outfit Clean Look Kit</h4>
+                                    <p class="text-xs text-slate-400">30 Grid Feed (1080x1350) + 10 Story IG bertema earthy tone.</p>
+                                </div>
+                                <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs">
+                                    <span class="text-slate-400">Karya: <strong class="text-slate-700 dark:text-slate-200">Siti Nur DKV 2</strong></span>
+                                    <a href="https://canva.com" target="_blank" class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition-all">Preview</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 overflow-hidden shadow-sm hover:shadow-lg transition-all group flex flex-col">
+                            <div class="relative aspect-video bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1542744094-3a31216994ec?auto=format&fit=crop&q=80&w=600" alt="Jasa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow">Canva Editable</span>
+                            </div>
+                            <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                                <div>
+                                    <h4 class="font-bold text-slate-800 dark:text-slate-100 text-base mb-1 group-hover:text-emerald-600 transition-colors">Agensi Digital & Jasa Cuci Sepatu Branding</h4>
+                                    <p class="text-xs text-slate-400">20 Grid Feed + Pricelist & Ulasan Pelanggan interaktif.</p>
+                                </div>
+                                <div class="pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs">
+                                    <span class="text-slate-400">Karya: <strong class="text-slate-700 dark:text-slate-200">Rian DKV 1</strong></span>
+                                    <a href="https://canva.com" target="_blank" class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-lg font-bold hover:bg-emerald-600 hover:text-white transition-all">Preview</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="border-slate-200 dark:border-slate-800">
+
+                <!-- Bagian 2: Materi & Panduan Lengkap Siswa -->
+                <section class="bg-white dark:bg-slate-800 p-6 md:p-10 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-sm space-y-8">
+                    <div class="border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Modul Ajar DKV 2026</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">Panduan Lengkap & Sistematis Pembuatan Template Canva Feed & Story UMKM</h3>
+                        <p class="text-xs text-slate-400 mt-1">Materi lengkap yang dipelajari dan dikerjakan oleh siswa.</p>
+                    </div>
+
+                    <!-- 1. Alur & Konsep Pembuatan (Workflow) -->
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm font-bold">1</span>
+                            Alur & Konsep Pembuatan (Workflow)
+                        </h4>
+                        
+                        <div class="pl-9 space-y-4 text-sm text-slate-600 dark:text-slate-300">
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 block mb-1">A. Riset & Penentuan Niche (Niche/Tema Usaha)</strong>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Sebelum mendesain, tentukan segmen UMKM yang ingin dituju:</p>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li><strong>F&B / Kuliner:</strong> Makanan pedas, cafe/coffee shop, katering, kue & bakery.</li>
+                                    <li><strong>Fashion & Beauty:</strong> Busana muslim, skincare, outfit harian, thrift shop.</li>
+                                    <li><strong>Jasa & Olshop Umum:</strong> Agensi digital, cuci sepatu, laundry, gadget.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 block mb-1">B. Menentukan Struktur Paket (Ketersediaan Slide/Grid)</strong>
+                                <p class="text-xs text-slate-500 dark:text-slate-400 mb-2">Dalam 1 set katalog template Canva, buat paket lengkap yang mencakup:</p>
+                                
+                                <div class="space-y-3 pl-2">
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">1. Grid Feed IG (1080 x 1080 px atau 1080 x 1350 px):</strong>
+                                        <ul class="list-disc pl-5 space-y-1 text-xs">
+                                            <li>Hook / Promo Utama (Diskon/Flash Sale).</li>
+                                            <li>Showcase Produk (Single foto & Carousel multi-foto).</li>
+                                            <li>Edukasi / Tips (Infografis/Poin-poin menarik).</li>
+                                            <li>Testimoni / Ulasan Pembeli.</li>
+                                            <li>Pricelist / Menu.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">2. Story IG (1080 x 1920 px):</strong>
+                                        <ul class="list-disc pl-5 space-y-1 text-xs">
+                                            <li>Q&A / Polling Interaktif.</li>
+                                            <li>Order Flow (Cara Pemesanan).</li>
+                                            <li>Countdown Promo.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Langkah-Langkah Mendesain di Canva -->
+                    <div class="space-y-4 pt-6 border-t border-slate-100 dark:border-slate-700">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm font-bold">2</span>
+                            Langkah-Langkah Mendesain di Canva
+                        </h4>
+                        
+                        <div class="pl-9 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">1. Buat File Baru di Canva:</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li>Pilih ukuran <strong>Instagram Post (Portrait 1080 x 1350 px)</strong> agar tampilan lebih luas di layar HP.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">2. Tentukan Brand Identity (Aturan Desain):</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li><strong>Palet Warna:</strong> Gunakan 3–4 kombinasi warna utama (misal: Earthy tone, Pastel, atau Bold Modern).</li>
+                                    <li><strong>Tipografi:</strong> Pilih kombinasi 2 jenis font (1 untuk Heading yang tegas/estetik, 1 untuk Body text yang mudah dibaca).</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">3. Gunakan Elemen Komersial / Free:</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li>Pastikan elemen, foto, dan font yang digunakan adalah elemen <strong>Gratis (Free)</strong> dari Canva, agar pembeli yang menggunakan akun Canva biasa tidak terkendala watermark.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">4. Sediakan Frame / Frame Foto:</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li>Gunakan fitur <strong>Frame Canva</strong> pada area gambar/foto produk agar pengguna tinggal menyeret (drag and drop) foto produk mereka sendiri.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Cara Membagikan & Menjual Link Template Canva -->
+                    <div class="space-y-4 pt-6 border-t border-slate-100 dark:border-slate-700">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm font-bold">3</span>
+                            Cara Membagikan & Menjual Link Template Canva
+                        </h4>
+                        
+                        <div class="pl-9 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                            <p class="text-xs text-slate-400">Setelah semua desain selesai:</p>
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">1. Ambil Template Link (Tautan Template):</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li>Klik tombol <strong>Bagikan (Share)</strong> di pojok kanan atas Canva.</li>
+                                    <li>Pilih opsi <strong>Lainnya (More)</strong> &rarr; Pilih <strong>Tautan Template (Template Link)</strong>.</li>
+                                    <li><strong class="text-emerald-600 dark:text-emerald-400">Catatan:</strong> Jangan bagikan link kolaborasi biasa (View/Edit Link) agar file master Anda tidak tertimpa/rusak oleh pembeli.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-slate-800 dark:text-slate-100 text-xs block mb-1">2. Buat File Access Card / PDF Pengiriman:</strong>
+                                <ul class="list-disc pl-5 space-y-1 text-xs">
+                                    <li>Buat 1 lembar PDF interaktif berisi tulisan "Terima Kasih Atas Pembelian Anda".</li>
+                                    <li>Sisipkan tombol/hyperlink bertuliskan <strong>"KLIK DI SINI UNTUK MENGAKSES TEMPLATE CANVA"</strong> yang mengarah ke Template Link tadi.</li>
+                                    <li>File PDF ini yang nantinya dikirimkan otomatis ke pembeli di platform e-commerce (Shopee/Google Drive).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Struktur Tampilan Katalog Web -->
+                    <div class="space-y-4 pt-6 border-t border-slate-100 dark:border-slate-700">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <span class="w-7 h-7 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-sm font-bold">4</span>
+                            Struktur Tampilan Katalog Web (Kode HTML / Portofolio)
+                        </h4>
+                        
+                        <div class="pl-9 space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                            <p>Jika Anda ingin menampilkan karya template tersebut ke dalam web portofolio/katalog (seperti pada halaman produk3.html), gunakan struktur grid berikut:</p>
+                            <ul class="list-disc pl-5 space-y-1.5">
+                                <li><strong>Header/Banner:</strong> Judul katalog + deskripsi singkat + tombol menuju toko.</li>
+                                <li><strong>Fitur Filter:</strong> Kategori per segmen (Kuliner, Fashion, Jasa).</li>
+                                <li><strong>Grid Card Item:</strong>
+                                    <ul class="list-disc pl-5 mt-1 space-y-1 text-slate-500 dark:text-slate-400">
+                                        <li><strong>Gambar Pratinjau (Thumbnail):</strong> Foto mockup feed IG.</li>
+                                        <li><strong>Badge:</strong> Indikator "Canva Editable" / "Free Elements".</li>
+                                        <li><strong>Deskripsi:</strong> Jumlah slide (misal: 24 Feed + 12 Story).</li>
+                                        <li><strong>Nama Pembuat:</strong> Nama desainer/siswa.</li>
+                                        <li><strong>Tombol Aksi:</strong> Link ke Preview Canva atau Toko Shopee.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="py-4 px-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
+                &copy; 2026 KIK XII DKV &bull; Dikembangkan untuk Pembelajaran Kreatif & Kewirausahaan SMK N 1 Bangil
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript Logika Sidebar & Dark Mode -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            htmlElement.classList.toggle('dark');
+            
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </body>
 </html>
