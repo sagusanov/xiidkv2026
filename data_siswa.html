@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Siswa - Kelas XII DKV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+
+        <!-- SIDEBAR MENU -->
+        <aside class="w-full md:w-64 bg-slate-900 text-white flex-shrink-0">
+            <div class="p-4 text-xl font-bold border-b border-slate-800 flex items-center justify-between">
+                <span>XI DKV 2026</span>
+            </div>
+            <nav class="p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Beranda</a>
+                <a href="produk1.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 1 (Wallpaper)</a>
+                <a href="produk2.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 2 (Preset)</a>
+                <a href="produk3.html" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">Produk 3</a>
+                <a href="data_siswa.html" class="block px-4 py-2.5 rounded-lg bg-blue-600 font-medium text-white">Data Siswa DKV</a>
+            </nav>
+        </aside>
+
+        <!-- KONTEN UTAMA -->
+        <main class="flex-1 p-6 md:p-10 max-w-6xl">
+            
+            <!-- Header Halaman -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">Direktori Akademik</span>
+                    <h1 class="text-3xl font-bold text-gray-800">Data Siswa Kelas XII DKV</h1>
+                    <p class="text-gray-500 text-sm mt-1">Daftar lengkap siswa-siswi kelas XII Desain Komunikasi Visual.</p>
+                </div>
+                <!-- Kolom Pencarian -->
+                <div class="w-full md:w-72">
+                    <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Cari nama siswa..." class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+            </div>
+
+            <!-- Tab Navigasi Kelas -->
+            <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-200 pb-4">
+                <button onclick="switchTab('dkv1')" id="btn-dkv1" class="px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-blue-600 text-white shadow-sm">XII DKV 1 (32 Siswa)</button>
+                <button onclick="switchTab('dkv2')" id="btn-dkv2" class="px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">XII DKV 2 (35 Siswa)</button>
+                <button onclick="switchTab('dkv3')" id="btn-dkv3" class="px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-white text-gray-600 border border-gray-200 hover:bg-gray-50">XII DKV 3 (34 Siswa)</button>
+            </div>
+
+            <!-- TAB 1: KELAS XII DKV 1 -->
+            <div id="content-dkv1" class="tab-content">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700">Daftar Siswa Kelas XII DKV 1</div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse student-table">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
+                                    <th class="py-3 px-6 w-16">No</th>
+                                    <th class="py-3 px-6">Nama Lengkap Siswa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm divide-y divide-gray-100">
+                                <tr><td class="py-3 px-6 font-medium">1</td><td class="py-3 px-6">ABYAN LUQMAN ZHAFIR</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">2</td><td class="py-3 px-6">ADELIA AGUSTIN</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">3</td><td class="py-3 px-6">AIDA AINUL FITRI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">4</td><td class="py-3 px-6">AIKA YULIANA RAHAYU</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">5</td><td class="py-3 px-6">AISYA FITRIYANI AMELIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">6</td><td class="py-3 px-6">AMELIA BUNGA LESTARI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">7</td><td class="py-3 px-6">AMELIA PUTRI CAHYATI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">8</td><td class="py-3 px-6">ANA TASYA SYAIFINDHA AKBAR</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">9</td><td class="py-3 px-6">ANDIN DWI ARTIANA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">10</td><td class="py-3 px-6">ARJUNA ZAQIYUL KHULUQ</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">11</td><td class="py-3 px-6">ASMAUL FITRI AULIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">12</td><td class="py-3 px-6">ATHA BRIAN SURENDRA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">13</td><td class="py-3 px-6">AURELL ZAZKA AZZHARA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">14</td><td class="py-3 px-6">AZKA AZKIYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">15</td><td class="py-3 px-6">BAGAS FIRMANSYAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">16</td><td class="py-3 px-6">BILQIS NADIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">17</td><td class="py-3 px-6">BINTA AINIL MAHMUDAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">18</td><td class="py-3 px-6">CINTA NURIYYAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">19</td><td class="py-3 px-6">DAVIN ARDI MAHESYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">20</td><td class="py-3 px-6">DINAR ELFARA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">21</td><td class="py-3 px-6">DINDA CAHAYA ANTIKA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">22</td><td class="py-3 px-6">DINDA DWI WARDHANI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">23</td><td class="py-3 px-6">DINDA SHASABILLA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">24</td><td class="py-3 px-6">DWI NAVILA RAMADHANI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">25</td><td class="py-3 px-6">DWI SAYYIDAH AFIYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">26</td><td class="py-3 px-6">ELY RIZKIYAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">27</td><td class="py-3 px-6">ERIZKA PUTRI AMELIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">28</td><td class="py-3 px-6">FATIMATUS ZAHROH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">29</td><td class="py-3 px-6">GHIVARI RAJABI ACHMAD</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">30</td><td class="py-3 px-6">HENDRA DWI SAPUTRA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">31</td><td class="py-3 px-6">JOVI SETYAWAN</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">32</td><td class="py-3 px-6">KEVIN SAHAL MARVELINO</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: KELAS XII DKV 2 -->
+            <div id="content-dkv2" class="tab-content hidden">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700">Daftar Siswa Kelas XII DKV 2</div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse student-table">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
+                                    <th class="py-3 px-6 w-16">No</th>
+                                    <th class="py-3 px-6">Nama Lengkap Siswa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm divide-y divide-gray-100">
+                                <tr><td class="py-3 px-6 font-medium">1</td><td class="py-3 px-6">FIRA MAULINA ARIFIN</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">2</td><td class="py-3 px-6">FITROTUL AZIZAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">3</td><td class="py-3 px-6">GEBBY OLIVIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">4</td><td class="py-3 px-6">GUSTI ANDINI ANASTASIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">5</td><td class="py-3 px-6">HIKMATUL LAILI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">6</td><td class="py-3 px-6">IDFI AMALIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">7</td><td class="py-3 px-6">KAMILA MEISINTA ANGGRAINI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">8</td><td class="py-3 px-6">KINANTHI AYU ROFIQI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">9</td><td class="py-3 px-6">LAILI AYU DEWANTARI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">10</td><td class="py-3 px-6">LALUNA EMILY</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">11</td><td class="py-3 px-6">M. ARMAN MAULANA MALIK IBRAHIM</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">12</td><td class="py-3 px-6">MUHAMMAD FAJAR</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">13</td><td class="py-3 px-6">M. PUTRA SLAMET RAMADANI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">14</td><td class="py-3 px-6">MACHDA DEVI AULIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">15</td><td class="py-3 px-6">MARISCA NESTI SAFIRA PRIYANDA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">16</td><td class="py-3 px-6">MARWA SAFA ELSAFADINA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">17</td><td class="py-3 px-6">MAULIDA RAHMADEWI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">18</td><td class="py-3 px-6">MAULIDA RAHMANIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">19</td><td class="py-3 px-6">MAULIDATUL FAJRIYAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">20</td><td class="py-3 px-6">MIFTAQUL TRI SEPTIAN RAMADHANI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">21</td><td class="py-3 px-6">MOCHAMAD PUTRA ERLANGGA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">22</td><td class="py-3 px-6">MOH. YUSUF</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">23</td><td class="py-3 px-6">MUCHAMAD ARGA YUSRON AL BARIZI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">24</td><td class="py-3 px-6">MUCHAMMAD HABBIBULLOH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">25</td><td class="py-3 px-6">MUCHAMMAD RIZKY ISLAMI PUTRA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">26</td><td class="py-3 px-6">MUCHAMMAD ZAINAL ABIDIN</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">27</td><td class="py-3 px-6">MUHAMMAD ADITYA PRATAMA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">28</td><td class="py-3 px-6">MUTIMMATUZ ZAHROH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">29</td><td class="py-3 px-6">NAHDIYATUL KAFILA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">30</td><td class="py-3 px-6">NAZWA SEPTIASYAH KUSUMA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">31</td><td class="py-3 px-6">NIMATUZ ZAHIROH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">32</td><td class="py-3 px-6">NOVIA EKA SAPUTRI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">33</td><td class="py-3 px-6">PAMELA TRI SUKMAWATI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">34</td><td class="py-3 px-6">PUJI EKA PRATIWI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">35</td><td class="py-3 px-6">PUTRI HASNA NABILAH</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: KELAS XII DKV 3 -->
+            <div id="content-dkv3" class="tab-content hidden">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-4 bg-gray-50 border-b border-gray-200 font-bold text-gray-700">Daftar Siswa Kelas XII DKV 3</div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse student-table">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-600 text-xs uppercase tracking-wider border-b border-gray-200">
+                                    <th class="py-3 px-6 w-16">No</th>
+                                    <th class="py-3 px-6">Nama Lengkap Siswa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm divide-y divide-gray-100">
+                                <tr><td class="py-3 px-6 font-medium">1</td><td class="py-3 px-6">MUHAMMAD SYAHRIL AL DIYANTO</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">2</td><td class="py-3 px-6">MUKHAMAD LUTHFILLAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">3</td><td class="py-3 px-6">MUKHAMMAD HAIKAL MUZHAFFAR ADRIANSYAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">4</td><td class="py-3 px-6">MUKHAMMAD ROY FIRODHI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">5</td><td class="py-3 px-6">NAKHLAH ROHMAN</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">6</td><td class="py-3 px-6">RANIYA MUYASSAROTUL AMIRA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">7</td><td class="py-3 px-6">REFANIA AURA FEBRIANTI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">8</td><td class="py-3 px-6">RENATA MAYA LORINA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">9</td><td class="py-3 px-6">RIZKA MIFTAKHUL JANNAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">10</td><td class="py-3 px-6">SAFINA MEI AGUSTINA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">11</td><td class="py-3 px-6">SAFINAH RIZKY AMALIYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">12</td><td class="py-3 px-6">SAFIRA IVANA PUTRI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">13</td><td class="py-3 px-6">SAYYIDAH INDAR PARAWANSA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">14</td><td class="py-3 px-6">SELLA SALSABILA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">15</td><td class="py-3 px-6">SILVI NUR KUMALASARI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">16</td><td class="py-3 px-6">SITI FATIMATUZ ZAHROH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">17</td><td class="py-3 px-6">SITI MAISYAROH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">18</td><td class="py-3 px-6">SITI ROFIQO</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">19</td><td class="py-3 px-6">SUBHAN ZAKARIA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">20</td><td class="py-3 px-6">SURYA PUTRA RAMADHAN</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">21</td><td class="py-3 px-6">SYAHLINA NAZWA ELMIRA PUTRI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">22</td><td class="py-3 px-6">SYAMSA GITA AULIYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">23</td><td class="py-3 px-6">TAKI RADA KARINDA ZIZA DAMARA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">24</td><td class="py-3 px-6">TAMARA AYU MAULIDYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">25</td><td class="py-3 px-6">THUFAIL ILYAS FIRDAUS</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">26</td><td class="py-3 px-6">TIS'ATA HIDAYAT</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">27</td><td class="py-3 px-6">UMMU SALAMAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">28</td><td class="py-3 px-6">WIDYAH NUFAH QANITAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">29</td><td class="py-3 px-6">WULAN DWI MAULIDAH</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">30</td><td class="py-3 px-6">YOGA EKA PRASTYO</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">31</td><td class="py-3 px-6">YUNIKE MARCHISA MAULIDYA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">32</td><td class="py-3 px-6">YUNITA SEPTIA RAMADHANI</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">33</td><td class="py-3 px-6">ZAHIRAH DWI LIANSA</td></tr>
+                                <tr><td class="py-3 px-6 font-medium">34</td><td class="py-3 px-6">ZAMNEIA AZ ZAHRA</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script JavaScript untuk Tab & Fitur Pencarian -->
+    <script>
+        function switchTab(classId) {
+            // Sembunyikan semua konten tab
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            // Tampilkan tab yang dipilih
+            document.getElementById('content-' + classId).classList.remove('hidden');
+
+            // Reset tombol navigasi
+            ['dkv1', 'dkv2', 'dkv3'].forEach(id => {
+                const btn = document.getElementById('btn-' + id);
+                btn.className = "px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-white text-gray-600 border border-gray-200 hover:bg-gray-50";
+            });
+
+            // Aktifkan tombol yang diklik
+            const activeBtn = document.getElementById('btn-' + classId);
+            activeBtn.className = "px-5 py-2.5 rounded-lg font-semibold text-sm transition bg-blue-600 text-white shadow-sm";
+        }
+
+        function filterTable() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            // Cari pada tab yang sedang aktif
+            let activeTab = document.querySelector('.tab-content:not(.hidden)');
+            let rows = activeTab.getElementsByTagName('tr');
+
+            for (let i = 1; i < rows.length; i++) {
+                let nameCol = rows[i].getElementsByTagName('td')[1];
+                if (nameCol) {
+                    let txtValue = nameCol.textContent || nameCol.innerText;
+                    if (txtValue.toLowerCase().indexOf(input) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
