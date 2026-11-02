@@ -657,42 +657,45 @@
     }
 
     // 4. COUNTDOWN TIMER LOGIC (Menggunakan format padStart agar rapi 2 digit)
-// Ubah tahun menjadi 2027 (atau tanggal di masa depan) agar hitung mundur berjalan
+// Menggunakan format aman (Tahun, Bulan 0-11, Tanggal, Jam, Menit, Detik)
+// Contoh diset ke 20 Oktober 2027 agar tidak kedaluwarsa
 const weddingDate = new Date(2027, 9, 20, 8, 0, 0).getTime();
-    
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = weddingDate - now;
 
-        const daysElement = document.getElementById("timer-days");
-        const hoursElement = document.getElementById("timer-hours");
-        const minutesElement = document.getElementById("timer-minutes");
-        const secondsElement = document.getElementById("timer-seconds");
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
 
-        if (!daysElement || !hoursElement || !minutesElement || !secondsElement) return;
+    const daysEl = document.getElementById("timer-days");
+    const hoursEl = document.getElementById("timer-hours");
+    const minutesEl = document.getElementById("timer-minutes");
+    const secondsEl = document.getElementById("timer-seconds");
 
-        if (distance < 0) {
-            daysElement.innerText = "00";
-            hoursElement.innerText = "00";
-            minutesElement.innerText = "00";
-            secondsElement.innerText = "00";
-            return;
-        }
+    // Pastikan elemen HTML-nya ada agar tidak error di console
+    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        daysElement.innerText = String(days).padStart(2, '0');
-        hoursElement.innerText = String(hours).padStart(2, '0');
-        minutesElement.innerText = String(minutes).padStart(2, '0');
-        secondsElement.innerText = String(seconds).padStart(2, '0');
+    if (distance < 0) {
+        daysEl.innerText = "00";
+        hoursEl.innerText = "00";
+        minutesEl.innerText = "00";
+        secondsEl.innerText = "00";
+        return;
     }
 
-    // Jalankan interval timer setiap 1 detik
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Menampilkan format dua digit angka (padding zero)
+    daysEl.innerText = String(days).padStart(2, '0');
+    hoursEl.innerText = String(hours).padStart(2, '0');
+    minutesEl.innerText = String(minutes).padStart(2, '0');
+    secondsEl.innerText = String(seconds).padStart(2, '0');
+}
+
+// Jalankan interval setiap 1 detik
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
     // 5. COPY ACCOUNT NUMBER (Without alert box, uses visual toast feedback)
     function copyAccount(accNo, btn) {
