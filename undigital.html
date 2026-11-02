@@ -263,11 +263,11 @@
             <!-- Timer Grid -->
             <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto">
                 <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
-                    <span id="timer-days" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">00</span>
+                    <span id="timer-days" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">07</span>
                     <span class="text-[10px] uppercase text-slate-400 font-mono">Hari</span>
                 </div>
                 <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
-                    <span id="timer-hours" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">00</span>
+                    <span id="timer-hours" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">20</span>
                     <span class="text-[10px] uppercase text-slate-400 font-mono">Jam</span>
                 </div>
                 <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
@@ -753,6 +753,50 @@
                 newWish.classList.remove('animate-pulse');
             }, 1500);
         }
-    </script>
+
+    // Atur tanggal target countdown (Tahun, Bulan 0-11, Tanggal, Jam, Menit, Detik)
+// Bulan Oktober adalah bulan ke-9 dalam index JavaScript (0 = Januari, 9 = Oktober)
+const weddingDate = new Date(2026, 9, 20, 8, 0, 0).getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    const daysElement = document.getElementById("timer-days");
+    const hoursElement = document.getElementById("timer-hours");
+    const minutesElement = document.getElementById("timer-minutes");
+    const secondsElement = document.getElementById("timer-seconds");
+
+    // Pastikan elemen timer ada di halaman
+    if (!daysElement || !hoursElement || !minutesElement || !secondsElement) return;
+
+    if (distance < 0) {
+        // Jika hari H sudah lewat
+        daysElement.innerText = "00";
+        hoursElement.innerText = "00";
+        minutesElement.innerText = "00";
+        secondsElement.innerText = "00";
+        return;
+    }
+
+    // Perhitungan waktu
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Tampilkan dengan format dua digit (padding zero)
+    daysElement.innerText = String(days).padStart(2, '0');
+    hoursElement.innerText = String(hours).padStart(2, '0');
+    minutesElement.innerText = String(minutes).padStart(2, '0');
+    secondsElement.innerText = String(seconds).padStart(2, '0');
+}
+
+// Jalankan fungsi setiap 1 detik
+setInterval(updateCountdown, 1000);
+
+// Panggil sekali di awal agar tidak ada jeda 1 detik saat halaman dimuat
+updateCountdown();
+            </script>
 </body>
 </html>
