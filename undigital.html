@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding Film of Romeo & Juliet | Cinematic Premiere</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cinzel Decorative, Playfair Display & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cinema: {
+                            gold: '#D4AF37',
+                            goldlight: '#F3E5AB',
+                            golddark: '#AA7C11',
+                            red: '#8B0000',
+                            redbright: '#E50914',
+                            dark: '#0A0A0B',
+                            card: '#141416',
+                            strip: '#1E1E22'
+                        }
+                    },
+                    fontFamily: {
+                        title: ['Cinzel', 'serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Filmstrip Perforation Effect */
+        .film-perforation-top {
+            background-image: radial-gradient(circle, #0A0A0B 35%, transparent 40%);
+            background-size: 24px 24px;
+            background-repeat: repeat-x;
+            background-position: 0 top;
+        }
+        .film-perforation-side {
+            background-image: radial-gradient(circle, #0A0A0B 35%, transparent 40%);
+            background-size: 20px 24px;
+            background-repeat: repeat-y;
+        }
+        
+        /* Subtle Film Grain Noise Animation Overlay */
+        .film-grain {
+            background: linear-gradient(rgba(18, 16, 16, 0), rgba(0, 0, 0, 0.4)), 
+                        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 4px 4px;
+        }
+
+        /* Cinema Letterbox Aspect Ratio */
+        .cinematic-box {
+            aspect-ratio: 16 / 9;
+        }
+
+        /* Custom Scrollbar for Cinema Theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #AA7C11;
+        }
+
+        /* Pulse glow for countdown & buttons */
+        @keyframes goldGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+        }
+        .glow-gold {
+            animation: goldGlow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-cinema-dark text-slate-200 font-sans antialiased overflow-x-hidden selection:bg-cinema-gold selection:text-black">
+
+    <!-- AUDIO BACKGROUND (HTML5 Audio API) -->
+    <audio id="bg-audio" loop preload="auto">
+        <!-- Royalty Free Romantic Cinematic Background Music -->
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cinematic-documentary-115669.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- FLOATING AUDIO CONTROL BUTTON -->
+    <button id="audio-toggle-btn" onclick="toggleAudio()" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-cinema-gold text-black flex items-center justify-center shadow-2xl border-2 border-white/20 hover:scale-110 transition-all duration-300 hidden" title="Play/Pause Music">
+        <i id="audio-icon" class="fa-solid fa-compact-disc text-xl animate-spin" style="animation-duration: 4s;"></i>
+    </button>
+
+    <!-- ================= COVER OVERLAY (HERO OPENER) ================= -->
+    <div id="cover-overlay" class="fixed inset-0 z-50 bg-cinema-dark flex items-center justify-center p-4 transition-all duration-1000">
+        <!-- Film Grain & Letterbox Style -->
+        <div class="absolute inset-0 film-grain opacity-80 pointer-events-none"></div>
+        <div class="absolute top-0 inset-x-0 h-8 md:h-12 bg-black border-b border-cinema-gold/30 flex items-center justify-around overflow-hidden">
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+        </div>
+        <div class="absolute bottom-0 inset-x-0 h-8 md:h-12 bg-black border-t border-cinema-gold/30 flex items-center justify-around overflow-hidden">
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+        </div>
+
+        <div class="max-w-2xl w-full text-center space-y-6 relative z-10 px-4 py-8 bg-cinema-card/90 rounded-2xl border border-cinema-gold/30 backdrop-blur-md shadow-2xl">
+            <!-- Cinema Badge Header -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cinema-red/30 border border-cinema-redbright text-cinema-goldlight text-xs font-semibold uppercase tracking-widest">
+                <i class="fa-solid fa-clapperboard text-cinema-redbright"></i> Exclusive Wedding Premiere
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-xs uppercase tracking-[0.3em] text-cinema-gold/80 font-sans">A Cinematic Love Story Of</p>
+                <h1 class="text-3xl md:text-5xl font-title text-cinema-gold tracking-wide leading-tight font-bold">
+                    ROMEO & JULIET
+                </h1>
+                <p class="text-xs text-slate-400 italic font-serif">"Two Hearts, One Cinematic Universe"</p>
+            </div>
+
+            <!-- Film Reel Clapper Board Box -->
+            <div class="p-4 bg-cinema-dark/80 rounded-xl border border-white/10 max-w-sm mx-auto text-left font-mono text-xs text-slate-300 space-y-1.5">
+                <div class="flex justify-between border-b border-white/10 pb-1 text-cinema-gold">
+                    <span>SCENE: 20-10-2026</span>
+                    <span>TAKE: 01</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>DIRECTOR:</span>
+                    <span class="text-white">Love & Destiny</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>LOCATION:</span>
+                    <span class="text-white font-sans">Grand Ballroom, Jakarta</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>SPECIAL GUEST:</span>
+                    <span id="guest-name" class="text-cinema-gold font-bold">Tamu Undangan</span>
+                </div>
+            </div>
+
+            <button onclick="openInvitation()" class="glow-gold px-8 py-3.5 bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-sm tracking-wider uppercase rounded-xl hover:scale-105 active:scale-95 transition-transform duration-300 flex items-center justify-center gap-3 mx-auto">
+                <i class="fa-solid fa-film text-base"></i>
+                <span>Play Movie & Open Invitation</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ================= MAIN INVITATION CONTENT ================= -->
+    <main id="main-content" class="min-h-screen opacity-0 transition-opacity duration-1000 max-w-4xl mx-auto px-4 py-10 space-y-16">
+
+        <!-- HEADER BANNER / MOVIE TITLE -->
+        <section class="text-center space-y-4 pt-6 relative">
+            <div class="inline-block p-3 rounded-2xl bg-cinema-card border border-cinema-gold/20 shadow-xl">
+                <div class="relative rounded-xl overflow-hidden cinematic-box max-w-2xl mx-auto border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Couple Cover" class="w-full h-full object-cover filter contrast-125 saturate-90 transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cinema-dark via-cinema-dark/30 to-transparent"></div>
+                    <div class="absolute bottom-4 inset-x-0 text-center px-4">
+                        <span class="text-[10px] tracking-[0.4em] uppercase text-cinema-gold font-title block">Now Showing</span>
+                        <h2 class="text-2xl md:text-4xl font-title text-white font-bold tracking-wider">THE WEDDING REEL</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <div class="max-w-xl mx-auto p-6 bg-cinema-card/60 rounded-2xl border border-white/5 relative">
+                <i class="fa-solid fa-quote-left text-cinema-gold/20 text-4xl absolute top-3 left-4"></i>
+                <p class="text-xs md:text-sm italic font-serif text-slate-300 leading-relaxed px-4">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang."
+                </p>
+                <span class="text-[11px] font-sans font-semibold text-cinema-gold mt-2 block">— QS. Ar-Rum: 21</span>
+            </div>
+        </section>
+
+
+        <!-- STARRING: BRIDE & GROOM PROFILE -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Starring Roles</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">THE MAIN CAST</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Groom Card -->
+                <div class="bg-cinema-card rounded-2xl p-6 border border-cinema-gold/30 shadow-xl space-y-4 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 px-4 py-1 bg-cinema-gold text-black font-title text-[10px] font-bold tracking-wider uppercase rounded-bl-xl">
+                        Actor Utama
+                    </div>
+                    
+                    <div class="w-32 h-40 mx-auto rounded-xl overflow-hidden border-2 border-cinema-gold/50 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Groom" class="w-full h-full object-cover filter contrast-110">
+                    </div>
+
+                    <div class="text-center space-y-1.5">
+                        <h4 class="text-xl font-title text-cinema-gold font-bold">Romeo Putra Pratama, S.T.</h4>
+                        <p class="text-xs text-slate-400 font-sans">Putra Pertama dari Bpk. Pratama & Ibu Pratama</p>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cinema-gold text-xs text-slate-300 hover:text-cinema-gold transition">
+                            <i class="fa-brands fa-instagram text-cinema-gold"></i>
+                            <span>@romeo_pratama</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bride Card -->
+                <div class="bg-cinema-card rounded-2xl p-6 border border-cinema-gold/30 shadow-xl space-y-4 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 px-4 py-1 bg-cinema-gold text-black font-title text-[10px] font-bold tracking-wider uppercase rounded-bl-xl">
+                        Aktris Utama
+                    </div>
+                    
+                    <div class="w-32 h-40 mx-auto rounded-xl overflow-hidden border-2 border-cinema-gold/50 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Bride" class="w-full h-full object-cover filter contrast-110">
+                    </div>
+
+                    <div class="text-center space-y-1.5">
+                        <h4 class="text-xl font-title text-cinema-gold font-bold">Juliet Anggraini, S.Ds.</h4>
+                        <p class="text-xs text-slate-400 font-sans">Putri Kedua dari Bpk. Anggraini & Ibu Anggraini</p>
+                    </div>
+
+                    <div class="pt-2 text-center">
+                        <a href="https://instagram.com" target="_blank" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:border-cinema-gold text-xs text-slate-300 hover:text-cinema-gold transition">
+                            <i class="fa-brands fa-instagram text-cinema-gold"></i>
+                            <span>@juliet_anggraini</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- COUNTDOWN TIMER SECTION -->
+        <section class="bg-cinema-card rounded-3xl p-6 md:p-8 border border-cinema-gold/30 text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div class="space-y-1">
+                <span class="text-xs font-title tracking-[0.2em] text-cinema-gold uppercase">Countdown To Premiere</span>
+                <h3 class="text-2xl font-title text-white font-bold">HARI PERNIKAHAN</h3>
+            </div>
+
+            <!-- Timer Grid -->
+            <div class="grid grid-cols-4 gap-2 md:gap-4 max-w-md mx-auto">
+                <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
+                    <span id="timer-days" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">00</span>
+                    <span class="text-[10px] uppercase text-slate-400 font-mono">Hari</span>
+                </div>
+                <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
+                    <span id="timer-hours" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">00</span>
+                    <span class="text-[10px] uppercase text-slate-400 font-mono">Jam</span>
+                </div>
+                <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
+                    <span id="timer-minutes" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">00</span>
+                    <span class="text-[10px] uppercase text-slate-400 font-mono">Menit</span>
+                </div>
+                <div class="bg-cinema-dark p-3 rounded-xl border border-white/10">
+                    <span id="timer-seconds" class="text-2xl md:text-4xl font-title font-bold text-cinema-gold block">00</span>
+                    <span class="text-[10px] uppercase text-slate-400 font-mono">Detik</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-400 font-serif">Selasa, 20 Oktober 2026</p>
+        </section>
+
+
+        <!-- SHOWTIME / EVENT DETAILS -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Schedule & Venue</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">SHOWTIME EVENTS</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Akad Nikah -->
+                <div class="bg-cinema-card rounded-2xl p-6 border border-white/10 space-y-4 hover:border-cinema-gold/50 transition">
+                    <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-cinema-red/30 text-cinema-gold flex items-center justify-center font-bold text-lg border border-cinema-gold/30">
+                            <i class="fa-solid fa-ring"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-title text-lg font-bold text-white">AKAD NIKAH</h4>
+                            <span class="text-[11px] text-cinema-gold font-mono">SCENE 01</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-calendar text-cinema-gold w-4"></i>
+                            <span>Selasa, 20 Oktober 2026</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-cinema-gold w-4"></i>
+                            <span>Pukul 08.00 - 10.00 WIB</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-cinema-gold w-4 mt-0.5"></i>
+                            <span>Grand Ballroom Hotel Grand Hyatt, Jl. M.H. Thamrin No.8, Jakarta Pusat</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resepsi Pernikahan -->
+                <div class="bg-cinema-card rounded-2xl p-6 border border-white/10 space-y-4 hover:border-cinema-gold/50 transition">
+                    <div class="flex items-center gap-3 border-b border-white/10 pb-3">
+                        <div class="w-10 h-10 rounded-xl bg-cinema-red/30 text-cinema-gold flex items-center justify-center font-bold text-lg border border-cinema-gold/30">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-title text-lg font-bold text-white">RESEPSI PERNIKAHAN</h4>
+                            <span class="text-[11px] text-cinema-gold font-mono">MAIN SHOW</span>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-2 text-xs text-slate-300">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-calendar text-cinema-gold w-4"></i>
+                            <span>Selasa, 20 Oktober 2026</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-regular fa-clock text-cinema-gold w-4"></i>
+                            <span>Pukul 11.00 - 15.00 WIB</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-cinema-gold w-4 mt-0.5"></i>
+                            <span>Grand Ballroom Hotel Grand Hyatt, Jl. M.H. Thamrin No.8, Jakarta Pusat</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Action Buttons: Google Maps & Save Calendar -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                <a href="https://maps.google.com" target="_blank" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-solid fa-map-location-dot text-sm"></i>
+                    <span>Buka Google Maps</span>
+                </a>
+                <button onclick="saveToCalendar()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-title font-bold text-xs uppercase tracking-wider transition flex items-center justify-center gap-2">
+                    <i class="fa-regular fa-calendar-plus text-cinema-gold text-sm"></i>
+                    <span>Simpan Ke Kalender</span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- LOVE STORY / MOVIE SCENES TIMELINE -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Episode & Chapters</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">OUR LOVE JOURNEY</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <!-- Filmstrip Vertical Timeline -->
+            <div class="space-y-6 relative border-l-2 border-cinema-gold/30 pl-6 ml-4 md:ml-8">
+                <!-- Episode 1 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-gold border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
+                        <span class="text-[10px] font-mono uppercase bg-cinema-gold/20 text-cinema-gold px-2 py-0.5 rounded">Scene 01 • Tahun 2021</span>
+                        <h4 class="font-title text-base font-bold text-white">Pertemuan Pertama (First Encounter)</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Kisah manis berawal dari kampus tempat kami menimba ilmu. Berawal dari satu kelompok tugas proyek visual, tak disangka benih cinta mulai tumbuh.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Episode 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-gold border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
+                        <span class="text-[10px] font-mono uppercase bg-cinema-gold/20 text-cinema-gold px-2 py-0.5 rounded">Scene 02 • Tahun 2024</span>
+                        <h4 class="font-title text-base font-bold text-white">Komitmen Bersama (The Proposal)</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Setelah 3 tahun melewati lika-liku kehidupan bersama, di bawah indahnya sinar rembulan sore, Romeo melamar Juliet untuk melangkah ke jenjang yang lebih serius.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Episode 3 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-redbright border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-cinema-gold/40 space-y-2">
+                        <span class="text-[10px] font-mono uppercase bg-cinema-red/40 text-cinema-goldlight px-2 py-0.5 rounded">Final Chapter • Tahun 2026</span>
+                        <h4 class="font-title text-base font-bold text-white">Menuju Bahtera Rumah Tangga</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Kini, dengan ridho Allah SWT dan restu dari kedua orang tua, kami mengikat janji suci pernikahan untuk mengarungi sisa usia bersama selamanya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PHOTO GALLERY / FILM STILLS -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Behind The Scenes</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">GALLERY STILLS</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <!-- Gallery Grid with Film Frame Styles -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-cinema-card p-2 rounded-xl border border-white/10 hover:border-cinema-gold transition cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80')">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Prewedding 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+                <div class="bg-cinema-card p-2 rounded-xl border border-white/10 hover:border-cinema-gold transition cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80')">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Prewedding 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+                <div class="bg-cinema-card p-2 rounded-xl border border-white/10 hover:border-cinema-gold transition cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80')">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=600&q=80" alt="Prewedding 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+                <div class="bg-cinema-card p-2 rounded-xl border border-white/10 hover:border-cinema-gold transition cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80')">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" alt="Prewedding 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+                <div class="bg-cinema-card p-2 rounded-xl border border-white/10 hover:border-cinema-gold transition cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80')">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=600&q=80" alt="Prewedding 5" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+                <div class="bg-cinema-card p-2 rounded-xl border border-white/10 hover:border-cinema-gold transition cursor-pointer group" onclick="openLightbox('https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=800&q=80')">
+                    <div class="overflow-hidden rounded-lg aspect-square">
+                        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=600&q=80" alt="Prewedding 6" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- DIGITAL GIFT / AMPLOP DIGITAL -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Wedding Registry</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">AMPLOP DIGITAL</h3>
+                <p class="text-xs text-slate-400 max-w-md mx-auto">
+                    Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberi hadiah, Anda dapat mengirimkannya melalui:
+                </p>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <!-- Bank Card 1 -->
+                <div class="bg-cinema-card p-6 rounded-2xl border border-cinema-gold/30 space-y-4 text-center shadow-xl">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span class="font-title font-bold text-cinema-gold">BANK BCA</span>
+                        <i class="fa-solid fa-credit-card text-slate-400"></i>
+                    </div>
+                    <div>
+                        <span id="rekening-bca" class="text-lg font-mono font-bold text-white block tracking-widest">1234 5678 90</span>
+                        <span class="text-xs text-slate-400 block mt-1">a.n Romeo Putra Pratama</span>
+                    </div>
+                    <button onclick="copyAccount('1234567890', this)" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-title text-cinema-gold font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>Salin No. Rekening</span>
+                    </button>
+                </div>
+
+                <!-- Bank Card 2 -->
+                <div class="bg-cinema-card p-6 rounded-2xl border border-cinema-gold/30 space-y-4 text-center shadow-xl">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span class="font-title font-bold text-cinema-gold">BANK MANDIRI</span>
+                        <i class="fa-solid fa-credit-card text-slate-400"></i>
+                    </div>
+                    <div>
+                        <span id="rekening-mandiri" class="text-lg font-mono font-bold text-white block tracking-widest">0987 6543 21</span>
+                        <span class="text-xs text-slate-400 block mt-1">a.n Juliet Anggraini</span>
+                    </div>
+                    <button onclick="copyAccount('0987654321', this)" class="w-full py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-title text-cinema-gold font-bold transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-copy"></i>
+                        <span>Salin No. Rekening</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- RSVP & WISHES FORM -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Audience RSVP</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">KONFIRMASI KEHADIRAN & UCAPAN</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <div class="bg-cinema-card p-6 md:p-8 rounded-3xl border border-cinema-gold/30 space-y-6 max-w-2xl mx-auto shadow-2xl">
+                <form id="rsvp-form" onsubmit="submitRSVP(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-title uppercase text-slate-300 mb-1.5">Nama Lengkap</label>
+                        <input type="text" id="rsvp-name" required placeholder="Masukkan nama Anda..." class="w-full px-4 py-3 rounded-xl bg-cinema-dark border border-white/10 text-white text-xs focus:outline-none focus:border-cinema-gold transition">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-title uppercase text-slate-300 mb-1.5">Konfirmasi Kehadiran</label>
+                            <select id="rsvp-status" class="w-full px-4 py-3 rounded-xl bg-cinema-dark border border-white/10 text-white text-xs focus:outline-none focus:border-cinema-gold transition">
+                                <option value="Hadir">Ya, Saya Akan Hadir</option>
+                                <option value="Ragu-ragu">Masih Ragu-ragu</option>
+                                <option value="Tidak Hadir">Maaf, Tidak Bisa Hadir</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-title uppercase text-slate-300 mb-1.5">Jumlah Tamu</label>
+                            <select id="rsvp-guests" class="w-full px-4 py-3 rounded-xl bg-cinema-dark border border-white/10 text-white text-xs focus:outline-none focus:border-cinema-gold transition">
+                                <option value="1 Orang">1 Orang</option>
+                                <option value="2 Orang">2 Orang</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-title uppercase text-slate-300 mb-1.5">Pesan & Doa Selamat</label>
+                        <textarea id="rsvp-message" rows="4" required placeholder="Tuliskan doa ucapan selamat Anda..." class="w-full px-4 py-3 rounded-xl bg-cinema-dark border border-white/10 text-white text-xs focus:outline-none focus:border-cinema-gold transition"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        <span>Kirim Konfirmasi & Doa</span>
+                    </button>
+                </form>
+
+                <!-- List of Wishes (Interactive UI) -->
+                <div class="pt-6 border-t border-white/10 space-y-4">
+                    <h4 class="font-title text-sm font-bold text-cinema-gold uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-comments"></i>
+                        <span>Pesan & Doa Dari Sahabat (<span id="wish-count">3</span>)</span>
+                    </h4>
+
+                    <div id="wishes-container" class="space-y-3 max-h-60 overflow-y-auto pr-2">
+                        <!-- Sample Wishes -->
+                        <div class="p-3.5 rounded-xl bg-cinema-dark border border-white/5 space-y-1">
+                            <div class="flex justify-between items-center text-xs">
+                                <strong class="text-cinema-gold">Ahmad & Family</strong>
+                                <span class="text-[10px] text-slate-500 font-mono">10 Menit lalu</span>
+                            </div>
+                            <p class="text-xs text-slate-300 italic">"Selamat Romeo & Juliet! Semoga menjadi keluarga yang sakinah, mawaddah, warahmah."</p>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-cinema-dark border border-white/5 space-y-1">
+                            <div class="flex justify-between items-center text-xs">
+                                <strong class="text-cinema-gold">Siti Nurhaliza</strong>
+                                <span class="text-[10px] text-slate-500 font-mono">1 Jam lalu</span>
+                            </div>
+                            <p class="text-xs text-slate-300 italic">"Happy wedding buat kalian berdua! Semoga langgeng sampai kakek nenek."</p>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-cinema-dark border border-white/5 space-y-1">
+                            <div class="flex justify-between items-center text-xs">
+                                <strong class="text-cinema-gold">Budi Santoso</strong>
+                                <span class="text-[10px] text-slate-500 font-mono">3 Jam lalu</span>
+                            </div>
+                            <p class="text-xs text-slate-300 italic">"Selamat menempuh hidup baru sahabatku! Maaf belum bisa hadir langsung tapi doa terbaik selalu menyertai kalian."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FOOTER CREDITS -->
+        <footer class="text-center space-y-4 pt-10 border-t border-white/10">
+            <div class="space-y-1">
+                <p class="text-xs uppercase tracking-[0.3em] font-title text-cinema-gold">The End of Beginning</p>
+                <h4 class="text-xl font-title text-white font-bold">ROMEO & JULIET</h4>
+            </div>
+            <p class="text-[11px] text-slate-500 font-sans">
+                &copy; 2026 The Wedding Film &bull; Designed for DKV SMK Creative & Entrepreneurship
+            </p>
+        </footer>
+
+    </main>
+
+
+    <!-- LIGHTBOX PREVIEW MODAL -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white text-2xl hover:text-cinema-gold transition">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Preview Stills" class="max-w-full max-h-[85vh] rounded-2xl border-2 border-cinema-gold/40 shadow-2xl">
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Parsing Query URL parameter for guest name (e.g. undigital.html?to=Bapak+Joko)
+        const urlParams = new URLSearchParams(window.location.search);
+        const toGuest = urlParams.get('to');
+        if (toGuest) {
+            document.getElementById('guest-name').innerText = toGuest;
+        }
+
+        // OPEN INVITATION & MUSIC PLAYER LOGIC
+        function openInvitation() {
+            const cover = document.getElementById('cover-overlay');
+            const main = document.getElementById('main-content');
+            const audioBtn = document.getElementById('audio-toggle-btn');
+            const audio = document.getElementById('bg-audio');
+
+            cover.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                cover.classList.add('hidden');
+                main.classList.remove('opacity-0');
+                audioBtn.classList.remove('hidden');
+            }, 800);
+
+            // Play background music
+            audio.play().catch(error => {
+                console.log("Audio autoplay prevented by browser. Click audio button to play.");
+            });
+        }
+
+        // AUDIO TOGGLE
+        let isPlaying = true;
+        function toggleAudio() {
+            const audio = document.getElementById('bg-audio');
+            const icon = document.getElementById('audio-icon');
+
+            if (isPlaying) {
+                audio.pause();
+                icon.classList.remove('animate-spin');
+                icon.classList.replace('fa-compact-disc', 'fa-play');
+            } else {
+                audio.play();
+                icon.classList.add('animate-spin');
+                icon.classList.replace('fa-play', 'fa-compact-disc');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // COUNTDOWN TIMER LOGIC
+        const weddingDate = new Date("October 20, 2026 08:00:00").getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('timer-days').innerText = "00";
+                document.getElementById('timer-hours').innerText = "00";
+                document.getElementById('timer-minutes').innerText = "00";
+                document.getElementById('timer-seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('timer-days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('timer-hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('timer-minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('timer-seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // COPY ACCOUNT NUMBER (Without alert box, uses visual toast feedback)
+        function copyAccount(accNo, btn) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = accNo;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const origContent = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> No. Rekening Tersalin!`;
+            btn.classList.add('bg-emerald-950/80', 'text-emerald-300');
+            setTimeout(() => {
+                btn.innerHTML = origContent;
+                btn.classList.remove('bg-emerald-950/80', 'text-emerald-300');
+            }, 2000);
+        }
+
+        // SAVE TO CALENDAR
+        function saveToCalendar() {
+            const title = encodeURIComponent("The Wedding of Romeo & Juliet");
+            const details = encodeURIComponent("Akad & Resepsi Pernikahan Romeo & Juliet di Grand Ballroom Hotel Grand Hyatt Jakarta");
+            const location = encodeURIComponent("Grand Ballroom Hotel Grand Hyatt, Jl. M.H. Thamrin No.8, Jakarta Pusat");
+            const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=20261020T010000Z/20261020T080000Z&details=${details}&location=${location}`;
+            window.open(googleCalUrl, '_blank');
+        }
+
+        // LIGHTBOX LOGIC
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // RSVP SUBMISSION (DOM Dynamic Update)
+        let wishCount = 3;
+        function submitRSVP(event) {
+            event.preventDefault();
+            const name = document.getElementById('rsvp-name').value;
+            const message = document.getElementById('rsvp-message').value;
+            const container = document.getElementById('wishes-container');
+
+            wishCount++;
+            document.getElementById('wish-count').innerText = wishCount;
+
+            const newWish = document.createElement('div');
+            newWish.className = "p-3.5 rounded-xl bg-cinema-dark border border-cinema-gold/30 space-y-1 animate-pulse";
+            newWish.innerHTML = `
+                <div class="flex justify-between items-center text-xs">
+                    <strong class="text-cinema-gold">${name}</strong>
+                    <span class="text-[10px] text-slate-500 font-mono">Baru saja</span>
+                </div>
+                <p class="text-xs text-slate-300 italic">"${message}"</p>
+            `;
+
+            container.prepend(newWish);
+            document.getElementById('rsvp-form').reset();
+            
+            setTimeout(() => {
+                newWish.classList.remove('animate-pulse');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
