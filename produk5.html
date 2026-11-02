@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produk 5: Undangan Pernikahan Digital - KIK XII DKV 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            accent: '#06b6d4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans antialiased transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" onclick="toggleSidebar()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity"></div>
+
+    <div class="flex flex-1 overflow-hidden">
+        <!-- ================= SIDEBAR MENU (KIRI) ================= -->
+        <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700/60 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out flex flex-col">
+            
+            <!-- Header Sidebar -->
+            <div class="p-5 border-b border-slate-200 dark:border-slate-700/60 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-brand-accent flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
+                        <i class="fa-solid fa-palette text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-slate-900 dark:text-white leading-tight">KIK XII DKV</h1>
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Tahun Ajaran 2026</span>
+                    </div>
+                </div>
+                <span class="bg-brand-50 text-brand-600 dark:bg-brand-500/10 dark:text-brand-500 text-xs font-bold px-2.5 py-1 rounded-full border border-brand-500/20">SMK</span>
+            </div>
+
+            <!-- Navigasi Berkelompok -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-6">
+                <!-- Group 1: Utama -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Menu Utama</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-chart-pie w-5"></i>
+                            <span>Dashboard Overview</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Group 2: Aktivitas & Katalog -->
+                <div>
+                    <p class="text-[11px] font-bold tracking-wider uppercase text-slate-400 dark:text-slate-500 px-3 mb-2">Aktivitas & Direktori</p>
+                    <nav class="space-y-1">
+                        <a href="index.html" class="nav-item w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-tasks text-slate-400 w-5"></i>
+                                <span>Tugas & Proyek</span>
+                            </div>
+                            <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 text-xs px-2 py-0.5 rounded-full font-bold">2 Aktif</span>
+                        </a>
+                        <a href="project1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-store text-orange-500 w-5"></i>
+                            <span>Proyek 1: Panduan Shopee</span>
+                        </a>
+                        <a href="project2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-brands fa-tiktok text-pink-500 w-5"></i>
+                            <span>Proyek 2: Skenario TikTok</span>
+                        </a>
+                        <a href="produk1.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-image text-purple-500 w-5"></i>
+                            <span>Produk 1 (Wallpaper)</span>
+                        </a>
+                        <a href="produk2.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-sliders text-indigo-500 w-5"></i>
+                            <span>Produk 2 (Preset)</span>
+                        </a>
+                        <a href="produk3.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-file-lines text-emerald-500 w-5"></i>
+                            <span>Produk 3 (Template Canva)</span>
+                        </a>
+                        <a href="produk4.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-box text-rose-500 w-5"></i>
+                            <span>Produk 4 (Mockup Kemasan)</span>
+                        </a>
+                        <!-- Produk 5 (Aktif) -->
+                        <a href="produk5.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white shadow-md shadow-blue-600/20 transition-all">
+                            <i class="fa-solid fa-envelope-open-text text-white w-5"></i>
+                            <span>Produk 5 (Undangan Digital)</span>
+                        </a>
+                        <a href="data_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-users text-teal-500 w-5"></i>
+                            <span>Data Siswa DKV</span>
+                        </a>
+                        <a href="nilai_siswa.html" class="nav-item w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all">
+                            <i class="fa-solid fa-graduation-cap text-amber-500 w-5"></i>
+                            <span>Rekap Nilai Siswa</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Footer Sidebar / Repository Badge -->
+            <div class="p-4 border-t border-slate-200 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/50">
+                <a href="https://github.com/sagusanov/xiidkv2026" target="_blank" class="flex items-center gap-3 p-2.5 rounded-xl bg-white dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/60 hover:border-brand-500 transition-all shadow-sm group">
+                    <i class="fa-brands fa-github text-xl text-slate-700 dark:text-slate-200 group-hover:text-brand-500"></i>
+                    <div class="overflow-hidden">
+                        <p class="text-xs font-semibold text-slate-800 dark:text-slate-200 truncate">sagusanov/xiidkv2026</p>
+                        <p class="text-[10px] text-slate-400 flex items-center gap-1">
+                            <span>Open Repository</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN CONTENT AREA (KANAN) ================= -->
+        <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+            
+            <!-- Top Header Bar -->
+            <header class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-3 flex items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleSidebar()" class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100">Produk 5: Undangan Digital HTML & GitHub Pages</h2>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleDarkMode()" class="p-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors" title="Ubah Mode Tampilan">
+                        <i class="fa-solid fa-moon dark:hidden text-lg"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-lg text-amber-400"></i>
+                    </button>
+
+                    <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+
+                    <div class="flex items-center gap-3 pl-1">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150" alt="Avatar Siswa" class="w-9 h-9 rounded-xl object-cover ring-2 ring-brand-500/30">
+                        <div class="hidden md:block text-left">
+                            <p class="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">Siswa DKV XII</p>
+                            <p class="text-[11px] text-slate-400">Kreatif & Kewirausahaan</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Inner Content Container -->
+            <div class="p-4 lg:p-8 space-y-8 max-w-6xl mx-auto w-full flex-1">
+                
+                <!-- BANNER HERO -->
+                <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white rounded-3xl shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+                    <div class="space-y-3 z-10 max-w-2xl">
+                        <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md uppercase tracking-wider inline-flex items-center gap-1.5">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> AI & Web Deployment Workflow
+                        </span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold leading-tight">Pembuatan Undangan Pernikahan Digital dengan Gemini AI & GitHub Pages</h1>
+                        <p class="text-xs md:text-sm text-blue-100 leading-relaxed">
+                            Panduan komprehensif bagi siswa DKV XII untuk merancang web undangan interaktif berbasis HTML + Tailwind CSS menggunakan AI Gemini, serta mempublikasikannya secara gratis dan profesional melalui GitHub Pages.
+                        </p>
+                    </div>
+                    <div class="z-10 flex-shrink-0 flex flex-col gap-2">
+                        <a href="#tugas-tema" class="bg-white text-blue-600 hover:bg-blue-50 font-bold px-5 py-3 rounded-xl text-sm shadow-md transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-list-check"></i>
+                            <span>Lihat 40 Tema Tugas</span>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="bg-blue-700/50 hover:bg-blue-700/70 text-white font-medium px-5 py-2.5 rounded-xl text-xs backdrop-blur-sm border border-white/20 transition flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-github"></i>
+                            <span>Kunjungi GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PENGENALAN MATERI -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200/80 dark:border-slate-700/60 p-6 md:p-8 space-y-4">
+                    <span class="inline-block bg-indigo-100 text-indigo-800 dark:bg-indigo-950/50 dark:text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full">Kewirausahaan Digital DKV</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">Mengapa Undangan Digital HTML?</h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        Undangan digital berbasis website adalah salah satu <strong>produk digital bernilai jual tinggi</strong> di industri kreatif saat ini. Sebagai siswa DKV, Anda tidak hanya dituntut mampu merancang layout visual yang estetik, tetapi juga menguasai cara mengemasnya menjadi landing page interaktif yang siap diakses pengguna melalui tautan unik.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60">
+                            <i class="fa-solid fa-bolt text-amber-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 mb-1">Cepat & Hemat Modal</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Dibuat dengan bantuan kecerdasan buatan Gemini AI tanpa biaya server mahal.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60">
+                            <i class="fa-solid fa-mobile-screen-button text-blue-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 mb-1">100% Responsif</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Tampilan fleksibel dan proporsional saat dibuka di smartphone maupun PC.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60">
+                            <i class="fa-solid fa-globe text-emerald-500 text-xl mb-2"></i>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-200 mb-1">Hosting Gratis</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400">Dapat dipublikasikan secara langsung menggunakan fitur GitHub Pages gratis selamanya.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LANGKAH 1: MEMBUAT KODE DENGAN GEMINI AI -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200/80 dark:border-slate-700/60 p-6 md:p-8 space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-lg">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Membuat File HTML Undangan di Gemini AI</h3>
+                            <p class="text-xs text-slate-400">Teknik prompt engineering untuk menghasilkan struktur website satu file lengkap.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                        <p>
+                            Untuk menghasilkan kode website undangan yang elegan dan langsung bisa dijalankan, Anda dapat memanfaatkan <strong>Gemini AI</strong>. Ikuti alur kerja pembuatan prompt berikut:
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-3">
+                            <div class="p-4 rounded-2xl bg-purple-50 dark:bg-purple-950/30 border border-purple-200/60 dark:border-purple-800/40 space-y-2">
+                                <span class="font-bold text-purple-800 dark:text-purple-300 block"><i class="fa-solid fa-list-ol mr-1"></i> Elemen Wajib dalam Undangan:</span>
+                                <ul class="list-disc list-inside space-y-1 text-[11px] text-purple-900 dark:text-purple-200">
+                                    <li>Cover Depan / Hero Section (Nama Mempela, Foto, Tombol Buka Undangan)</li>
+                                    <li>Kutipan Ayat / Kata Mutiara Pernikahan</li>
+                                    <li>Profil Mempelai Pria & Wanita (Foto, Nama Lengkap, Orang Tua, Instagram)</li>
+                                    <li>Rangkaian Acara (Akad Nikah & Resepsi + Hitung Mundur / Countdown Timer)</li>
+                                    <li>Integrasi Google Maps Alamat Lokasi Acara</li>
+                                    <li>Galeri Foto Prewedding (Grid Responsif)</li>
+                                    <li>Formulir RSVP Ucapan & Doa + Rekening Amplop Digital</li>
+                                    <li>Audio Background (Musik pengiring saat undangan dibuka)</li>
+                                </ul>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200/60 dark:border-indigo-800/40 space-y-2">
+                                <span class="font-bold text-indigo-800 dark:text-indigo-300 block"><i class="fa-solid fa-code mr-1"></i> Standar Teknis Kode HTML DKV:</span>
+                                <ul class="list-disc list-inside space-y-1 text-[11px] text-indigo-900 dark:text-indigo-200">
+                                    <li>Gunakan Single File HTML (CSS & JS di dalam 1 file `index.html`).</li>
+                                    <li>Menggunakan CDN <code>Tailwind CSS</code> untuk styling modern.</li>
+                                    <li>Menggunakan CDN <code>Font Awesome 6</code> untuk ikonik grafis.</li>
+                                    <li>Gunakan Google Fonts (`Playfair Display` & `Inter`).</li>
+                                    <li>Menggunakan gambar Unsplash sebagai placeholder sementara.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Template Prompt -->
+                        <div class="bg-slate-900 text-slate-100 p-5 rounded-2xl space-y-3 font-mono text-[11px]">
+                            <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                <span class="text-slate-400 font-sans text-xs font-semibold flex items-center gap-2">
+                                    <i class="fa-solid fa-terminal text-emerald-400"></i> Contoh Formula Prompt Gemini AI
+                                </span>
+                                <button onclick="copyPromptText()" class="bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 px-2.5 py-1 rounded-lg transition border border-slate-700">
+                                    <i class="fa-regular fa-copy mr-1"></i> Salin Prompt
+                                </button>
+                            </div>
+                            <pre id="promptText" class="whitespace-pre-wrap leading-relaxed">Buatkan satu file HTML lengkap (index.html) untuk website Undangan Pernikahan Digital responsif dengan Tailwind CSS dan Font Awesome.
+
+Tema Desain: [TULIS TEMA ANDA, CONTOH: Elegant Gold & Classic Navy]
+Nama Pasangan: Romeo & Juliet
+Tanggal Acara: 20 Oktober 2026
+
+Persyaratan Teknis & Fitur:
+1. Gabungkan semua CSS & JavaScript ke dalam SATU file HTML saja.
+2. Gunakan CDN Tailwind CSS dan Font Awesome 6.
+3. Fitur Utama:
+   - Cover Pembuka (Tombol "Buka Undangan" untuk mengaktifkan musik & memicu efek scroll)
+   - Profil Mempelai Pria & Wanita beserta link Instagram
+   - Countdown Timer (Hitung Mundur) menuju hari H
+   - Detail Waktu & Lokasi Akad & Resepsi (Tambahkan Tombol Petunjuk Peta Google Maps)
+   - Galeri Foto Prewedding (Gunakan gambar placeholder Unsplash yang estetik)
+   - Fitur Amplop Digital / Hadiah (Nomor Rekening BCA/Mandiri & QRIS dengan tombol Salin No. Rekening)
+   - Form Ucapan Doa / RSVP Sederhana (Interactive UI)
+   - Musik Latar Belakang (Audio player otomatis aktif saat undangan dibuka)
+4. Tampilan rapi, mewah, transisi halus, dan mobile-friendly.</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LANGKAH 2: GITHUB & GITHUB PAGES -->
+                <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200/80 dark:border-slate-700/60 p-6 md:p-8 space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Registrasi GitHub & Publish Web (GitHub Pages)</h3>
+                            <p class="text-xs text-slate-400">Langkah mudah mempublikasikan website undangan agar berstatus ONLINE dan dapat diakses publik.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <!-- Step A -->
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center">A</div>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-100">Buat Akun GitHub</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Buka <a href="https://github.com" target="_blank" class="text-blue-600 underline">github.com</a>, klik <strong>Sign Up</strong>. Masukkan email sekolah/pribadi, buat password, dan verifikasi akun Anda.
+                            </p>
+                        </div>
+                        <!-- Step B -->
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center">B</div>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-100">Buat Repository Baru</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Klik ikon <strong>+</strong> di pojok kanan atas &rarr; <strong>New repository</strong>. Beri nama (misal: <code>undangan-romeo-juliet</code>). Pilih <strong>Public</strong> lalu klik <i>Create repository</i>.
+                            </p>
+                        </div>
+                        <!-- Step C -->
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center">C</div>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-100">Upload File HTML</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Simpan hasil kode dari Gemini AI di komputer dengan nama file wajib: <strong><code>index.html</code></strong>. Pilih opsi <i>uploading an existing file</i> di GitHub, drag file tersebut, lalu klik <strong>Commit changes</strong>.
+                            </p>
+                        </div>
+                        <!-- Step D -->
+                        <div class="p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/60 dark:border-slate-700/60 space-y-2">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center">D</div>
+                            <h4 class="font-bold text-xs text-slate-800 dark:text-slate-100">Aktifkan GitHub Pages</h4>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Masuk ke menu <strong>Settings</strong> repository &rarr; menu <strong>Pages</strong> di sebelah kiri. Pada bagian <i>Branch</i> pilih <code>main</code> / <code>root</code> lalu simpan. Link website online Anda akan aktif dalam 1-2 menit!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-r-2xl text-xs text-amber-900 dark:text-amber-300">
+                        <i class="fa-solid fa-triangle-exclamation mr-1.5 font-bold"></i>
+                        <strong>Catatan Penting Siswa DKV:</strong> Nama file utama website HARUS bernama <code>index.html</code> (menggunakan huruf kecil semua). Jika menggunakan nama lain, GitHub Pages tidak akan membaca halaman utama secara otomatis.
+                    </div>
+                </div>
+
+                <!-- LANGKAH 3: 40 TEMA UNDANGAN PERNIKAHAN (TUGAS SISWA) -->
+                <div id="tugas-tema" class="space-y-6">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-700 pb-4">
+                        <div>
+                            <span class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">Tugas Praktik Siswa</span>
+                            <h2 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">40 Tema Undangan Digital Kustom DKV XII</h2>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 max-w-md">
+                            Setiap siswa wajib memilih <strong>1 Tema</strong> berikut untuk dieksekusi menjadi website undangan online aktif di GitHub Pages.
+                        </p>
+                    </div>
+
+                    <!-- GRID 4 KATEGORI MASTER TEMA -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <!-- KATEGORI 1: TRADITIONAL & CULTURAL -->
+                        <div class="border border-slate-200/80 dark:border-slate-700/60 rounded-3xl p-6 bg-white dark:bg-slate-800 shadow-sm space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold text-sm">
+                                    <i class="fa-solid fa-landmark"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">Kategori 1: Traditional & Cultural</h3>
+                                    <p class="text-[11px] text-slate-400">Kemewahan Budaya Nusantara & Tradisional</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">1. Jawa Classic Modern</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Warna cokelat kayu & batik parang, ornamen keraton emas, font Jawa serif estetik.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">2. Minang Royal Gold</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Dominasi warna merah marun dan ukiran emas motif rumah gadang yang megah.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">3. Sunda Elegant White</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Nuansa putih bersih, aksen melati lembut, dan ornamen ukiran bambu minimalis.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">4. Bali Royale Heritage</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Kombinasi warna hitam, emas, dan kain poleng dengan ragam hias ukiran Puri Bali.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">5. Bugis Royal Silk</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Sentuhan warna hijau permata dan sarung sutera pattuqduq berhiaskan benang emas.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">6. Batik Modern Fusion</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Perpaduan pola batik megamendung dengan layout UI kontemporer dan bersih.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">7. Palembang Glamour Sontket</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Aksen merah cerah berpola songket emas dengan tipografi gaya kerajaan antik.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">8. Dayak Ethno Botanical</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Motif ukir khas Dayak, elemen alam hutan Kalimantan, dan warna terracota hangat.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">9. Toraja Heritage Pa'ssura</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Ukiran Pa'ssura Toraja khas, perpaduan warna tanah, hitam, dan oranye bata.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-amber-700 dark:text-amber-400">10. Hanbok Traditional Fusion</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Inspirasi pernikahan adat Korea modern dengan warna soft pastel dan aksen norigae.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KATEGORI 2: MODERN & MINIMALIST -->
+                        <div class="border border-slate-200/80 dark:border-slate-700/60 rounded-3xl p-6 bg-white dark:bg-slate-800 shadow-sm space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-sm">
+                                    <i class="fa-solid fa-cube"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">Kategori 2: Modern & Minimalist</h3>
+                                    <p class="text-[11px] text-slate-400">Desain Bersih, Elegan & Mengutamakan Tipografi</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">11. Monochrome Luxury</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Kombinasi tegas hitam dan putih bersih, tata letak grid presisi, san-serif modern.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">12. Aesthetic Soft Pastel</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Warna peach dan baby blue lembut, sudut komponen serba bulat melengkung halus.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">13. Glassmorphism Modern</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Efek kaca transparan (backdrop-blur) bercahaya dengan latar belakang gradasi warna lembut.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">14. Editorial Typography Focus</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Desain layaknya majalah fashion papan atas dengan ukuran font judul ekstra besar.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">15. Emerald Gold Minimalist</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Background hijau zamrud tua dipadu garis tepi tipis berwarna emas mengkilap.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">16. Nordic White Clean</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Gaya Skandinavia serba serba putih netral, ruang kosong (whitespace) lapang dan menenangkan.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">17. Rose Gold Metallic</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Tone pink rose gold mengkilat dengan kontras latar belakang putih abu-abu elegan.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">18. Slate Dark Mode Premium</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Latar gelap modern berbahan slate-900 dengan tulisan perak bernuansa eksklusif.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">19. Organic Earthy Tone</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Warna pasir, tanah liat hangat, dan krem alami dengan bentuk komponen organik.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-blue-600 dark:text-blue-400">20. Neo-Brutalist DKV Style</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Border hitam tebal (stroke), bayangan tegas, dan warna kontras untuk pasangan muda artsy.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KATEGORI 3: FLORAL & NATURE -->
+                        <div class="border border-slate-200/80 dark:border-slate-700/60 rounded-3xl p-6 bg-white dark:bg-slate-800 shadow-sm space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold text-sm">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">Kategori 3: Floral & Nature</h3>
+                                    <p class="text-[11px] text-slate-400">Nuansa Keindahan Bunga, Dedaunan & Alam</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">21. Botanical Garden Watercolor</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Bingkai lukisan cat air dedaunan hijau alami dan bunga liar yang romantis.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">22. Tropical Paradise Sunset</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Ilustrasi daun palem, bunga kamboja, dan gradasi warna langit senja pantai Bali.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">23. Japanese Cherry Blossom Sakura</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Kelopak sakura bermekaran dengan background soft cream dan aksen merah muda.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">24. Rustic Autumn Pines</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Elemen pinus gugur, kayu rustic, warna oranye kecokelatan yang hangat.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">25. Lavender Dream Purple</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Paduan warna ungu lavender dan ilustrasi padang bunga yang lembut menenangkan.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">26. Olive Leaf & Sage Green</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Tema dedaunan zaitun dan warna sage green yang menjadi tren favorit pengantin modern.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">27. Midnight Dark Floral</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Latar gelap hitam malam dengan ilustrasi bunga mawar mekar berwarna dramatis.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">28. Terracotta Earthy Garden</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Nuansa tembikar bata merah, bunga kering pamapas grass, dan aesthetic bohemian.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">29. Sunflower Summer Joy</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Warna kuning matahari cerah berpadu bunga matahari yang memberikan kesan penuh kebahagiaan.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-emerald-600 dark:text-emerald-400">30. Eucalyptus Mint Green</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Rangkaian daun kayu putih eucalyptus dengan garis geometris emas modern.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- KATEGORI 4: FUTURISTIC & CINEMATIC -->
+                        <div class="border border-slate-200/80 dark:border-slate-700/60 rounded-3xl p-6 bg-white dark:bg-slate-800 shadow-sm space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center font-bold text-sm">
+                                    <i class="fa-solid fa-film"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-slate-900 dark:text-white">Kategori 4: Cinematic & Pop Culture</h3>
+                                    <p class="text-[11px] text-slate-400">Tema Unik, Retro, Sinematik & Pop-Art DKV</p>
+                                </div>
+                            </div>
+                            <div class="space-y-2.5 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">31. Cyberpunk Neon Glow</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Background dark mode dengan font neon cyan & magenta untuk pernikahan gaya futuristik.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">32. Retro Vintage 90s Film</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Efek kamera analog 35mm, teks bergaya mesin tik tua, dan tone warna hangat jadul.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">33. Galaxy Starry Night</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Latar biru dongker bertabur bintang malam, konstelasi zodiak, dan elemen bulan emas.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">34. Art Deco Great Gatsby</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Gaya kemewahan era 1920-an dengan pola geometris simetris emas dan warna hitam.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">35. Golden Hour Sunset Warmth</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Gradasi oranye keemasan ala cahaya sore hari dengan efek pendaran kilau cahaya halus.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">36. Korean Webtoon Romance</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Layout komik manis gaya Manhwa Korea dengan ilustrasi kartun pasangan yang estetik.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">37. Vintage Newspaper Editorial</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Tampilan koran berita cetak klasik "The Wedding News" lengkap dengan kolom berita cinta.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">38. Cinematic Film Reel</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Tampilan ala bingkai pita klise film bioskop layar lebar dengan efek rasio 16:9 sinematik.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">39. Royal Palace Velvet Red</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Tekstur kain beludru merah tua ala istana raja lengkap dengan stempel lilin (wax seal) emas.</p>
+                                </div>
+                                <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/40 border border-slate-100 dark:border-slate-700/40">
+                                    <p class="font-bold text-purple-600 dark:text-purple-400">40. Mediterranean Chic Boho</p>
+                                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Kombinasi warna biru laut Yunani, keramik terakota, dan ornamen santorini minimalis.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- LEMBAR PENILAIAN & KRITERIA TUGAS -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 md:p-8 space-y-4 shadow-lg">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-clipboard-check text-amber-400 text-2xl"></i>
+                        <h3 class="text-lg font-bold">Kriteria Penilaian Tugas Praktik DKV (Skor Maksimal: 100)</h3>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs pt-2">
+                        <div class="bg-white/10 p-3.5 rounded-2xl backdrop-blur-sm border border-white/10 space-y-1">
+                            <span class="text-amber-400 font-bold block text-sm">25 Poin</span>
+                            <strong class="block text-slate-200">Kesesuaian Tema Visual</strong>
+                            <span class="text-slate-400 text-[11px] block">Pilihan warna, font, dan elemen ilustrasi konsisten sesuai tema yang dipilih.</span>
+                        </div>
+                        <div class="bg-white/10 p-3.5 rounded-2xl backdrop-blur-sm border border-white/10 space-y-1">
+                            <span class="text-amber-400 font-bold block text-sm">25 Poin</span>
+                            <strong class="block text-slate-200">Kelengkapan Fitur Web</strong>
+                            <span class="text-slate-400 text-[11px] block">Terdapat countdown, musik, profil mempelai, RSVP, peta lokasi, & amplop digital.</span>
+                        </div>
+                        <div class="bg-white/10 p-3.5 rounded-2xl backdrop-blur-sm border border-white/10 space-y-1">
+                            <span class="text-amber-400 font-bold block text-sm">25 Poin</span>
+                            <strong class="block text-slate-200">Responsivitas UI/UX</strong>
+                            <span class="text-slate-400 text-[11px] block">Website berjalan mulus saat diakses via layar HP maupun laptop tanpa kendala layout.</span>
+                        </div>
+                        <div class="bg-white/10 p-3.5 rounded-2xl backdrop-blur-sm border border-white/10 space-y-1">
+                            <span class="text-amber-400 font-bold block text-sm">25 Poin</span>
+                            <strong class="block text-slate-200">Deployment GitHub Pages</strong>
+                            <span class="text-slate-400 text-[11px] block">URL Link GitHub Pages berstatus ONLINE dan dapat dibuka umum tanpa error 404.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="py-4 px-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
+                &copy; 2026 KIK XII DKV &bull; Dikembangkan untuk Pembelajaran Kreatif & Kewirausahaan SMK N 1 Bangil
+            </footer>
+        </main>
+    </div>
+
+    <!-- JavaScript Logika Sidebar, Dark Mode, & Copy Helper -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            sidebar.classList.toggle('-translate-x-full');
+            overlay.classList.toggle('hidden');
+        }
+
+        function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            htmlElement.classList.toggle('dark');
+            
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        function copyPromptText() {
+            const promptText = document.getElementById('promptText').innerText;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = promptText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Toast feedback sederhana tanpa alert()
+            const btn = event.currentTarget;
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400 mr-1"></i> Tersalin!`;
+            btn.classList.add('bg-emerald-950', 'text-emerald-300');
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('bg-emerald-950', 'text-emerald-300');
+            }, 2000);
+        }
+
+        // Simpan state preferensi warna saat pertama kali dibuka
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</body>
+</html>
