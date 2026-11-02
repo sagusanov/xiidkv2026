@@ -657,7 +657,8 @@
     }
 
     // 4. COUNTDOWN TIMER LOGIC (Menggunakan format padStart agar rapi 2 digit)
-    const weddingDate = new Date(2026, 9, 20, 8, 0, 0).getTime();
+// Ubah tahun menjadi 2027 (atau tanggal di masa depan) agar hitung mundur berjalan
+const weddingDate = new Date(2027, 9, 20, 8, 0, 0).getTime();
     
     function updateCountdown() {
         const now = new Date().getTime();
