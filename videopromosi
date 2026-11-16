@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membuat Video Promosi di TikTok | Modul Kreatif DKV</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cinzel, Playfair Display & Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cinema: {
+                            gold: '#D4AF37',
+                            goldlight: '#F3E5AB',
+                            golddark: '#AA7C11',
+                            red: '#8B0000',
+                            redbright: '#E50914',
+                            dark: '#0A0A0B',
+                            card: '#141416',
+                            strip: '#1E1E22'
+                        }
+                    },
+                    fontFamily: {
+                        title: ['Cinzel', 'serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Subtle Film Grain Noise Animation Overlay */
+        .film-grain {
+            background: linear-gradient(rgba(18, 16, 16, 0), rgba(0, 0, 0, 0.4)), 
+                        radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 4px 4px;
+        }
+
+        /* Cinema Letterbox Aspect Ratio */
+        .cinematic-box {
+            aspect-ratio: 16 / 9;
+        }
+
+        /* Custom Scrollbar for Cinema Theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #AA7C11;
+        }
+
+        /* Pulse glow for buttons */
+        @keyframes goldGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.6); }
+        }
+        .glow-gold {
+            animation: goldGlow 3s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-cinema-dark text-slate-200 font-sans antialiased overflow-x-hidden selection:bg-cinema-gold selection:text-black">
+
+    <!-- AUDIO BACKGROUND (HTML5 Audio API) -->
+    <audio id="bg-audio" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=cinematic-documentary-115669.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- FLOATING AUDIO CONTROL BUTTON -->
+    <button id="audio-toggle-btn" onclick="toggleAudio()" class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-cinema-gold text-black flex items-center justify-center shadow-2xl border-2 border-white/20 hover:scale-110 transition-all duration-300 hidden" title="Play/Pause Music">
+        <i id="audio-icon" class="fa-solid fa-compact-disc text-xl animate-spin" style="animation-duration: 4s;"></i>
+    </button>
+
+    <!-- ================= COVER OVERLAY (HERO OPENER) ================= -->
+    <div id="cover-overlay" class="fixed inset-0 z-50 bg-cinema-dark flex items-center justify-center p-4 transition-all duration-1000">
+        <div class="absolute inset-0 film-grain opacity-80 pointer-events-none"></div>
+        
+        <!-- Top & Bottom Film Strip Bars -->
+        <div class="absolute top-0 inset-x-0 h-8 md:h-12 bg-black border-b border-cinema-gold/30 flex items-center justify-around overflow-hidden">
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+        </div>
+        <div class="absolute bottom-0 inset-x-0 h-8 md:h-12 bg-black border-t border-cinema-gold/30 flex items-center justify-around overflow-hidden">
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+            <div class="h-4 w-6 rounded-sm bg-cinema-dark border border-white/10 hidden md:block"></div>
+        </div>
+
+        <div class="max-w-2xl w-full text-center space-y-6 relative z-10 px-4 py-8 bg-cinema-card/90 rounded-2xl border border-cinema-gold/30 backdrop-blur-md shadow-2xl">
+            <!-- Cinema Badge Header -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cinema-red/30 border border-cinema-redbright text-cinema-goldlight text-xs font-semibold uppercase tracking-widest">
+                <i class="fa-solid fa-clapperboard text-cinema-redbright"></i> Modul Kreatif & Kewirausahaan
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-xs uppercase tracking-[0.3em] text-cinema-gold/80 font-sans">Digital Marketing Masterclass</p>
+                <h1 class="text-2xl md:text-4xl font-title text-cinema-gold tracking-wide leading-tight font-bold">
+                    MEMBUAT VIDEO PROMOSI DI TIKTOK
+                </h1>
+                <p class="text-xs text-slate-400 italic font-serif">"Studi Kasus: Promosi Produk Undangan Digital Berbasis AI & CapCut"</p>
+            </div>
+
+            <!-- Film Reel Clapper Board Box -->
+            <div class="p-4 bg-cinema-dark/80 rounded-xl border border-white/10 max-w-sm mx-auto text-left font-mono text-xs text-slate-300 space-y-1.5">
+                <div class="flex justify-between border-b border-white/10 pb-1 text-cinema-gold">
+                    <span>MATERI: TIKTOK ADS</span>
+                    <span>BAB: 01</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>MENTOR:</span>
+                    <span class="text-white">Kholiq Sagusanov</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>TOOLS:</span>
+                    <span class="text-white font-sans">AI Generator & CapCut</span>
+                </div>
+                <div class="flex justify-between">
+                    <span>PESERTA:</span>
+                    <span id="student-name" class="text-cinema-gold font-bold">Siswa Kreatif DKV</span>
+                </div>
+            </div>
+
+            <button onclick="openModule()" class="glow-gold px-8 py-3.5 bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-sm tracking-wider uppercase rounded-xl hover:scale-105 active:scale-95 transition-transform duration-300 flex items-center justify-center gap-3 mx-auto">
+                <i class="fa-solid fa-play text-base"></i>
+                <span>Mulai Belajar Sekarang</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- ================= MAIN MODULE CONTENT ================= -->
+    <main id="main-content" class="min-h-screen opacity-0 transition-opacity duration-1000 max-w-4xl mx-auto px-4 py-10 space-y-16">
+
+        <!-- HEADER BANNER -->
+        <section class="text-center space-y-4 pt-6 relative">
+            <div class="inline-block p-3 rounded-2xl bg-cinema-card border border-cinema-gold/20 shadow-xl w-full max-w-2xl">
+                <div class="relative rounded-xl overflow-hidden cinematic-box border border-white/10 group">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80" alt="TikTok Content Creation" class="w-full h-full object-cover filter contrast-125 brightness-75 transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-cinema-dark via-cinema-dark/40 to-transparent"></div>
+                    <div class="absolute bottom-4 inset-x-0 text-center px-4">
+                        <span class="text-[10px] tracking-[0.4em] uppercase text-cinema-gold font-title block">Production Workflow</span>
+                        <h2 class="text-xl md:text-3xl font-title text-white font-bold tracking-wider">DARI IDE AI HINGGA FYP TIKTOK</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intro Quote -->
+            <div class="max-w-xl mx-auto p-6 bg-cinema-card/60 rounded-2xl border border-white/5 relative">
+                <i class="fa-solid fa-lightbulb text-cinema-gold/20 text-4xl absolute top-3 left-4"></i>
+                <p class="text-xs md:text-sm italic font-serif text-slate-300 leading-relaxed px-4">
+                    "Konten promosi yang kuat bukan hanya soal visual yang indah, melainkan alur cerita (storytelling) yang menyentuh emosi calon pembeli dalam 3 detik pertama."
+                </p>
+                <span class="text-[11px] font-sans font-semibold text-cinema-gold mt-2 block">— Materi Kreativitas, Inovasi & Kewirausahaan</span>
+            </div>
+        </section>
+
+
+        <!-- TAHAPAN PRODUKSI (5 LANGKAH UTAMA) -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Step-by-Step Pipeline</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">5 TAHAP PEMBUATAN VIDEO</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <!-- Filmstrip Vertical Timeline -->
+            <div class="space-y-6 relative border-l-2 border-cinema-gold/30 pl-6 ml-4 md:ml-8">
+                
+                <!-- Langkah 1 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-gold border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 hover:border-cinema-gold/50 transition space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono uppercase bg-cinema-gold/20 text-cinema-gold px-2.5 py-0.5 rounded">Langkah 01 • Ideasi & Naskah</span>
+                            <i class="fa-solid fa-robot text-cinema-gold"></i>
+                        </div>
+                        <h4 class="font-title text-base font-bold text-white">Membuat Skenario di AI (Gemini / ChatGPT)</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Gunakan bantuan AI untuk merancang konsep video promosi dengan topik <strong>menjual produk undangan digital</strong>. Pastikan prompt meminta struktur lengkap: <em>Hook</em> (penarik perhatian awal), <em>Problem/Solusi</em>, <em>Visual per Scene</em>, dan <em>Call to Action (CTA)</em>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Langkah 2 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-gold border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 hover:border-cinema-gold/50 transition space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono uppercase bg-cinema-gold/20 text-cinema-gold px-2.5 py-0.5 rounded">Langkah 02 • Bedah Naskah</span>
+                            <i class="fa-solid fa-file-lines text-cinema-gold"></i>
+                        </div>
+                        <h4 class="font-title text-base font-bold text-white">Menyusun & Menyesuaikan Contoh Skenario</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Review hasil skenario dari AI, bagi ke dalam beberapa adegan pendek (durasi 3–5 detik per scene) agar ritme video TikTok terasa cepat, dinamis, dan tidak membosankan. (Lihat contoh lengkap di bagian bawah).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Langkah 3 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-gold border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 hover:border-cinema-gold/50 transition space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono uppercase bg-cinema-gold/20 text-cinema-gold px-2.5 py-0.5 rounded">Langkah 03 • Produksi Audio</span>
+                            <i class="fa-solid fa-microphone-lines text-cinema-gold"></i>
+                        </div>
+                        <h4 class="font-title text-base font-bold text-white">Kumpulkan Voice Over & Ubah ke Suara di CapCut</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Gabungkan seluruh teks narasi (Voice Over) dari setiap scene menjadi satu paragraf utuh. Masukkan ke fitur <strong>Text-to-Speech (Teks ke Suara)</strong> di CapCut, pilih karakter suara yang ekspresif dan sesuai target audiens pernikahan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Langkah 4 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-gold border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 hover:border-cinema-gold/50 transition space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono uppercase bg-cinema-gold/20 text-cinema-gold px-2.5 py-0.5 rounded">Langkah 04 • Produksi Visual</span>
+                            <i class="fa-solid fa-image text-cinema-gold"></i>
+                        </div>
+                        <h4 class="font-title text-base font-bold text-white">Buatkan Gambar Per Scene Sesuai Skenario</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Generate atau siapkan aset visual rasio vertikal <strong>9:16</strong> untuk masing-masing adegan. Pastikan gaya visual konsisten (misal: ilustrasi sinematik atau foto realistis pasangan yang sedang menyiapkan pernikahan dan tampilan mockup undangan di smartphone).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Langkah 5 -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-cinema-redbright border-4 border-cinema-dark"></div>
+                    <div class="bg-cinema-card p-5 rounded-2xl border border-cinema-gold/40 space-y-2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-mono uppercase bg-cinema-red/40 text-cinema-goldlight px-2.5 py-0.5 rounded">Langkah 05 • Finalisasi & Publikasi</span>
+                            <i class="fa-brands fa-tiktok text-cinema-gold"></i>
+                        </div>
+                        <h4 class="font-title text-base font-bold text-white">Export Hasilnya dan Upload di TikTok</h4>
+                        <p class="text-xs text-slate-300 leading-relaxed font-sans">
+                            Susun gambar per scene mengikuti ketukan suara Voice Over di CapCut, tambahkan animasi transisi, <em>auto-caption</em>, dan musik latar lembut. Export resolusi <strong>1080p 60fps</strong>, lalu unggah ke TikTok lengkap dengan caption persuasif dan hashtag relevan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTOH SKENARIO LENGKAP (STEP 2) -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Script Breakdown</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">CONTOH SKENARIO PROMOSI</h3>
+                <p class="text-xs text-slate-400">Topik: Penjualan Jasa Undangan Pernikahan Digital (Durasi ± 25 Detik)</p>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Scene 1 -->
+                <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 01 (HOOK)</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:00 - 00:05</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Pasangan calon pengantin tampak pusing melihat tumpukan undangan kertas dan tagihan cetak mahal.</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Mau nikah tapi budget cetak undangan bikin pusing tujuh keliling?"</p>
+                </div>
+
+                <!-- Scene 2 -->
+                <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 02 (PROBLEM)</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:05 - 00:10</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Ilustrasi undangan fisik yang terbuang atau salah ketik nama tamu dan alamat.</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Belum lagi capek nulis nama tamu satu-satu, eh ujung-ujungnya salah ketik atau malah kebuang!"</p>
+                </div>
+
+                <!-- Scene 3 -->
+                <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 03 (SOLUTION)</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:10 - 00:16</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Tampilan layar HP elegan menampilkan undangan digital tema sinematik dengan musik romantis.</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Saatnya beralih ke Undangan Digital Eksklusif! Desain mewah berkelas, bisa sebar ke ribuan tamu cuma sekali klik."</p>
+                </div>
+
+                <!-- Scene 4 -->
+                <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 04 (FEATURES & CTA)</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:16 - 00:25</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Fitur peta lokasi, hitung mundur, amplop digital, dan tombol klik keranjang kuning/profil.</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Lengkap dengan navigasi Google Maps, RSVP kehadiran, dan amplop digital. Pesan sekarang lewat link di bio sebelum promo berakhir!"</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- KUMPULAN VOICE OVER SIAP COPY (STEP 3) -->
+        <section class="bg-cinema-card rounded-3xl p-6 md:p-8 border border-cinema-gold/30 space-y-6 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+                <div>
+                    <span class="text-[10px] font-title tracking-[0.2em] text-cinema-gold uppercase block">Langkah 03 • Ready For CapCut</span>
+                    <h3 class="text-xl font-title text-white font-bold">NASKAH GABUNGAN VOICE OVER</h3>
+                </div>
+                <button onclick="copyVO(this)" class="px-4 py-2.5 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Salin Naskah VO</span>
+                </button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-cinema-dark border border-white/10 relative">
+                <p id="vo-script-text" class="text-xs md:text-sm text-slate-200 leading-relaxed font-sans">
+                    Mau nikah tapi budget cetak undangan bikin pusing tujuh keliling? Belum lagi capek nulis nama tamu satu-satu, eh ujung-ujungnya salah ketik atau malah kebuang! Saatnya beralih ke Undangan Digital Eksklusif! Desain mewah berkelas, bisa sebar ke ribuan tamu cuma sekali klik. Lengkap dengan navigasi Google Maps, RSVP kehadiran, dan amplop digital. Pesan sekarang lewat link di bio sebelum promo berakhir!
+                </p>
+            </div>
+            <p class="text-[11px] text-slate-400 italic">
+                <i class="fa-solid fa-circle-info text-cinema-gold mr-1"></i> Tip CapCut: Berikan tanda koma (,) dan tanda seru (!) seperti di atas agar intonasi AI Voice CapCut terdengar lebih alami dan bertenaga.
+            </p>
+        </section>
+
+
+        <!-- VISUAL PROMPT GUIDE PER SCENE (STEP 4) -->
+        <section class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Langkah 04 • Visual Assets</span>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">PANDUAN GAMBAR PER SCENE</h3>
+                <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Visual 1 -->
+                <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
+                    <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
+                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=500&q=80" alt="Scene 1" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 01</span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Pasangan bingung menghitung biaya cetak undangan.</p>
+                </div>
+
+                <!-- Visual 2 -->
+                <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
+                    <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
+                        <img src="https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?auto=format&fit=crop&w=500&q=80" alt="Scene 2" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 02</span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Tumpukan amplop kertas yang rumit dan memakan waktu.</p>
+                </div>
+
+                <!-- Visual 3 -->
+                <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
+                    <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80" alt="Scene 3" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 03</span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Tampilan undangan digital modern yang elegan dan praktis.</p>
+                </div>
+
+                <!-- Visual 4 -->
+                <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
+                    <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80" alt="Scene 4" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 04</span>
+                    </div>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Pasangan bahagia & ajakan pemesanan instan (CTA).</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- CONTOH HASIL JADI DI TIKTOK (STEP 6) -->
+        <section class="bg-gradient-to-br from-cinema-card via-cinema-card to-cinema-red/20 rounded-3xl p-8 border border-cinema-gold/40 text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cinema-gold/20 border border-cinema-gold text-cinema-gold text-xs font-semibold uppercase tracking-widest">
+                <i class="fa-brands fa-tiktok"></i> Langkah 06 • Referensi Hasil Jadi
+            </div>
+
+            <div class="space-y-2 max-w-lg mx-auto">
+                <h3 class="text-2xl md:text-3xl font-title text-white font-bold">TONTON CONTOH HASIL VIDEO</h3>
+                <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                    Lihat bagaimana penggabungan skenario AI, Voice Over CapCut, dan gambar per scene bekerja secara nyata pada video contoh berikut:
+                </p>
+            </div>
+
+            <div class="pt-2">
+                <a href="https://www.tiktok.com/@kholiqsagusanov/video/7707907305009925397" target="_blank" rel="noopener noreferrer" class="glow-gold inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-xs md:text-sm uppercase tracking-wider hover:scale-105 transition-transform duration-300 shadow-xl">
+                    <i class="fa-brands fa-tiktok text-lg"></i>
+                    <span>Buka Video Contoh di TikTok</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+            </div>
+            
+            <p class="text-[11px] font-mono text-slate-400 break-all">
+                https://www.tiktok.com/@kholiqsagusanov/video/7707907305009925397
+            </p>
+        </section>
+
+
+        <!-- FOOTER CREDITS -->
+        <footer class="text-center space-y-4 pt-10 border-t border-white/10">
+            <div class="space-y-1">
+                <p class="text-xs uppercase tracking-[0.3em] font-title text-cinema-gold">Selamat Berkarya & Berinovasi</p>
+                <h4 class="text-lg font-title text-white font-bold">KREATIVITAS, INOVASI & KEWIRAUSAHAAN</h4>
+            </div>
+            <p class="text-[11px] text-slate-500 font-sans">
+                &copy; 2026 Materi Pembelajaran Digital Marketing &bull; Kholiq Sagusanov
+            </p>
+        </footer>
+
+    </main>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Parsing Query URL parameter for student name (e.g. materi.html?to=Zahira)
+        const urlParams = new URLSearchParams(window.location.search);
+        const toStudent = urlParams.get('to');
+        if (toStudent) {
+            document.getElementById('student-name').innerText = toStudent;
+        }
+
+        // 2. OPEN MODULE & MUSIC PLAYER LOGIC
+        function openModule() {
+            const cover = document.getElementById('cover-overlay');
+            const main = document.getElementById('main-content');
+            const audioBtn = document.getElementById('audio-toggle-btn');
+            const audio = document.getElementById('bg-audio');
+
+            cover.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                cover.classList.add('hidden');
+                main.classList.remove('opacity-0');
+                audioBtn.classList.remove('hidden');
+            }, 800);
+
+            audio.play().catch(error => {
+                console.log("Audio autoplay prevented by browser.");
+            });
+        }
+
+        // 3. AUDIO TOGGLE
+        let isPlaying = true;
+        function toggleAudio() {
+            const audio = document.getElementById('bg-audio');
+            const icon = document.getElementById('audio-icon');
+
+            if (isPlaying) {
+                audio.pause();
+                icon.classList.remove('animate-spin');
+                icon.classList.replace('fa-compact-disc', 'fa-play');
+            } else {
+                audio.play();
+                icon.classList.add('animate-spin');
+                icon.classList.replace('fa-play', 'fa-compact-disc');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 4. COPY VOICE OVER SCRIPT
+        function copyVO(btn) {
+            const voText = document.getElementById('vo-script-text').innerText;
+            const tempInput = document.createElement('textarea');
+            tempInput.value = voText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const origContent = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> Naskah VO Tersalin!`;
+            btn.classList.replace('bg-cinema-gold', 'bg-emerald-500');
+            setTimeout(() => {
+                btn.innerHTML = origContent;
+                btn.classList.replace('bg-emerald-500', 'bg-cinema-gold');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
