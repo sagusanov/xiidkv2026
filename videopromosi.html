@@ -114,6 +114,14 @@
         </div>
 
         <div class="max-w-2xl w-full text-center space-y-6 relative z-10 px-4 py-8 bg-cinema-card/90 rounded-2xl border border-cinema-gold/30 backdrop-blur-md shadow-2xl">
+            <!-- Tombol Kembali ke Index pada Cover -->
+            <div class="flex justify-start">
+                <a href="index.html" class="inline-flex items-center gap-2 text-xs text-slate-400 hover:text-cinema-gold transition-colors">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali ke Dashboard</span>
+                </a>
+            </div>
+
             <!-- Cinema Badge Header -->
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cinema-red/30 border border-cinema-redbright text-cinema-goldlight text-xs font-semibold uppercase tracking-widest">
                 <i class="fa-solid fa-clapperboard text-cinema-redbright"></i> Modul Kreatif & Kewirausahaan
@@ -124,22 +132,22 @@
                 <h1 class="text-2xl md:text-4xl font-title text-cinema-gold tracking-wide leading-tight font-bold">
                     MEMBUAT VIDEO PROMOSI DI TIKTOK
                 </h1>
-                <p class="text-xs text-slate-400 italic font-serif">"Studi Kasus: Promosi Produk Undangan Digital Berbasis AI & CapCut"</p>
+                <p class="text-xs text-slate-400 italic font-serif">"Studi Kasus: Promosi Undangan Digital Berbagai Tema — New Tech Digital"</p>
             </div>
 
             <!-- Film Reel Clapper Board Box -->
             <div class="p-4 bg-cinema-dark/80 rounded-xl border border-white/10 max-w-sm mx-auto text-left font-mono text-xs text-slate-300 space-y-1.5">
                 <div class="flex justify-between border-b border-white/10 pb-1 text-cinema-gold">
                     <span>MATERI: TIKTOK ADS</span>
-                    <span>BAB: 01</span>
+                    <span>PROYEK: 03</span>
                 </div>
                 <div class="flex justify-between">
                     <span>MENTOR:</span>
                     <span class="text-white">Kholiq Sagusanov</span>
                 </div>
                 <div class="flex justify-between">
-                    <span>TOOLS:</span>
-                    <span class="text-white font-sans">AI Generator & CapCut</span>
+                    <span>STUDIO:</span>
+                    <span class="text-white font-sans">New Tech Digital Sidoarjo</span>
                 </div>
                 <div class="flex justify-between">
                     <span>PESERTA:</span>
@@ -147,19 +155,41 @@
                 </div>
             </div>
 
-            <button onclick="openModule()" class="glow-gold px-8 py-3.5 bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-sm tracking-wider uppercase rounded-xl hover:scale-105 active:scale-95 transition-transform duration-300 flex items-center justify-center gap-3 mx-auto">
-                <i class="fa-solid fa-play text-base"></i>
-                <span>Mulai Belajar Sekarang</span>
-            </button>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+                <button onclick="openModule()" class="glow-gold px-8 py-3.5 bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-sm tracking-wider uppercase rounded-xl hover:scale-105 active:scale-95 transition-transform duration-300 flex items-center justify-center gap-3 w-full sm:w-auto">
+                    <i class="fa-solid fa-play text-base"></i>
+                    <span>Mulai Belajar Sekarang</span>
+                </button>
+                <a href="index.html" class="px-6 py-3.5 bg-cinema-dark border border-white/15 hover:border-cinema-gold text-slate-300 hover:text-cinema-gold font-title font-semibold text-xs tracking-wider uppercase rounded-xl transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Menu Utama</span>
+                </a>
+            </div>
         </div>
     </div>
+
+
+    <!-- ================= TOP NAVIGATION BAR ================= -->
+    <nav class="sticky top-0 z-40 bg-cinema-dark/90 backdrop-blur-md border-b border-cinema-gold/20 px-4 py-3">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cinema-card border border-cinema-gold/30 text-cinema-gold hover:bg-cinema-gold hover:text-black font-title font-bold text-xs uppercase tracking-wider transition-all shadow-md">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Kembali ke Index</span>
+            </a>
+            <div class="flex items-center gap-2 text-xs text-slate-400 font-mono">
+                <span class="hidden sm:inline text-cinema-gold font-semibold">KIK XII DKV 2026</span>
+                <span class="hidden sm:inline">&bull;</span>
+                <span>Proyek 3: TikTok Ads</span>
+            </div>
+        </div>
+    </nav>
 
 
     <!-- ================= MAIN MODULE CONTENT ================= -->
     <main id="main-content" class="min-h-screen opacity-0 transition-opacity duration-1000 max-w-4xl mx-auto px-4 py-10 space-y-16">
 
         <!-- HEADER BANNER -->
-        <section class="text-center space-y-4 pt-6 relative">
+        <section class="text-center space-y-4 pt-2 relative">
             <div class="inline-block p-3 rounded-2xl bg-cinema-card border border-cinema-gold/20 shadow-xl w-full max-w-2xl">
                 <div class="relative rounded-xl overflow-hidden cinematic-box border border-white/10 group">
                     <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80" alt="TikTok Content Creation" class="w-full h-full object-cover filter contrast-125 brightness-75 transition-transform duration-700 group-hover:scale-105">
@@ -203,7 +233,7 @@
                         </div>
                         <h4 class="font-title text-base font-bold text-white">Membuat Skenario di AI (Gemini / ChatGPT)</h4>
                         <p class="text-xs text-slate-300 leading-relaxed font-sans">
-                            Gunakan bantuan AI untuk merancang konsep video promosi dengan topik <strong>menjual produk undangan digital</strong>. Pastikan prompt meminta struktur lengkap: <em>Hook</em> (penarik perhatian awal), <em>Problem/Solusi</em>, <em>Visual per Scene</em>, dan <em>Call to Action (CTA)</em>.
+                            Gunakan bantuan AI untuk merancang konsep video promosi dengan topik <strong>menjual produk undangan digital</strong> dengan berbagai variasi tema (Traditional, Modern, Floral, dan Cinematic) untuk <strong>New Tech Digital</strong>.
                         </p>
                     </div>
                 </div>
@@ -218,7 +248,7 @@
                         </div>
                         <h4 class="font-title text-base font-bold text-white">Menyusun & Menyesuaikan Contoh Skenario</h4>
                         <p class="text-xs text-slate-300 leading-relaxed font-sans">
-                            Review hasil skenario dari AI, bagi ke dalam beberapa adegan pendek (durasi 3–5 detik per scene) agar ritme video TikTok terasa cepat, dinamis, dan tidak membosankan. (Lihat contoh lengkap di bagian bawah).
+                            Review hasil skenario dari AI, bagi ke dalam beberapa adegan pendek (durasi 3–5 detik per scene) yang menampilkan 4 kategori tema desain serta informasi kontak pemesanan.
                         </p>
                     </div>
                 </div>
@@ -248,7 +278,7 @@
                         </div>
                         <h4 class="font-title text-base font-bold text-white">Buatkan Gambar Per Scene Sesuai Skenario</h4>
                         <p class="text-xs text-slate-300 leading-relaxed font-sans">
-                            Generate atau siapkan aset visual rasio vertikal <strong>9:16</strong> untuk masing-masing adegan. Pastikan gaya visual konsisten (misal: ilustrasi sinematik atau foto realistis pasangan yang sedang menyiapkan pernikahan dan tampilan mockup undangan di smartphone).
+                            Generate atau siapkan aset visual rasio vertikal <strong>9:16</strong> untuk masing-masing adegan sesuai 4 kategori tema undangan digital yang ditawarkan.
                         </p>
                     </div>
                 </div>
@@ -263,7 +293,7 @@
                         </div>
                         <h4 class="font-title text-base font-bold text-white">Export Hasilnya dan Upload di TikTok</h4>
                         <p class="text-xs text-slate-300 leading-relaxed font-sans">
-                            Susun gambar per scene mengikuti ketukan suara Voice Over di CapCut, tambahkan animasi transisi, <em>auto-caption</em>, dan musik latar lembut. Export resolusi <strong>1080p 60fps</strong>, lalu unggah ke TikTok lengkap dengan caption persuasif dan hashtag relevan.
+                            Susun gambar per scene mengikuti ketukan suara Voice Over di CapCut, tambahkan animasi transisi, <em>auto-caption</em>, dan musik latar lembut. Export resolusi <strong>1080p 60fps</strong>, lalu unggah ke TikTok dengan menyertakan tautan lokasi Google Maps di caption.
                         </p>
                     </div>
                 </div>
@@ -272,12 +302,40 @@
         </section>
 
 
+        <!-- CONTOH PROMPT AI (STEP 1) -->
+        <section class="bg-cinema-card rounded-3xl p-6 md:p-8 border border-cinema-gold/30 space-y-6 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+                <div>
+                    <span class="text-[10px] font-title tracking-[0.2em] text-cinema-gold uppercase block">Langkah 01 • AI Prompt Engineering</span>
+                    <h3 class="text-xl font-title text-white font-bold">CONTOH PROMPT GENERATOR SKENARIO AI</h3>
+                </div>
+                <button onclick="copyText('ai-prompt-text', this, 'Prompt AI Tersalin!')" class="px-4 py-2.5 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition flex items-center justify-center gap-2 shadow-lg shrink-0">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Salin Prompt AI</span>
+                </button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-cinema-dark border border-white/10 font-mono text-xs text-slate-300 leading-relaxed space-y-2" id="ai-prompt-text">
+                <p>Buatkan skenario video promosi TikTok (durasi 30-35 detik, format vertikal 9:16) untuk jasa pembuatan Undangan Digital dari <strong>"New Tech Digital"</strong> yang berlokasi di <strong>Semambung, Jabon, Sidoarjo</strong>.</p>
+                <p>Tampilkan pilihan tema lengkap dari 4 kategori berikut:</p>
+                <p>1. <strong>Kategori 1: Traditional & Cultural</strong> (Adat Jawa, Sunda, Minang, Melayu, Bali, dll dengan ornamen klasik elegan)<br>
+                2. <strong>Kategori 2: Modern & Minimalist</strong> (Desain clean, tipografi estetik, monokrom, elegan kekinian)<br>
+                3. <strong>Kategori 3: Floral & Nature</strong> (Nuansa bunga romantis, garden wedding, watercolor lembut)<br>
+                4. <strong>Kategori 4: Cinematic & Pop Culture</strong> (Konsep ala poster film bioskop, Netflix, tiket konser, hingga tema anime/game)</p>
+                <p>Sertakan struktur Hook yang kuat di 3 detik pertama, detail visual per scene, naskah Voice Over (VO) yang persuasif, Call to Action (CTA) untuk memesan via WhatsApp <strong>085334019756</strong> (New Tech Digital Semambung Jabon Sidoarjo), serta buatkan caption TikTok yang mencantumkan info lokasi Google Maps di caption.</p>
+            </div>
+            <p class="text-[11px] text-slate-400 italic">
+                <i class="fa-solid fa-wand-magic-sparkles text-cinema-gold mr-1"></i> Salin prompt di atas ke Gemini atau ChatGPT untuk menghasilkan variasi skenario promosi undangan digital secara instan.
+            </p>
+        </section>
+
+
         <!-- CONTOH SKENARIO LENGKAP (STEP 2) -->
         <section class="space-y-8">
             <div class="text-center space-y-2">
                 <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Script Breakdown</span>
-                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">CONTOH SKENARIO PROMOSI</h3>
-                <p class="text-xs text-slate-400">Topik: Penjualan Jasa Undangan Pernikahan Digital (Durasi ± 25 Detik)</p>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">SKENARIO VIDEO PROMOSI UNDANGAN DIGITAL</h3>
+                <p class="text-xs text-slate-400">Klien: New Tech Digital Semambung Jabon Sidoarjo (Durasi ± 30 Detik)</p>
                 <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
             </div>
 
@@ -285,41 +343,41 @@
                 <!-- Scene 1 -->
                 <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
                     <div class="flex justify-between items-center border-b border-white/10 pb-2">
-                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 01 (HOOK)</span>
-                        <span class="text-[10px] font-mono text-slate-400">00:00 - 00:05</span>
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 01 • HOOK</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:00 - 00:04</span>
                     </div>
-                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Pasangan calon pengantin tampak pusing melihat tumpukan undangan kertas dan tagihan cetak mahal.</p>
-                    <p class="text-xs text-cinema-goldlight italic">"Mau nikah tapi budget cetak undangan bikin pusing tujuh keliling?"</p>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Pasangan calon pengantin bingung memilih konsep undangan pernikahan karena selera yang berbeda-beda.</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Masih bingung pilih tema undangan pernikahan yang pas sama impian kalian berdua?"</p>
                 </div>
 
                 <!-- Scene 2 -->
                 <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
                     <div class="flex justify-between items-center border-b border-white/10 pb-2">
-                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 02 (PROBLEM)</span>
-                        <span class="text-[10px] font-mono text-slate-400">00:05 - 00:10</span>
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 02 • KATEGORI 1 & 2</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:04 - 00:11</span>
                     </div>
-                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Ilustrasi undangan fisik yang terbuang atau salah ketik nama tamu dan alamat.</p>
-                    <p class="text-xs text-cinema-goldlight italic">"Belum lagi capek nulis nama tamu satu-satu, eh ujung-ujungnya salah ketik atau malah kebuang!"</p>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Mockup HP menampilkan undangan adat Jawa/Bali mewah (<em>Traditional & Cultural</em>) bergeser ke desain putih bersih estetik (<em>Modern & Minimalist</em>).</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Di New Tech Digital, semua tema ada! Mulai dari nuansa sakral Traditional & Cultural, sampai gaya Modern & Minimalist yang super clean dan elegan."</p>
                 </div>
 
                 <!-- Scene 3 -->
                 <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
                     <div class="flex justify-between items-center border-b border-white/10 pb-2">
-                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 03 (SOLUTION)</span>
-                        <span class="text-[10px] font-mono text-slate-400">00:10 - 00:16</span>
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 03 • KATEGORI 3 & 4</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:11 - 00:19</span>
                     </div>
-                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Tampilan layar HP elegan menampilkan undangan digital tema sinematik dengan musik romantis.</p>
-                    <p class="text-xs text-cinema-goldlight italic">"Saatnya beralih ke Undangan Digital Eksklusif! Desain mewah berkelas, bisa sebar ke ribuan tamu cuma sekali klik."</p>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Transisi cepat menampilkan undangan penuh bunga watercolor (<em>Floral & Nature</em>) lalu berubah menjadi tema poster film bioskop (<em>Cinematic & Pop Culture</em>).</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Suka yang romantis? Ada tema Floral & Nature. Mau tampil beda dan anti-mainstream? Pilih tema Cinematic & Pop Culture ala poster film favoritmu!"</p>
                 </div>
 
                 <!-- Scene 4 -->
                 <div class="bg-cinema-card p-5 rounded-2xl border border-white/10 space-y-2">
                     <div class="flex justify-between items-center border-b border-white/10 pb-2">
-                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 04 (FEATURES & CTA)</span>
-                        <span class="text-[10px] font-mono text-slate-400">00:16 - 00:25</span>
+                        <span class="font-title font-bold text-cinema-gold text-sm">SCENE 04 • FITUR & CTA</span>
+                        <span class="text-[10px] font-mono text-slate-400">00:19 - 00:30</span>
                     </div>
-                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Fitur peta lokasi, hitung mundur, amplop digital, dan tombol klik keranjang kuning/profil.</p>
-                    <p class="text-xs text-cinema-goldlight italic">"Lengkap dengan navigasi Google Maps, RSVP kehadiran, dan amplop digital. Pesan sekarang lewat link di bio sebelum promo berakhir!"</p>
+                    <p class="text-[11px] text-slate-400"><strong class="text-white">Visual:</strong> Tampilan fitur RSVP, Google Maps, dan kartu kontak <strong>New Tech Digital Semambung Jabon Sidoarjo (085334019756)</strong>.</p>
+                    <p class="text-xs text-cinema-goldlight italic">"Praktis sebar tanpa batas, lengkap dengan fitur RSVP dan navigasi peta. Yuk pesan sekarang di New Tech Digital Semambung, Jabon, Sidoarjo! Hubungi WhatsApp 0853-3401-9756 atau cek Google Maps di caption!"</p>
                 </div>
             </div>
         </section>
@@ -332,7 +390,7 @@
                     <span class="text-[10px] font-title tracking-[0.2em] text-cinema-gold uppercase block">Langkah 03 • Ready For CapCut</span>
                     <h3 class="text-xl font-title text-white font-bold">NASKAH GABUNGAN VOICE OVER</h3>
                 </div>
-                <button onclick="copyVO(this)" class="px-4 py-2.5 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition flex items-center justify-center gap-2 shadow-lg">
+                <button onclick="copyText('vo-script-text', this, 'Naskah VO Tersalin!')" class="px-4 py-2.5 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition flex items-center justify-center gap-2 shadow-lg shrink-0">
                     <i class="fa-regular fa-copy"></i>
                     <span>Salin Naskah VO</span>
                 </button>
@@ -340,11 +398,11 @@
 
             <div class="p-5 rounded-2xl bg-cinema-dark border border-white/10 relative">
                 <p id="vo-script-text" class="text-xs md:text-sm text-slate-200 leading-relaxed font-sans">
-                    Mau nikah tapi budget cetak undangan bikin pusing tujuh keliling? Belum lagi capek nulis nama tamu satu-satu, eh ujung-ujungnya salah ketik atau malah kebuang! Saatnya beralih ke Undangan Digital Eksklusif! Desain mewah berkelas, bisa sebar ke ribuan tamu cuma sekali klik. Lengkap dengan navigasi Google Maps, RSVP kehadiran, dan amplop digital. Pesan sekarang lewat link di bio sebelum promo berakhir!
+                    Masih bingung pilih tema undangan pernikahan yang pas sama impian kalian berdua? Di New Tech Digital, semua tema ada! Mulai dari nuansa sakral Traditional and Cultural, sampai gaya Modern and Minimalist yang super clean dan elegan. Suka yang romantis? Ada tema Floral and Nature. Mau tampil beda dan anti-mainstream? Pilih tema Cinematic and Pop Culture ala poster film favoritmu! Praktis sebar tanpa batas, lengkap dengan fitur RSVP dan navigasi peta. Yuk pesan sekarang di New Tech Digital Semambung, Jabon, Sidoarjo! Hubungi WhatsApp 0853-3401-9756 atau cek Google Maps di caption!
                 </p>
             </div>
             <p class="text-[11px] text-slate-400 italic">
-                <i class="fa-solid fa-circle-info text-cinema-gold mr-1"></i> Tip CapCut: Berikan tanda koma (,) dan tanda seru (!) seperti di atas agar intonasi AI Voice CapCut terdengar lebih alami dan bertenaga.
+                <i class="fa-solid fa-circle-info text-cinema-gold mr-1"></i> Tip CapCut: Penulisan kata penghubung menggunakan "and" dan tanda baca koma/seru sudah disesuaikan agar pelafalan Text-to-Speech bahasa Indonesia di CapCut terdengar lebih fasih.
             </p>
         </section>
 
@@ -353,46 +411,76 @@
         <section class="space-y-8">
             <div class="text-center space-y-2">
                 <span class="text-xs font-title tracking-[0.3em] uppercase text-cinema-redbright font-bold">Langkah 04 • Visual Assets</span>
-                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">PANDUAN GAMBAR PER SCENE</h3>
+                <h3 class="text-2xl md:text-3xl font-title text-cinema-gold font-bold">PANDUAN GAMBAR 4 KATEGORI TEMA</h3>
                 <div class="w-16 h-0.5 bg-cinema-gold mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Visual 1 -->
+                <!-- Kategori 1 -->
                 <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
                     <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
-                        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=500&q=80" alt="Scene 1" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 01</span>
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=500&q=80" alt="Traditional & Cultural" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Kategori 01</span>
                     </div>
-                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Pasangan bingung menghitung biaya cetak undangan.</p>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Traditional & Cultural:</strong> Ornamen adat klasik, batik, ukiran emas & budaya nusantara.</p>
                 </div>
 
-                <!-- Visual 2 -->
+                <!-- Kategori 2 -->
                 <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
                     <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
-                        <img src="https://images.unsplash.com/photo-1607190074257-dd4b7af0309f?auto=format&fit=crop&w=500&q=80" alt="Scene 2" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 02</span>
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80" alt="Modern & Minimalist" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Kategori 02</span>
                     </div>
-                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Tumpukan amplop kertas yang rumit dan memakan waktu.</p>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Modern & Minimalist:</strong> Tipografi bersih, warna netral/monokrom, tata letak estetik.</p>
                 </div>
 
-                <!-- Visual 3 -->
+                <!-- Kategori 3 -->
                 <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
                     <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
-                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80" alt="Scene 3" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 03</span>
+                        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=500&q=80" alt="Floral & Nature" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Kategori 03</span>
                     </div>
-                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Tampilan undangan digital modern yang elegan dan praktis.</p>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Floral & Nature:</strong> Ilustrasi bunga romantis, nuansa taman hijau & warna pastel lembut.</p>
                 </div>
 
-                <!-- Visual 4 -->
+                <!-- Kategori 4 -->
                 <div class="bg-cinema-card p-3 rounded-2xl border border-white/10 space-y-3">
                     <div class="aspect-[9/16] rounded-xl overflow-hidden bg-cinema-dark relative">
-                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80" alt="Scene 4" class="w-full h-full object-cover">
-                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Scene 04</span>
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=500&q=80" alt="Cinematic & Pop Culture" class="w-full h-full object-cover">
+                        <span class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 text-cinema-gold font-mono text-[10px] rounded">Kategori 04</span>
                     </div>
-                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Konsep:</strong> Pasangan bahagia & ajakan pemesanan instan (CTA).</p>
+                    <p class="text-[11px] text-slate-300 leading-snug"><strong>Cinematic & Pop Culture:</strong> Gaya poster film bioskop, tiket konser, & konsep kreatif unik.</p>
                 </div>
+            </div>
+        </section>
+
+
+        <!-- CONTOH CAPTION TIKTOK & KONTAK PEMESANAN (STEP 5) -->
+        <section class="bg-cinema-card rounded-3xl p-6 md:p-8 border border-cinema-gold/30 space-y-6 shadow-2xl">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+                <div>
+                    <span class="text-[10px] font-title tracking-[0.2em] text-cinema-gold uppercase block">Langkah 05 • Ready To Post</span>
+                    <h3 class="text-xl font-title text-white font-bold">CONTOH CAPTION TIKTOK & LOKASI MAPS</h3>
+                </div>
+                <button onclick="copyText('tiktok-caption-text', this, 'Caption TikTok Tersalin!')" class="px-4 py-2.5 rounded-xl bg-cinema-gold text-black font-title font-bold text-xs uppercase tracking-wider hover:bg-cinema-goldlight transition flex items-center justify-center gap-2 shadow-lg shrink-0">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>Salin Caption</span>
+                </button>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-cinema-dark border border-white/10 text-xs text-slate-200 leading-relaxed space-y-3" id="tiktok-caption-text">
+                <p>Wujudkan undangan pernikahan impianmu dengan desain eksklusif dan fitur super lengkap! 💍✨</p>
+                <p>Tersedia berbagai pilihan tema:<br>
+                🏛️ Kategori 1: Traditional & Cultural<br>
+                🤍 Kategori 2: Modern & Minimalist<br>
+                🌸 Kategori 3: Floral & Nature<br>
+                🎬 Kategori 4: Cinematic & Pop Culture</p>
+                <p>📲 Pemesanan & Konsultasi Desain:<br>
+                <strong>New Tech Digital</strong> — Semambung, Jabon, Sidoarjo<br>
+                WhatsApp: <strong>085334019756</strong></p>
+                <p>📍 Lokasi Studio (Google Maps):<br>
+                https://maps.google.com/?q=New+Tech+Digital+Semambung+Jabon+Sidoarjo</p>
+                <p class="text-cinema-gold">#UndanganDigital #UndanganPernikahanDigital #NewTechDigital #UndanganSidoarjo #JabonSidoarjo #WeddingInvitation #DigitalInvitation</p>
             </div>
         </section>
 
@@ -410,11 +498,15 @@
                 </p>
             </div>
 
-            <div class="pt-2">
-                <a href="https://www.tiktok.com/@kholiqsagusanov/video/7707907305009925397" target="_blank" rel="noopener noreferrer" class="glow-gold inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-xs md:text-sm uppercase tracking-wider hover:scale-105 transition-transform duration-300 shadow-xl">
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://www.tiktok.com/@kholiqsagusanov/video/7707907305009925397" target="_blank" rel="noopener noreferrer" class="glow-gold inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cinema-golddark via-cinema-gold to-cinema-goldlight text-black font-title font-bold text-xs md:text-sm uppercase tracking-wider hover:scale-105 transition-transform duration-300 shadow-xl w-full sm:w-auto">
                     <i class="fa-brands fa-tiktok text-lg"></i>
                     <span>Buka Video Contoh di TikTok</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                </a>
+                <a href="index.html" class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-cinema-dark border border-cinema-gold/40 text-cinema-gold hover:bg-cinema-gold hover:text-black font-title font-bold text-xs md:text-sm uppercase tracking-wider transition-all w-full sm:w-auto">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali ke Index</span>
                 </a>
             </div>
             
@@ -431,7 +523,7 @@
                 <h4 class="text-lg font-title text-white font-bold">KREATIVITAS, INOVASI & KEWIRAUSAHAAN</h4>
             </div>
             <p class="text-[11px] text-slate-500 font-sans">
-                &copy; 2026 Materi Pembelajaran Digital Marketing &bull; Kholiq Sagusanov
+                &copy; 2026 Materi Pembelajaran Digital Marketing &bull; Kholiq Sagusanov &bull; New Tech Digital Semambung Jabon Sidoarjo
             </p>
         </footer>
 
@@ -440,7 +532,7 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // 1. Parsing Query URL parameter for student name (e.g. materi.html?to=Zahira)
+        // 1. Parsing Query URL parameter for student name (e.g. videopromosi.html?to=Zahira)
         const urlParams = new URLSearchParams(window.location.search);
         const toStudent = urlParams.get('to');
         if (toStudent) {
@@ -484,18 +576,18 @@
             isPlaying = !isPlaying;
         }
 
-        // 4. COPY VOICE OVER SCRIPT
-        function copyVO(btn) {
-            const voText = document.getElementById('vo-script-text').innerText;
+        // 4. UNIVERSAL COPY SCRIPT FUNCTION
+        function copyText(elementId, btn, successLabel) {
+            const textToCopy = document.getElementById(elementId).innerText;
             const tempInput = document.createElement('textarea');
-            tempInput.value = voText;
+            tempInput.value = textToCopy;
             document.body.appendChild(tempInput);
             tempInput.select();
             document.execCommand('copy');
             document.body.removeChild(tempInput);
 
             const origContent = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check"></i> Naskah VO Tersalin!`;
+            btn.innerHTML = `<i class="fa-solid fa-check"></i> <span>${successLabel}</span>`;
             btn.classList.replace('bg-cinema-gold', 'bg-emerald-500');
             setTimeout(() => {
                 btn.innerHTML = origContent;
