@@ -155,7 +155,7 @@
               <th class="py-3.5 px-3 text-center">WALLPAPER</th>
               <th class="py-3.5 px-3 text-center">MOCKUP</th>
               <th class="py-3.5 px-3 text-center">UNDANGAN</th>
-              <th class="py-3.5 px-4 text-center font-bold text-brand-600 dark:text-brand-400">RATA-RATA</th>
+              <th class="py-3.5 px-4 text-center font-bold text-brand-600 dark:text-brand-400">NILAI AKHIR</th>
               <th class="py-3.5 px-4 text-center">STATUS</th>
             </tr>
           </thead>
@@ -170,7 +170,6 @@
 
   <script>
     // Data Siswa & Nilai (XII DKV 2 & 3 diset nilai 0 karena PKL)
-    // Kolom 'undangan': 95 untuk 5 pengirim pertama, 90 untuk pengirim lainnya, 0 untuk yang belum mengirim
     const dataNilai = {
       dkv1: [
         { no: 1, nama: "ABYAN LUQMAN ZHAFIR", lp: "L", nipd: "12122/0326.10.2", brief: 93, komposisi: 95, dng: 90, wallpaper: 90, mockup: 90, undangan: 90 },
@@ -303,13 +302,15 @@
 
       list.forEach((s) => {
         const scores = [s.brief, s.komposisi, s.dng, s.wallpaper, s.mockup, s.undangan];
-        const validScores = scores.filter(v => v > 0);
-        const avg = validScores.length > 0 ? (validScores.reduce((a, b) => a + b, 0) / validScores.length) : 0;
+        const totalScore = scores.reduce((a, b) => a + b, 0);
+        const hasAnyScore = scores.some(v => v > 0);
+        // Perhitungan Total dibagi 6 komponen tugas
+        const avg = hasAnyScore ? (totalScore / 6) : 0;
         const roundedAvg = Math.round(avg * 10) / 10;
 
         totalAverageSum += roundedAvg;
         if (roundedAvg > maxScore) maxScore = roundedAvg;
-        if (roundedAvg >= KKM && validScores.length > 0) tuntasCount++;
+        if (roundedAvg >= KKM && hasAnyScore) tuntasCount++;
 
         const tr = document.createElement('tr');
         tr.className = "hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors";
@@ -318,15 +319,15 @@
           <td class="py-3 px-4 font-semibold">${s.nama}</td>
           <td class="py-3 px-4 text-center"><span class="px-2 py-0.5 rounded text-xs font-semibold ${s.lp === 'L' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-pink-100 text-pink-700 dark:bg-pink-900/40 dark:text-pink-300'}">${s.lp}</span></td>
           <td class="py-3 px-4 text-center font-mono text-xs text-slate-500 dark:text-slate-400">${s.nipd}</td>
-          <td class="py-3 px-3 text-center ${s.brief === 0 ? 'text-slate-400' : (s.brief < KKM ? 'text-rose-500 font-bold' : '')}">${s.brief}</td>
-          <td class="py-3 px-3 text-center ${s.komposisi === 0 ? 'text-slate-400' : (s.komposisi < KKM ? 'text-rose-500 font-bold' : '')}">${s.komposisi}</td>
-          <td class="py-3 px-3 text-center ${s.dng === 0 ? 'text-slate-400' : (s.dng < KKM ? 'text-rose-500 font-bold' : '')}">${s.dng}</td>
-          <td class="py-3 px-3 text-center ${s.wallpaper === 0 ? 'text-slate-400' : (s.wallpaper < KKM ? 'text-rose-500 font-bold' : '')}">${s.wallpaper}</td>
-          <td class="py-3 px-3 text-center ${s.mockup === 0 ? 'text-slate-400' : (s.mockup < KKM ? 'text-rose-500 font-bold' : '')}">${s.mockup}</td>
-          <td class="py-3 px-3 text-center ${s.undangan === 0 ? 'text-slate-400' : (s.undangan === 95 ? 'text-emerald-600 dark:text-emerald-400 font-bold' : '')}">${s.undangan}</td>
-          <td class="py-3 px-4 text-center font-bold text-brand-600 dark:text-brand-400">${roundedAvg}</td>
+          <td class="py-3 px-3 text-center ${s.brief === 0 ? 'text-rose-500 font-semibold' : (s.brief < KKM ? 'text-rose-500 font-bold' : '')}">${s.brief}</td>
+          <td class="py-3 px-3 text-center ${s.komposisi === 0 ? 'text-rose-500 font-semibold' : (s.komposisi < KKM ? 'text-rose-500 font-bold' : '')}">${s.komposisi}</td>
+          <td class="py-3 px-3 text-center ${s.dng === 0 ? 'text-rose-500 font-semibold' : (s.dng < KKM ? 'text-rose-500 font-bold' : '')}">${s.dng}</td>
+          <td class="py-3 px-3 text-center ${s.wallpaper === 0 ? 'text-rose-500 font-semibold' : (s.wallpaper < KKM ? 'text-rose-500 font-bold' : '')}">${s.wallpaper}</td>
+          <td class="py-3 px-3 text-center ${s.mockup === 0 ? 'text-rose-500 font-semibold' : (s.mockup < KKM ? 'text-rose-500 font-bold' : '')}">${s.mockup}</td>
+          <td class="py-3 px-3 text-center ${s.undangan === 0 ? 'text-rose-500 font-semibold' : (s.undangan === 95 ? 'text-emerald-600 dark:text-emerald-400 font-bold' : '')}">${s.undangan}</td>
+          <td class="py-3 px-4 text-center font-bold ${roundedAvg < KKM && hasAnyScore ? 'text-rose-600 dark:text-rose-400' : 'text-brand-600 dark:text-brand-400'}">${roundedAvg}</td>
           <td class="py-3 px-4 text-center">
-            ${validScores.length === 0 
+            ${!hasAnyScore 
               ? '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">PKL</span>'
               : (roundedAvg >= KKM 
                 ? '<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">Tuntas</span>'
